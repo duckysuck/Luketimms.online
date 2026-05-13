@@ -2,52 +2,871 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Luke Timms</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Luke Timms — Games Producer. Production pipelines, schedules, milestones, shipped titles. Based in Uckfield, England.">
+  <meta name="theme-color" content="#0d0c0a">
+  <title>Luke Timms — Games Producer · Production Pipelines · End-to-End Delivery</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Luke Timms — Games Producer">
+  <meta property="og:description" content="Production pipelines · Schedules · Milestones · Shipped end-to-end">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://luketimms.online">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <style>
+    :root {
+      --bg:        #0d0c0a;
+      --bg-soft:   #14130f;
+      --line:      #1f1d17;
+      --text:      #f0ece2;
+      --text-dim:  #7a756a;
+      --text-mute: #4a463e;
+      --accent:    #ff5b14;
+      --accent-2:  #ffb38a;
+      --max:       1280px;
+      --pad-x:     clamp(1.25rem, 4vw, 3.5rem);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #111;
-      color: white;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter Tight', system-ui, -apple-system, sans-serif;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+
+    /* Selection */
+    ::selection { background: var(--accent); color: var(--bg); }
+
+    /* Subtle film grain */
+    body::before {
+      content: "";
+      position: fixed; inset: 0;
+      pointer-events: none;
+      z-index: 100;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+      mix-blend-mode: overlay;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; margin: 0; }
+    .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+    a { color: inherit; text-decoration: none; }
+    p { margin: 0 0 1em; }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--pad-x);
+    }
+
+    /* ───── NAV ───── */
+    nav.top {
+      position: fixed; top: 0; left: 0; right: 0;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.25rem var(--pad-x);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      z-index: 50;
+      mix-blend-mode: difference;
+      color: #fff;
+    }
+    nav.top .brand { font-weight: 500; }
+    nav.top .links { display: flex; gap: 2rem; }
+    nav.top .links a { opacity: 0.7; transition: opacity 0.2s; }
+    nav.top .links a:hover { opacity: 1; }
+    @media (max-width: 640px) { nav.top .links { display: none; } }
+
+    /* ───── HERO ───── */
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      align-content: center;
+      padding-top: 6rem;
+      padding-bottom: 4rem;
+      position: relative;
+    }
+    .hero .status {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 2.5rem;
+    }
+    .hero .status .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 0 var(--accent);
+      animation: pulse 2.4s infinite;
+    }
+    @keyframes pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(255,91,20,0.6); }
+      70%  { box-shadow: 0 0 0 10px rgba(255,91,20,0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,91,20,0); }
+    }
+
+    .hero h1 {
+      font-size: clamp(3.2rem, 12vw, 11rem);
+      line-height: 0.92;
+      letter-spacing: -0.035em;
+      margin-bottom: 2rem;
+    }
+    .hero h1 .italic { font-style: italic; color: var(--accent); }
+
+    .hero .tagline {
+      display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      max-width: 720px;
+    }
+    .hero .tagline span { display: inline-flex; align-items: center; gap: 0.6rem; }
+    .hero .tagline span::after {
+      content: "·"; color: var(--text-mute);
+      margin-left: 1.2rem;
+    }
+    .hero .tagline span:last-child::after { content: ""; }
+
+    .hero .credo {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: clamp(1.5rem, 3.4vw, 2.4rem);
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-top: 2.4rem;
+      max-width: 760px;
+    }
+    .hero .credo::before {
+      content: "— ";
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    .hero .scroll-cue {
+      position: absolute; bottom: 2rem; left: var(--pad-x);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-mute);
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .hero .scroll-cue::after {
+      content: ""; width: 40px; height: 1px; background: var(--text-mute);
+      animation: scrollLine 2.6s infinite;
+      transform-origin: left;
+    }
+    @keyframes scrollLine {
+      0%, 100% { transform: scaleX(0.4); opacity: 0.4; }
+      50%      { transform: scaleX(1);   opacity: 1; }
+    }
+
+    /* ───── SECTION FRAMING ───── */
+    section.block {
+      padding: 6rem 0;
+      border-top: 1px solid var(--line);
+      position: relative;
+    }
+    .section-head {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 2rem;
+      margin-bottom: 4rem;
+      align-items: baseline;
+    }
+    .section-head .num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+    }
+    .section-head h2 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .section-head h2 .italic { font-style: italic; color: var(--accent-2); }
+
+    /* ───── CURRENTLY ───── */
+    .currently {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 2rem;
+    }
+    .currently .label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+    }
+    .currently .body {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+      line-height: 1.25;
+      max-width: 900px;
+      color: var(--text);
+    }
+    .currently .body em { color: var(--accent); font-style: italic; }
+
+    /* ───── ABOUT ───── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 2rem;
+    }
+    .about-grid .body {
+      max-width: 720px;
+      font-size: 1.15rem;
+      line-height: 1.65;
+      color: var(--text);
+    }
+    .about-grid .body p { margin-bottom: 1.2em; }
+    .about-grid .body p:last-child { margin-bottom: 0; }
+
+    /* ───── EXPERIENCE ───── */
+    .role {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 2rem;
+      padding: 2.2rem 0;
+      border-top: 1px solid var(--line);
+      transition: background 0.3s;
+    }
+    .role:first-child { border-top: none; }
+    .role:hover { background: linear-gradient(90deg, transparent, rgba(255,91,20,0.04), transparent); }
+    .role .when {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      color: var(--text-dim);
+      padding-top: 0.4rem;
+    }
+    .role .what h3 {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 500;
+      font-size: 1.4rem;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.3rem;
+    }
+    .role .what .org {
+      color: var(--accent);
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+    }
+    .role .what p {
+      color: var(--text-dim);
+      max-width: 640px;
+      margin: 0;
+    }
+
+    /* ───── SERVICES ───── */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    .service {
+      background: var(--bg);
+      padding: 1.8rem 1.6rem;
+      transition: background 0.25s;
+    }
+    .service:hover { background: var(--bg-soft); }
+    .service .ix {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-mute);
+      margin-bottom: 0.8rem;
+    }
+    .service h4 {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 500;
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+    }
+    .service p {
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* ───── REEL ───── */
+    .reel {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 2.5rem;
+    }
+    .video-card {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      flex-direction: column;
     }
-
-    .container {
+    .video-card .embed {
+      position: relative;
       width: 100%;
-      max-width: 600px;
-      padding: 20px;
-      text-align: center;
+      aspect-ratio: 16 / 9;
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s;
     }
-
-    h1 {
-      margin-bottom: 40px;
-      font-size: 32px;
+    .video-card:hover .embed {
+      border-color: var(--accent);
     }
-
-    .button {
-      display: block;
+    .video-card .embed iframe {
+      position: absolute;
+      inset: 0;
       width: 100%;
-      padding: 30px;
-      margin: 20px 0;
-      font-size: 24px;
-      font-weight: bold;
-      text-decoration: none;
-      color: white;
-      border-radius: 10px;
-      transition: transform 0.1s ease, opacity 0.1s ease;
+      height: 100%;
+      border: 0;
+    }
+    .video-card .meta {
+      margin-top: 1rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    .video-card .meta .num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      flex-shrink: 0;
+    }
+    .video-card .meta h4 {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 500;
+      font-size: 1.15rem;
+      letter-spacing: -0.005em;
+      margin: 0;
+    }
+    .video-card .caption {
+      margin: 0.4rem 0 0 2rem;
+      color: var(--text-dim);
+      font-size: 0.88rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .more-events {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--line);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      color: var(--text-dim);
+    }
+    .more-events a {
+      color: var(--text);
+      border-bottom: 1px dotted var(--text-mute);
+      transition: color 0.2s, border-color 0.2s;
+      margin: 0 0.4rem;
+    }
+    .more-events a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+    @media (max-width: 720px) {
+      .reel { grid-template-columns: 1fr; gap: 1.5rem; }
+      .video-card .caption { margin-left: 0; }
     }
 
-    .button:hover {
-      transform: scale(1.02);
-      opacity: 0.9;
+    /* ───── CONTACT ───── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 2rem;
+    }
+    .contact-grid .pitch {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      max-width: 880px;
+      margin-bottom: 2.5rem;
+    }
+    .contact-grid .pitch em { color: var(--accent); font-style: italic; }
+    .contact-links {
+      display: flex; flex-wrap: wrap; gap: 0.8rem;
+    }
+    .contact-links a {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 0.9rem 1.4rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      transition: all 0.2s;
+    }
+    .contact-links a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .contact-links a .arrow { transition: transform 0.2s; }
+    .contact-links a:hover .arrow { transform: translate(2px, -2px); }
+
+    /* ───── FOOTER ───── */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 3rem 0 4rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-mute);
+    }
+    footer .row {
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
     }
 
-    .handyman {
-      background: #007bff;
+    /* ───── MOBILE ADJUSTMENTS ───── */
+    @media (max-width: 720px) {
+      .section-head,
+      .currently,
+      .about-grid,
+      .role,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .section-head .num,
+      .currently .label,
+      .role .when { padding-top: 0; }
     }
 
-    .cv {
+    /* ───── REVEAL ANIMATION ───── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .hero .status .dot { animation: none; }
+      .hero .scroll-cue::after { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top">
+    <div class="brand">LT / 2026</div>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#experience">Work</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="status reveal">
+        <span class="dot"></span>
+        <span>Available · Games Production · Q3 2026</span>
+      </div>
+      <h1 class="reveal">
+        Luke<br>
+        <span class="italic">Timms.</span>
+      </h1>
+      <div class="tagline reveal">
+        <span>Games Producer</span>
+        <span>Production Pipelines</span>
+        <span>End-to-End Delivery</span>
+        <span>Uckfield · UK</span>
+      </div>
+      <p class="credo reveal">I turn chaos into structure.</p>
+      <div class="scroll-cue">Scroll</div>
+    </div>
+  </header>
+
+  <!-- ───── CURRENTLY ───── -->
+  <section class="block" id="currently">
+    <div class="wrap">
+      <div class="currently reveal">
+        <div class="label">Now</div>
+        <div class="body">
+          Most recently led production on <em>Unreal Engine-powered live events</em> at Improbable / Imporium — thousands of concurrent players, real-time multiplayer, end-to-end ownership. Now looking for the next studio to ship with.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── ABOUT ───── -->
+  <section class="block" id="about">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="num">01 / About</div>
+        <h2>A pragmatist with a <span class="italic">producer's instinct.</span></h2>
+      </div>
+
+      <div class="about-grid reveal">
+        <div class="num mono" style="color: var(--text-mute); font-size: 12px;">—</div>
+        <div class="body">
+          <p>
+            I lead game production from a <em style="color:var(--accent);font-style:italic;">people-first perspective</em>. I find the delivery methods that fit the team and studio—frameworks that enable great work, not constrain it. <em style="font-style:italic;">Individuals and interactions over processes and tools.</em>
+          </p>
+          <p>
+            I've <em style="color:var(--accent);font-style:italic;">owned production pipelines</em> at game studios—built the schedules, driven the milestones, and held the delivery frameworks. I work hands-on with Jira, workflows, and the systems that help teams deliver amazing features.
+          </p>
+          <p>
+            I've <em style="color:var(--accent);font-style:italic;">shipped games end-to-end</em> and understand what it takes to get there. I'm the point of contact when partners need answers, and I bring structure without losing the agility small teams need to move fast.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── EXPERIENCE ───── -->
+  <section class="block" id="experience">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="num">02 / Experience</div>
+        <h2>Selected <span class="italic">work.</span></h2>
+      </div>
+
+      <div class="roles">
+        <div class="role reveal">
+          <div class="when mono">Aug 2025 — Nov 2025</div>
+          <div class="what">
+            <h3>Production Manager · Freelance</h3>
+            <div class="org">Nexus Studios</div>
+            <p>Hands-on production support during critical delivery phases on a fast-moving creative project — freeing senior leaders to focus on customer liaison and wider project needs while keeping delivery pace.</p>
+          </div>
+        </div>
+
+        <div class="role reveal">
+          <div class="when mono">Feb 2023 — July 2025</div>
+          <div class="what">
+            <h3>Senior Producer / Head of QA</h3>
+            <div class="org">Improbable / Imporium <span style="color:var(--text-mute);font-weight:400;">(Improbable Venture)</span></div>
+            <p>Led production on <em style="color:var(--accent);font-style:italic;">Unreal Engine-powered virtual world live events</em> — each serving thousands of concurrent players in real-time multiplayer experiences. Owned product delivery end-to-end from scoping through live event and iteration. Strategically led and coached the QA team and introduced a QA operating model that improved release quality. Bridged cross-functional teams, aligned vision, and turned delivery chaos into clarity. Championed both product and player. Coached teams in better ways of working without red tape. Shipped 11+ large-scale events including SummerCrush, Halloween, Spacerace, NPC Snatchers, HotShots, Mashup, Game4Ukraine, Beyond the Pitch with Zinchenko, and Clash of Fans.</p>
+          </div>
+        </div>
+
+        <div class="role reveal">
+          <div class="when mono">Aug 2021 — Feb 2023</div>
+          <div class="what">
+            <h3>Senior Development Manager</h3>
+            <div class="org">CCP Games</div>
+            <p>Led the Missions Team. Redesigned the team's delivery systems and planning rhythms to increase predictability across engineering and design. Introduced frameworks that clarified scope, ownership and progress; lifted delivery consistency across multiple feature streams. Acted as the link between leadership and production — translating creative goals into realistic, trackable outcomes. Reduced production friction by improving tooling, communication flow and alignment across disciplines.</p>
+          </div>
+        </div>
+
+        <div class="role reveal">
+          <div class="when mono">2016 — 2021</div>
+          <div class="what">
+            <h3>Senior Risk Manager / Product Owner</h3>
+            <div class="org">Lloyds Banking Group</div>
+            <p>Embedded risk management into engineering and AI teams without slowing delivery. Created and rolled out new digital risk frameworks across the bank, improving clarity and consistency. Advised the CIO and CDO on technology posture — influencing investment decisions and producing measurable risk reduction. Provided strategic risk guidance that accelerated approvals on major AI and cloud initiatives while keeping teams empowered.</p>
+          </div>
+        </div>
+
+        <div class="role reveal">
+          <div class="when mono">2013 — 2016</div>
+          <div class="what">
+            <h3>Digital Project Manager / Delivery Roles</h3>
+            <div class="org">Accenture <span style="color:var(--text-mute);font-weight:400;">— FCA · AstraZeneca · Discovery Channel · others</span></div>
+            <p>Delivered multiple digital projects for global clients through structured rollouts that replaced reactive work with predictable frameworks. Improved campaign velocity by unifying agencies and client teams across shared delivery principles. Reduced project overruns through clearer scope control, better tooling, and tighter stakeholder alignment. The delivery template I established here became the standard for future client work.</p>
+          </div>
+        </div>
+
+        <div class="role reveal">
+          <div class="when mono">2000 — 2012</div>
+          <div class="what">
+            <h3>Early Career · Games Production</h3>
+            <div class="org">Electronic Arts · Zoë Mode · nDreams · Eidos · SCi Games</div>
+            <p>Started in QA at SCi Games (2000) and progressed to Production across SCi, Eidos, nDreams, Zoë Mode, and Electronic Arts. <em style="color:var(--accent);font-style:italic;">45 credits on 28 shipped titles</em> across PS2, PS3, PSP, Xbox, Xbox 360, Wii, Nintendo DS, GameCube, Windows, and Dreamcast — including <em style="color:var(--accent);font-style:italic;">Harry Potter and the Deathly Hallows: Part 1 &amp; 2</em>, <em style="color:var(--accent);font-style:italic;">Reservoir Dogs</em>, <em style="color:var(--accent);font-style:italic;">Constantine</em>, the <em style="color:var(--accent);font-style:italic;">Conflict: Desert Storm</em> series, <em style="color:var(--accent);font-style:italic;">Richard Burns Rally</em>, and <em style="color:var(--accent);font-style:italic;">Grease Dance</em>.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Studios callout — early career game studios -->
+      <div class="ship-credits reveal" style="margin-top: 3.5rem; padding: 2rem; border: 1px solid var(--line); display: grid; grid-template-columns: 100px 1fr; gap: 2rem;">
+        <div class="num mono" style="color: var(--accent); font-size: 12px;">Studios</div>
+        <div>
+          <p style="font-family: 'Instrument Serif', serif; font-size: 1.3rem; line-height: 1.5; color: var(--text); margin: 0 0 1rem;">
+            25 years across games, live entertainment and complex enterprise delivery.
+          </p>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--text-dim);">
+            <li><span style="color:var(--text);">Nexus Studios</span></li>
+            <li><span style="color:var(--text);">Improbable / Imporium</span></li>
+            <li><span style="color:var(--text);">CCP Games</span></li>
+            <li><span style="color:var(--text);">Lloyds Banking Group</span></li>
+            <li><span style="color:var(--text);">Accenture</span></li>
+            <li><span style="color:var(--text);">Electronic Arts</span></li>
+            <li><span style="color:var(--text);">Zoë Mode</span></li>
+            <li><span style="color:var(--text);">nDreams</span></li>
+            <li><span style="color:var(--text);">Eidos</span></li>
+            <li><span style="color:var(--text);">SCi Games</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Shipped titles callout — production credits -->
+      <div class="ship-credits reveal" style="margin-top: 1.5rem; padding: 2.4rem 2.6rem; border: 1px solid var(--line); border-left: 3px solid var(--accent); background: var(--bg-soft); display: grid; grid-template-columns: 100px 1fr; gap: 2rem;">
+        <div class="num mono" style="color: var(--accent); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;">Shipped</div>
+        <div>
+          <p style="font-family: 'Instrument Serif', serif; font-size: 1.45rem; line-height: 1.5; color: var(--text); margin: 0 0 2rem;">
+            45 credits on 28 shipped titles, plus 11+ Unreal Engine live events at Improbable — from console &amp; PC releases to virtual worlds serving thousands of concurrent players.
+          </p>
+
+          <div style="margin: 0 0 2rem;">
+            <div class="mono" style="font-size: 11px; color: var(--accent); margin-bottom: 1rem; letter-spacing: 0.12em; text-transform: uppercase; padding-bottom: 0.6rem; border-bottom: 1px solid var(--line);">Console &amp; PC · 2002–12</div>
+            <ul class="ship-list" style="list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.7rem 2rem; font-family: 'JetBrains Mono', monospace; font-size: 14px;">
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500; flex: 1;">Harry Potter: Deathly Hallows Pt 1 &amp; 2</span><span style="color:var(--text-dim); font-size: 12px;">2010–11</span></li>
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500; flex: 1;">Grease Dance</span><span style="color:var(--text-dim); font-size: 12px;">2012</span></li>
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500; flex: 1;">Reservoir Dogs</span><span style="color:var(--text-dim); font-size: 12px;">2006</span></li>
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500; flex: 1;">Prism: Light the Way</span><span style="color:var(--text-dim); font-size: 12px;">2007</span></li>
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500; flex: 1;">Conflict: Global Terror</span><span style="color:var(--text-dim); font-size: 12px;">2005</span></li>
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500; flex: 1;">Constantine</span><span style="color:var(--text-dim); font-size: 12px;">2005</span></li>
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500; flex: 1;">Richard Burns Rally</span><span style="color:var(--text-dim); font-size: 12px;">2004</span></li>
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500; flex: 1;">Conflict: Desert Storm series</span><span style="color:var(--text-dim); font-size: 12px;">2002–03</span></li>
+            </ul>
+          </div>
+
+          <div style="margin: 0 0 1.6rem;">
+            <div class="mono" style="font-size: 11px; color: var(--accent); margin-bottom: 1rem; letter-spacing: 0.12em; text-transform: uppercase; padding-bottom: 0.6rem; border-bottom: 1px solid var(--line);">Live events · Improbable · 2023–25</div>
+            <ul class="ship-list" style="list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.7rem 2rem; font-family: 'JetBrains Mono', monospace; font-size: 14px;">
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500;">SummerCrush</span></li>
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500;">Halloween</span></li>
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500;">Spacerace</span></li>
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500;">NPC Snatchers</span></li>
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500;">HotShots</span></li>
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500;">Mashup</span></li>
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500;">Game4Ukraine</span></li>
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500;">Beyond the Pitch with Zinchenko</span></li>
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500;">Clash of Fans</span></li>
+            </ul>
+          </div>
+
+          <a href="https://www.mobygames.com/person/38216/luke-timms/credits/" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent-2); border-bottom: 1px solid var(--text-mute); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s;" onmouseover="this.style.color='var(--accent)';this.style.borderBottomColor='var(--accent)'" onmouseout="this.style.color='var(--accent-2)';this.style.borderBottomColor='var(--text-mute)'">Full credits on MobyGames ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── SERVICES ───── -->
+  <section class="block" id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="num">03 / Approach</div>
+        <h2>What I <span class="italic">bring.</span></h2>
+      </div>
+
+      <div class="services reveal">
+        <div class="service">
+          <div class="ix">i.</div>
+          <h4>Pipeline ownership</h4>
+          <p>Built and iterated delivery systems that connect strategic goals with how teams actually work.</p>
+        </div>
+        <div class="service">
+          <div class="ix">ii.</div>
+          <h4>Delivery leadership</h4>
+          <p>Strong track record shipping on time and scope across Scrum, Kanban, Waterfall, and hybrid models.</p>
+        </div>
+        <div class="service">
+          <div class="ix">iii.</div>
+          <h4>Cross-functional alignment</h4>
+          <p>Connect technical, creative, and business perspectives so priorities land and decisions happen quickly.</p>
+        </div>
+        <div class="service">
+          <div class="ix">iv.</div>
+          <h4>Partner management</h4>
+          <p>Clear communicator with publishers and platform holders. I facilitate tradeoff conversations that protect value while staying realistic about constraints.</p>
+        </div>
+        <div class="service">
+          <div class="ix">v.</div>
+          <h4>People-first approach</h4>
+          <p>Build high-performing teams where ownership and innovation are expected, not exceptions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── REEL ───── -->
+  <section class="block" id="reel">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="num">04 / Reel</div>
+        <h2>Selected work, <span class="italic">in motion.</span></h2>
+      </div>
+
+      <div class="reel reveal">
+        <div class="video-card">
+          <div class="embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/IKrL23m6c8w"
+                    title="NPC Snatchers — Edison.wtf"
+                    loading="lazy"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+          </div>
+          <div class="meta"><span class="num">01.</span><h4>NPC Snatchers</h4></div>
+          <p class="caption">Edison.wtf · interactive event</p>
+        </div>
+
+        <div class="video-card">
+          <div class="embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/qb0MmpNKjAQ"
+                    title="HotShots — Edison.wtf"
+                    loading="lazy"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+          </div>
+          <div class="meta"><span class="num">02.</span><h4>HotShots</h4></div>
+          <p class="caption">Edison.wtf · interactive event</p>
+        </div>
+
+        <div class="video-card">
+          <div class="embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/U3f92qSTe8Q"
+                    title="Mashup — Edison.wtf"
+                    loading="lazy"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+          </div>
+          <div class="meta"><span class="num">03.</span><h4>Mashup</h4></div>
+          <p class="caption">Edison.wtf · interactive event</p>
+        </div>
+
+        <div class="video-card">
+          <div class="embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/oYuI1J5yEuM"
+                    title="Game4Ukraine — Victory League"
+                    loading="lazy"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+          </div>
+          <div class="meta"><span class="num">04.</span><h4>Game4Ukraine</h4></div>
+          <p class="caption">Victory League · football fan experience</p>
+        </div>
+
+        <div class="video-card">
+          <div class="embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/F97RQRLddAI"
+                    title="Beyond the Pitch with Zinchenko — Victory League"
+                    loading="lazy"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+          </div>
+          <div class="meta"><span class="num">05.</span><h4>Beyond the Pitch · Zinchenko</h4></div>
+          <p class="caption">Victory League · football fan experience</p>
+        </div>
+
+        <div class="video-card">
+          <div class="embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/4fKZbeCofV8"
+                    title="Clash of Fans — Victory League"
+                    loading="lazy"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+          </div>
+          <div class="meta"><span class="num">06.</span><h4>Clash of Fans</h4></div>
+          <p class="caption">Victory League · football fan experience</p>
+        </div>
+      </div>
+
+      <div class="more-events reveal">
+        + further Edison.wtf events:
+        <a href="https://x.com/EdisonMetaverse/status/1829216495509102626" target="_blank" rel="noopener">SummerCrush ↗</a>·
+        <a href="https://x.com/MrsClareSei/status/1851200030029603081" target="_blank" rel="noopener">Halloween ↗</a>·
+        <a href="https://x.com/EdisonMetaverse/status/1866944789968720157" target="_blank" rel="noopener">Spacerace ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── CONTACT ───── -->
+  <section class="block" id="contact">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="num">05 / Contact</div>
+        <h2>Let's <span class="italic">talk.</span></h2>
+      </div>
+
+      <div class="contact-grid reveal">
+        <div class="num mono" style="color: var(--text-mute); font-size: 12px;">—</div>
+        <div>
+          <p class="pitch">
+            Building a studio, scaling a team, or producing a title that needs a <em>steady hand on the pipeline?</em> Drop me a line.
+          </p>
+          <div class="contact-links">
+            <!-- TODO: replace with preferred email -->
+            <a href="mailto:hello@luketimms.online">Email <span class="arrow">↗</span></a>
+            <a href="https://www.linkedin.com/in/luketimms" target="_blank" rel="noopener">LinkedIn <span class="arrow">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── FOOTER ───── -->
+  <footer>
+    <div class="wrap">
+      <div class="row">
+        <div>© 2026 Luke Timms</div>
+        <div>Made by hand · Uckfield, UK</div>
+        <div id="clock" class="mono">—</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      reveals.forEach(el => io.observe(el));
+    } else {
+      reveals.forEach(el => el.classList.add('in'));
+    }
+
+    // Live UK clock in footer
+    const clock = document.getElementById('clock');
+    function tick() {
+      const now = new Date();
+      const opts = { timeZone: 'Europe/London', hour: '2-digit', minute: '2-digit', hour12: false };
+      clock.textContent = now.toLocaleTimeString('en-GB', opts) + ' · UK';
+    }
+    tick();
+    setInterval(tick, 30_000);
+  </script>
+</body>
+</html>
