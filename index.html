@@ -111,8 +111,11 @@
       display: grid;
       align-content: center;
       padding-top: 6rem;
-      padding-bottom: 4rem;
+      padding-bottom: 1.5rem;
       position: relative;
+    }
+    .hero + section.block {
+      padding-top: 2.4rem;
     }
     .hero .status {
       display: inline-flex; align-items: center; gap: 0.6rem;
@@ -298,37 +301,84 @@
       line-height: 1.6;
     }
 
-    /* ───── SERVICES ───── */
+    /* ───── SERVICES (What I bring — infographic) ───── */
     .services {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.4rem;
+    }
+    .services .service:last-child {
+      grid-column: 1 / -1;
     }
     .service {
-      background: var(--bg);
-      padding: 1.8rem 1.6rem;
-      transition: background 0.25s;
+      position: relative;
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--accent);
+      padding: 2.4rem 2.6rem;
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 1.5rem;
+      align-items: start;
+      transition: background 0.25s, border-color 0.25s, transform 0.25s;
     }
-    .service:hover { background: var(--bg-soft); }
+    .service:hover {
+      background: var(--bg);
+      transform: translateY(-3px);
+      border-left-color: var(--accent-2);
+    }
     .service .ix {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      color: var(--text-mute);
-      margin-bottom: 0.8rem;
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-style: italic;
+      font-size: 3.6rem;
+      line-height: 0.85;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+      margin: 0;
+      align-self: start;
+      padding-top: 0.15rem;
     }
     .service h4 {
-      font-family: 'Inter Tight', sans-serif;
-      font-weight: 500;
-      font-size: 1.05rem;
-      margin-bottom: 0.4rem;
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-weight: 400;
+      font-size: 1.75rem;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin: 0 0 0.9rem;
     }
-    .service p {
-      font-size: 0.9rem;
-      color: var(--text-dim);
+    .service .srv-list {
+      list-style: none;
+      padding: 0;
       margin: 0;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 0.98rem;
+      color: var(--text);
       line-height: 1.5;
+    }
+    .service .srv-list li {
+      position: relative;
+      padding-left: 1.7rem;
+      margin-bottom: 0.55rem;
+    }
+    .service .srv-list li:last-child {
+      margin-bottom: 0;
+    }
+    .service .srv-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+    @media (max-width: 760px) {
+      .services { grid-template-columns: 1fr; }
+      .service { grid-template-columns: 70px 1fr; padding: 1.8rem 1.6rem; }
+      .service .ix { font-size: 2.6rem; }
+      .service h4 { font-size: 1.4rem; }
     }
 
     /* ───── REEL ───── */
@@ -523,6 +573,221 @@
       .hero .status .dot { animation: none; }
       .hero .scroll-cue::after { animation: none; }
     }
+
+    /* ───── Chat-style contact form ───── */
+    .chat-wrap { max-width: 640px; }
+    .chat {
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--accent);
+      border-radius: 14px;
+      padding: 1.4rem 1.4rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      min-height: 240px;
+      max-height: 520px;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+    }
+    .chat::-webkit-scrollbar { width: 6px; }
+    .chat::-webkit-scrollbar-track { background: transparent; }
+    .chat::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+    .bubble {
+      max-width: 82%;
+      padding: 0.7rem 1rem;
+      border-radius: 14px;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.45;
+      word-wrap: break-word;
+      animation: bubble-in 0.28s ease;
+    }
+    @keyframes bubble-in {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .bubble.bot {
+      align-self: flex-start;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      color: var(--text);
+      border-bottom-left-radius: 4px;
+    }
+    .bubble.user {
+      align-self: flex-end;
+      background: var(--accent);
+      color: #fff;
+      border-bottom-right-radius: 4px;
+    }
+    .bubble.bot .typing { display: inline-flex; gap: 0.3rem; padding: 0.15rem 0; }
+    .bubble.bot .typing span {
+      width: 6px; height: 6px;
+      background: var(--text-mute);
+      border-radius: 50%;
+      animation: typing 1.2s infinite;
+    }
+    .bubble.bot .typing span:nth-child(2) { animation-delay: 0.18s; }
+    .bubble.bot .typing span:nth-child(3) { animation-delay: 0.36s; }
+    @keyframes typing {
+      0%, 80%, 100% { opacity: 0.3; transform: translateY(0); }
+      40%           { opacity: 1;   transform: translateY(-3px); }
+    }
+    .chat-input { margin-top: 0.9rem; min-height: 48px; }
+    .chip-group { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .chip {
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 0.94rem;
+      padding: 0.55rem 1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .chip:hover {
+      background: var(--bg);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .text-row { display: flex; gap: 0.6rem; }
+    .text-row input, .text-row textarea {
+      flex: 1;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 0.96rem;
+      padding: 0.7rem 1rem;
+      border-radius: 10px;
+      transition: border-color 0.2s;
+    }
+    .text-row textarea {
+      resize: vertical;
+      min-height: 80px;
+      font-family: 'Inter Tight', sans-serif;
+    }
+    .text-row input:focus, .text-row textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .text-row button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 0 1.2rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .text-row button:hover { background: var(--accent-2); color: var(--bg); }
+    .text-row .skip {
+      background: transparent;
+      color: var(--text-dim);
+      border: 1px solid var(--line);
+    }
+    .text-row .skip:hover { color: var(--text); border-color: var(--text-dim); background: transparent; }
+    .chat-fallback {
+      margin-top: 1.2rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--text-dim);
+      letter-spacing: 0.04em;
+    }
+    .chat-fallback a {
+      color: var(--accent-2);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--text-mute);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .chat-fallback a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+    /* ───── Sticky top bar with nav pills ───── */
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 60;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.75rem var(--pad-x);
+      background: rgba(13, 12, 10, 0.78);
+      backdrop-filter: blur(14px) saturate(140%);
+      -webkit-backdrop-filter: blur(14px) saturate(140%);
+      border-bottom: 1px solid var(--line);
+      animation: topbar-slide-in 0.45s 0.15s ease both;
+    }
+    @keyframes topbar-slide-in {
+      from { transform: translateY(-100%); opacity: 0; }
+      to   { transform: translateY(0);     opacity: 1; }
+    }
+    .topbar .mark {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+    .topbar .mark::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+    .topbar-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .topbar .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 1.1rem;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 999px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .topbar .nav-pill:hover {
+      background: var(--accent-2);
+      color: var(--bg);
+    }
+    .topbar .nav-pill .arrow {
+      display: inline-block;
+      transition: transform 0.2s ease;
+    }
+    .topbar .nav-pill.cta:hover .arrow {
+      transform: translate(2px, -2px);
+    }
+    @media (max-width: 760px) {
+      .topbar { padding: 0.6rem 1rem; }
+      .topbar .mark { font-size: 11px; }
+      .topbar-nav { gap: 0.35rem; }
+      .topbar .nav-pill { padding: 0.5rem 0.85rem; font-size: 10px; }
+      .topbar .nav-pill:not(.cta) { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -536,6 +801,16 @@
       <a href="#contact">Contact</a>
     </div>
   </nav>
+
+  <div class="topbar" id="topbar" aria-label="Site navigation">
+    <a href="#top" class="mark">LUKE TIMMS</a>
+    <nav class="topbar-nav">
+      <a href="#about" class="nav-pill">About</a>
+      <a href="#experience" class="nav-pill">Work</a>
+      <a href="#services" class="nav-pill">Services</a>
+      <a href="#contact" class="nav-pill cta">Let's talk <span class="arrow">↗</span></a>
+    </nav>
+  </div>
 
   <header class="hero">
     <div class="wrap">
@@ -563,7 +838,7 @@
       <div class="currently reveal">
         <div class="label">Now</div>
         <div class="body">
-          Most recently led production on <em>Unreal Engine-powered live events</em> at Improbable / Imporium — thousands of concurrent players, real-time multiplayer, end-to-end ownership. Now looking for the next studio to ship with.
+          Most recently led production on <em>Unreal Engine-powered live events</em> at Improbable / Imporium. Thousands of concurrent players, real-time multiplayer, end-to-end ownership. Now looking for the next studio to ship with.
         </div>
       </div>
     </div>
@@ -581,10 +856,10 @@
         <div class="num mono" style="color: var(--text-mute); font-size: 12px;">—</div>
         <div class="body">
           <p>
-            I lead game production from a <em style="color:var(--accent);font-style:italic;">people-first perspective</em>. I find the delivery methods that fit the team and studio—frameworks that enable great work, not constrain it. <em style="font-style:italic;">Individuals and interactions over processes and tools.</em>
+            I lead game production from a <em style="color:var(--accent);font-style:italic;">people-first perspective</em>. I find the delivery methods that fit the team and studio. Frameworks that enable great work, not constrain it. <em style="font-style:italic;">Individuals and interactions over processes and tools.</em>
           </p>
           <p>
-            I've <em style="color:var(--accent);font-style:italic;">owned production pipelines</em> at game studios—built the schedules, driven the milestones, and held the delivery frameworks. I work hands-on with Jira, workflows, and the systems that help teams deliver amazing features.
+            I've <em style="color:var(--accent);font-style:italic;">owned production pipelines</em> at game studios. Built the schedules, driven the milestones, and held the delivery frameworks. I work hands-on with Jira, workflows, and the systems that help teams deliver amazing features.
           </p>
           <p>
             I've <em style="color:var(--accent);font-style:italic;">shipped games end-to-end</em> and understand what it takes to get there. I'm the point of contact when partners need answers, and I bring structure without losing the agility small teams need to move fast.
@@ -608,7 +883,7 @@
           <div class="what">
             <h3>Production Manager · Freelance</h3>
             <div class="org">Nexus Studios</div>
-            <p>Hands-on production support during critical delivery phases on a fast-moving creative project — freeing senior leaders to focus on customer liaison and wider project needs while keeping delivery pace.</p>
+            <p>Hands-on production support during critical delivery phases on a fast-moving creative project. Freeing senior leaders to focus on customer liaison and wider project needs while keeping delivery pace.</p>
           </div>
         </div>
 
@@ -617,7 +892,7 @@
           <div class="what">
             <h3>Senior Producer / Head of QA</h3>
             <div class="org">Improbable / Imporium <span style="color:var(--text-mute);font-weight:400;">(Improbable Venture)</span></div>
-            <p>Led production on <em style="color:var(--accent);font-style:italic;">Unreal Engine-powered virtual world live events</em> — each serving thousands of concurrent players in real-time multiplayer experiences. Owned product delivery end-to-end from scoping through live event and iteration. Strategically led and coached the QA team and introduced a QA operating model that improved release quality. Bridged cross-functional teams, aligned vision, and turned delivery chaos into clarity. Championed both product and player. Coached teams in better ways of working without red tape. Shipped 11+ large-scale events including SummerCrush, Halloween, Spacerace, NPC Snatchers, HotShots, Mashup, Game4Ukraine, Beyond the Pitch with Zinchenko, and Clash of Fans.</p>
+            <p>Led production on <em style="color:var(--accent);font-style:italic;">Unreal Engine-powered virtual world live events</em>. Each serving thousands of concurrent players in real-time multiplayer experiences. Owned product delivery end-to-end from scoping through live event and iteration. Strategically led and coached the QA team and introduced a QA operating model that improved release quality. Bridged cross-functional teams, aligned vision, and turned delivery chaos into clarity. Championed both product and player. Coached teams in better ways of working without red tape. Shipped 11+ large-scale events including SummerCrush, Halloween, Spacerace, NPC Snatchers, HotShots, Mashup, Game4Ukraine, Beyond the Pitch with Zinchenko, and Clash of Fans.</p>
           </div>
         </div>
 
@@ -626,7 +901,7 @@
           <div class="what">
             <h3>Senior Development Manager</h3>
             <div class="org">CCP Games</div>
-            <p>Led the Missions Team. Redesigned the team's delivery systems and planning rhythms to increase predictability across engineering and design. Introduced frameworks that clarified scope, ownership and progress; lifted delivery consistency across multiple feature streams. Acted as the link between leadership and production — translating creative goals into realistic, trackable outcomes. Reduced production friction by improving tooling, communication flow and alignment across disciplines.</p>
+            <p>Led the Missions Team. Redesigned the team's delivery systems and planning rhythms to increase predictability across engineering and design. Introduced frameworks that clarified scope, ownership and progress; lifted delivery consistency across multiple feature streams. Acted as the link between leadership and production. Translating creative goals into realistic, trackable outcomes. Reduced production friction by improving tooling, communication flow and alignment across disciplines.</p>
           </div>
         </div>
 
@@ -635,7 +910,7 @@
           <div class="what">
             <h3>Senior Risk Manager / Product Owner</h3>
             <div class="org">Lloyds Banking Group</div>
-            <p>Embedded risk management into engineering and AI teams without slowing delivery. Created and rolled out new digital risk frameworks across the bank, improving clarity and consistency. Advised the CIO and CDO on technology posture — influencing investment decisions and producing measurable risk reduction. Provided strategic risk guidance that accelerated approvals on major AI and cloud initiatives while keeping teams empowered.</p>
+            <p>Embedded risk management into engineering and AI teams without slowing delivery. Created and rolled out new digital risk frameworks across the bank, improving clarity and consistency. Advised the CIO and CDO on technology posture. Influencing investment decisions and producing measurable risk reduction. Provided strategic risk guidance that accelerated approvals on major AI and cloud initiatives while keeping teams empowered.</p>
           </div>
         </div>
 
@@ -643,7 +918,7 @@
           <div class="when mono">2013 — 2016</div>
           <div class="what">
             <h3>Digital Project Manager / Delivery Roles</h3>
-            <div class="org">Accenture <span style="color:var(--text-mute);font-weight:400;">— FCA · AstraZeneca · Discovery Channel · others</span></div>
+            <div class="org">Accenture <span style="color:var(--text-mute);font-weight:400;">(FCA · AstraZeneca · Discovery Channel · others)</span></div>
             <p>Delivered multiple digital projects for global clients through structured rollouts that replaced reactive work with predictable frameworks. Improved campaign velocity by unifying agencies and client teams across shared delivery principles. Reduced project overruns through clearer scope control, better tooling, and tighter stakeholder alignment. The delivery template I established here became the standard for future client work.</p>
           </div>
         </div>
@@ -653,7 +928,7 @@
           <div class="what">
             <h3>Early Career · Games Production</h3>
             <div class="org">Electronic Arts · Zoë Mode · nDreams · Eidos · SCi Games</div>
-            <p>Started in QA at SCi Games (2000) and progressed to Production across SCi, Eidos, nDreams, Zoë Mode, and Electronic Arts. <em style="color:var(--accent);font-style:italic;">28 shipped titles</em> across PS2, PS3, PSP, Xbox, Xbox 360, Wii, Nintendo DS, GameCube, Windows, and Dreamcast — including <em style="color:var(--accent);font-style:italic;">Harry Potter and the Deathly Hallows: Part 1 &amp; 2</em>, <em style="color:var(--accent);font-style:italic;">Reservoir Dogs</em>, <em style="color:var(--accent);font-style:italic;">Constantine</em>, the <em style="color:var(--accent);font-style:italic;">Conflict: Desert Storm</em> series, <em style="color:var(--accent);font-style:italic;">Richard Burns Rally</em>, and <em style="color:var(--accent);font-style:italic;">Grease Dance</em>.</p>
+            <p>Started in QA at SCi Games (2000) and progressed to Production across SCi, Eidos, nDreams, Zoë Mode, and Electronic Arts. <em style="color:var(--accent);font-style:italic;">28 shipped titles</em> across PS2, PS3, PSP, Xbox, Xbox 360, Wii, Nintendo DS, GameCube, Windows, and Dreamcast. Including <em style="color:var(--accent);font-style:italic;">Harry Potter and the Deathly Hallows: Part 1 &amp; 2</em>, <em style="color:var(--accent);font-style:italic;">Reservoir Dogs</em>, <em style="color:var(--accent);font-style:italic;">Constantine</em>, the <em style="color:var(--accent);font-style:italic;">Conflict: Desert Storm</em> series, <em style="color:var(--accent);font-style:italic;">Richard Burns Rally</em>, and <em style="color:var(--accent);font-style:italic;">Grease Dance</em>.</p>
           </div>
         </div>
       </div>
@@ -685,7 +960,7 @@
         <div class="num mono" style="color: var(--accent); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;">Shipped</div>
         <div>
           <p style="font-family: 'Instrument Serif', serif; font-size: 1.45rem; line-height: 1.5; color: var(--text); margin: 0 0 2rem;">
-            28 shipped titles, plus 11+ Unreal Engine live events at Improbable — from console &amp; PC releases to virtual worlds serving thousands of concurrent players.
+            28 shipped titles, plus 11+ Unreal Engine live events at Improbable. From console &amp; PC releases to virtual worlds serving thousands of concurrent players.
           </p>
 
           <div style="margin: 0 0 2rem;">
@@ -734,28 +1009,55 @@
       <div class="services reveal">
         <div class="service">
           <div class="ix">i.</div>
-          <h4>Pipeline ownership</h4>
-          <p>Built and iterated delivery systems that connect strategic goals with how teams actually work.</p>
+          <div>
+            <h4>Pipeline ownership</h4>
+            <ul class="srv-list">
+              <li>Built and iterated delivery systems end-to-end</li>
+              <li>Connected strategic goals with how teams actually work</li>
+            </ul>
+          </div>
         </div>
         <div class="service">
           <div class="ix">ii.</div>
-          <h4>Delivery leadership</h4>
-          <p>Strong track record shipping on time and scope across Scrum, Kanban, Waterfall, and hybrid models.</p>
+          <div>
+            <h4>Delivery leadership</h4>
+            <ul class="srv-list">
+              <li>Strong track record shipping on time and scope</li>
+              <li>Comfortable across Scrum, Kanban, Waterfall, and hybrid models</li>
+            </ul>
+          </div>
         </div>
         <div class="service">
           <div class="ix">iii.</div>
-          <h4>Cross-functional alignment</h4>
-          <p>Connect technical, creative, and business perspectives so priorities land and decisions happen quickly.</p>
+          <div>
+            <h4>Cross-functional alignment</h4>
+            <ul class="srv-list">
+              <li>Connect technical, creative, and business perspectives</li>
+              <li>Help priorities land and decisions happen quickly</li>
+            </ul>
+          </div>
         </div>
         <div class="service">
           <div class="ix">iv.</div>
-          <h4>Partner management</h4>
-          <p>Clear communicator with publishers and platform holders. I facilitate tradeoff conversations that protect value while staying realistic about constraints.</p>
+          <div>
+            <h4>Partner management</h4>
+            <ul class="srv-list">
+              <li>Clear communicator with publishers and platform holders</li>
+              <li>Facilitate tradeoff conversations that protect value</li>
+              <li>Stay realistic about constraints</li>
+            </ul>
+          </div>
         </div>
         <div class="service">
           <div class="ix">v.</div>
-          <h4>People-first approach</h4>
-          <p>Build high-performing teams where ownership and innovation are expected, not exceptions.</p>
+          <div>
+            <h4>People-first approach</h4>
+            <ul class="srv-list">
+              <li>I build and grow high-performing teams</li>
+              <li>Happy teams do their best work</li>
+              <li>Make ownership and innovation the expectation, not the exception</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -862,14 +1164,18 @@
 
       <div class="contact-grid reveal">
         <div class="num mono" style="color: var(--text-mute); font-size: 12px;">—</div>
-        <div>
+        <div class="chat-wrap">
           <p class="pitch">
             Building a studio, scaling a team, or producing a title that needs a <em>steady hand on the pipeline?</em> Drop me a line.
           </p>
-          <div class="contact-links">
-            <!-- TODO: replace with preferred email -->
-            <a href="mailto:hello@luketimms.online">Email <span class="arrow">↗</span></a>
-            <a href="https://www.linkedin.com/in/luketimms" target="_blank" rel="noopener">LinkedIn <span class="arrow">↗</span></a>
+          <div class="chat" id="chat" aria-live="polite" role="log">
+            <!-- bubbles inserted by JS -->
+          </div>
+          <div class="chat-input" id="chatInput">
+            <!-- swapped by JS per step -->
+          </div>
+          <div class="chat-fallback">
+            Prefer plain email? <a href="mailto:hello@luketimms.online">hello@luketimms.online</a> · <a href="https://www.linkedin.com/in/luketimms" target="_blank" rel="noopener">LinkedIn ↗</a>
           </div>
         </div>
       </div>
@@ -935,6 +1241,176 @@
     } else {
       reveals.forEach(el => el.classList.add('in'));
     }
+
+    // Chat-style contact flow — boots once Contact scrolls into view (max once)
+    (function() {
+      const chat = document.getElementById('chat');
+      const inputArea = document.getElementById('chatInput');
+      const contact = document.getElementById('contact');
+      if (!chat || !inputArea || !contact) return;
+
+      // Destination email: change this if you want responses to go elsewhere
+      const TO_EMAIL = 'lukedtimms@gmail.com';
+
+      const flow = [
+        {
+          bot: "Hi I'm Steve, Luke's chatbot. What brings you here?",
+          input: 'chips',
+          options: [
+            'Shipping a new title',
+            'Scaling production / process',
+            'Production support',
+            'Just exploring'
+          ],
+          key: 'need'
+        },
+        {
+          bot: "Cool. Who are you with — studio, team, or company?",
+          input: 'text',
+          placeholder: 'Studio or company name',
+          optional: true,
+          key: 'team'
+        },
+        {
+          bot: "Last thing — where should Luke reply? Drop your email and a quick note if you like.",
+          input: 'email',
+          placeholder: 'you@studio.com',
+          notePlaceholder: 'Optional: anything Luke should know up front…',
+          key: 'contact'
+        }
+      ];
+
+      const answers = {};
+      let step = 0;
+      let booted = false;
+
+      function appendBubble(role, html) {
+        const div = document.createElement('div');
+        div.className = 'bubble ' + role;
+        div.innerHTML = html;
+        chat.appendChild(div);
+        chat.scrollTop = chat.scrollHeight;
+        return div;
+      }
+      function showTyping() {
+        return appendBubble('bot', '<span class="typing"><span></span><span></span><span></span></span>');
+      }
+      function setInput(html) {
+        inputArea.innerHTML = html;
+      }
+      function escapeHtml(s) {
+        return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+      }
+      function askNext() {
+        if (step >= flow.length) return finish();
+        const q = flow[step];
+        const t = showTyping();
+        setTimeout(() => {
+          t.remove();
+          appendBubble('bot', q.bot);
+          renderInput(q);
+        }, 520);
+      }
+      function renderInput(q) {
+        if (q.input === 'chips') {
+          setInput('<div class="chip-group">' +
+            q.options.map(opt => `<button type="button" class="chip">${escapeHtml(opt)}</button>`).join('') +
+          '</div>');
+          inputArea.querySelectorAll('.chip').forEach(c => {
+            c.addEventListener('click', () => answer(c.textContent));
+          });
+        } else if (q.input === 'text') {
+          setInput(`<form class="text-row" novalidate>
+            <input type="text" placeholder="${escapeHtml(q.placeholder)}" autocomplete="organization">
+            ${q.optional ? '<button type="button" class="skip">Skip</button>' : ''}
+            <button type="submit">Send</button>
+          </form>`);
+          const form = inputArea.querySelector('form');
+          const input = form.querySelector('input');
+          input.focus();
+          form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const val = input.value.trim();
+            if (!val && !q.optional) { input.focus(); return; }
+            answer(val || '(skipped)');
+          });
+          const skip = form.querySelector('.skip');
+          if (skip) skip.addEventListener('click', () => answer('(skipped)'));
+        } else if (q.input === 'email') {
+          setInput(`<form class="text-row" novalidate style="flex-direction: column; align-items: stretch; gap: 0.6rem;">
+            <input type="email" placeholder="${escapeHtml(q.placeholder)}" required autocomplete="email">
+            <textarea placeholder="${escapeHtml(q.notePlaceholder || '')}" rows="3"></textarea>
+            <button type="submit" style="align-self: flex-end; padding: 0.7rem 1.4rem;">Send</button>
+          </form>`);
+          const form = inputArea.querySelector('form');
+          const email = form.querySelector('input');
+          const note = form.querySelector('textarea');
+          email.focus();
+          form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const e1 = email.value.trim();
+            if (!e1 || !/.+@.+\..+/.test(e1)) { email.focus(); return; }
+            answers.email = e1;
+            answers.note = note.value.trim();
+            answer(e1 + (answers.note ? '\n' + answers.note : ''));
+          });
+        }
+      }
+      function answer(val) {
+        const q = flow[step];
+        answers[q.key] = val;
+        appendBubble('user', escapeHtml(val).replace(/\n/g, '<br>'));
+        setInput('');
+        step++;
+        askNext();
+      }
+      async function finish() {
+        const t = showTyping();
+        const payload = {
+          _subject: 'New chat from luketimms.online',
+          _captcha: 'false',
+          _template: 'table',
+          _replyto: answers.email || '',
+          need: answers.need || '',
+          team: answers.team || '',
+          email: answers.email || '',
+          note: answers.note || ''
+        };
+        let success = false;
+        try {
+          const res = await fetch('https://formsubmit.co/ajax/' + encodeURIComponent(TO_EMAIL), {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          const data = await res.json();
+          success = data && (data.success === 'true' || data.success === true);
+        } catch (err) {
+          success = false;
+        }
+        t.remove();
+        if (success) {
+          appendBubble('bot', "Message is now with Luke, I'm sure he will be in touch very soon.");
+        } else {
+          appendBubble('bot', `Hmm, that didn't go through. Try emailing <a href="mailto:${escapeHtml(TO_EMAIL)}" style="color: var(--accent-2); text-decoration: underline;">${escapeHtml(TO_EMAIL)}</a> directly.`);
+        }
+      }
+      function boot() {
+        if (booted) return;
+        booted = true;
+        askNext();
+      }
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(e => { if (e.isIntersecting) { boot(); io.unobserve(contact); } });
+        }, { threshold: 0.25 });
+        io.observe(contact);
+      } else {
+        boot();
+      }
+    })();
+
+    // (Top bar is now always visible — animated in on page load via CSS, no JS needed)
 
     // Live UK clock in footer
     const clock = document.getElementById('clock');
