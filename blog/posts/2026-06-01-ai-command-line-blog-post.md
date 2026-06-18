@@ -4,6 +4,7 @@ date: 2026-06-01
 tags: [AI, command line, workflow]
 subtitle: "Why the terminal is the ultimate interface for artificial intelligence."
 hero_image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&w=1200&q=80"
+joke_ad_image: "https://res.cloudinary.com/dzysm81ng/image/upload/f_auto,q_auto/ChatGPT_Image_Jun_4_2026_04_52_35_PM_neuhqu"
 ---
 
 Most people first meet AI in a chat window. That is useful, but it also puts a ceiling on what you can do. A chat is good for a quick answer, a small code snippet, or a five-minute brainstorm. Bigger projects need more than that. They need files, history, tests, revisions, context, and a way to keep working after the first idea turns into ten decisions.

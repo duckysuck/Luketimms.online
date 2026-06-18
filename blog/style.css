@@ -235,6 +235,33 @@ a:hover {
   letter-spacing: 0.1em;
 }
 
+a.ad-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.ad-card-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+
+.yt-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.yt-channel-card .yt-avatar {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 12px;
+}
+
 .channels-footer {
   background: var(--surface);
   border-top: 1px solid var(--border);
@@ -264,6 +291,7 @@ a:hover {
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
+  gap: 12px;
   justify-content: center;
 }
 

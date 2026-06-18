@@ -64,6 +64,16 @@ function renderPostMeta(post, metadata) {
   if (metadata.hero_image && hero) {
     hero.innerHTML = `<img src="${metadata.hero_image}" class="hero-image" alt="">`;
   }
+
+  const adSlot = document.getElementById('jokeAdSlot');
+  if (adSlot && metadata.joke_ad_image) {
+    const link = metadata.joke_ad_link || 'https://www.youtube.com/watch?v=Aq5WXmQQooo';
+    adSlot.innerHTML = `
+      <a href="${link}" class="ad-card ad-card-image" target="_blank" rel="noopener">
+        <p class="ad-label">Sponsored</p>
+        <img src="${metadata.joke_ad_image}" alt="Sponsored advert" />
+      </a>`;
+  }
 }
 
 async function renderPost() {
