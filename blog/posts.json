@@ -1,5 +1,12 @@
 [
   {
+    "slug": "death-of-the-bored-moment",
+    "title": "The Death of the Bored Moment",
+    "date": "2026-06-18",
+    "excerpt": "We murdered the blank space in our day, and our best ideas with it.",
+    "tags": ["attention", "boredom", "creativity"]
+  },
+  {
     "slug": "ai-command-line-blog-post",
     "title": "AI Belongs in the Command Line",
     "date": "2026-06-01",
