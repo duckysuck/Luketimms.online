@@ -1,7 +1,7 @@
 ---
 title: "The War of Spirits: Joining the Rebel Alliance"
 date: 2026-06-18
-tags: ["society", "AI", "technology", "politics"]
+tags: ["society", "AI", "technology"]
 subtitle: "Greed bought the algorithm. Clarity is how we take it back."
 hero_image: "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=1200&q=80"
 ---
