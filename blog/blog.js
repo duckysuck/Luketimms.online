@@ -1,5 +1,5 @@
 async function loadJson(url) {
-  const response = await fetch(url);
+  const response = await fetch(url, { cache: 'no-store' });
   if (!response.ok) throw new Error(`Failed to load ${url}: ${response.status}`);
   return response.json();
 }
@@ -89,7 +89,7 @@ async function renderPost() {
     return;
   }
   
-  const rawText = await fetch(`posts/${post.date}-${post.slug}.md`).then(res => res.text());
+  const rawText = await fetch(`posts/${post.date}-${post.slug}.md`, { cache: 'no-store' }).then(res => res.text());
   const { metadata, content } = parseFrontmatter(rawText);
   
   renderPostMeta(post, metadata);
