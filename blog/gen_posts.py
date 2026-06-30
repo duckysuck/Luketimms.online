@@ -113,6 +113,12 @@ SHELL_TEMPLATE = '''<!DOCTYPE html>
         <p>3-in-1 espresso, latte & cold brew, built-in grinder. £549.99.</p>
       </a>
 
+      <a href="https://amzn.to/4oTM1Ma" class="ad-card" target="_blank" rel="sponsored noopener">
+        <p class="ad-label">Amazon Pick</p>
+        <h3>Pokémon Pokopia</h3>
+        <p>Nintendo Switch 2 exclusive. £57.95.</p>
+      </a>
+
       <div class="ad-card">
         <p class="ad-label">Sponsored</p>
         <h3>Blog as a Service</h3>
