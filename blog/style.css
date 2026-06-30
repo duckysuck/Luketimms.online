@@ -337,6 +337,14 @@ a.ad-card {
   margin-bottom: 12px;
 }
 
+.affiliate-disclosure {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  margin: 0 0 30px;
+}
+
 .channels-footer {
   background: var(--surface);
   border-top: 1px solid var(--border);

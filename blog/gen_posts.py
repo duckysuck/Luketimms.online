@@ -99,11 +99,27 @@ SHELL_TEMPLATE = '''<!DOCTYPE html>
 
       <div id="jokeAdSlot"></div>
 
+      <a href="https://amzn.to/4whcSEr" class="ad-card ad-card-image" target="_blank" rel="sponsored noopener">
+        <p class="ad-label">Amazon Pick</p>
+        <img src="https://m.media-amazon.com/images/I/61GoFlTg3IL._AC_SX522_.jpg" alt="roborock Saros 20 robot vacuum and mop" />
+        <h3>Roborock Saros 20</h3>
+        <p>Robot vacuum + mop, 36,000 Pa suction, hot-water mop care. £999.</p>
+      </a>
+
+      <a href="https://amzn.to/4aWyRZ6" class="ad-card ad-card-image" target="_blank" rel="sponsored noopener">
+        <p class="ad-label">Amazon Pick</p>
+        <img src="https://m.media-amazon.com/images/I/811J8urmwwL._AC_SX522_.jpg" alt="Ninja Luxe Premier coffee machine" />
+        <h3>Ninja Luxe Premier</h3>
+        <p>3-in-1 espresso, latte & cold brew, built-in grinder. £549.99.</p>
+      </a>
+
       <div class="ad-card">
         <p class="ad-label">Sponsored</p>
         <h3>Blog as a Service</h3>
         <p>Want a blog like this?</p>
       </div>
+
+      <p class="affiliate-disclosure">As an Amazon Associate I earn from qualifying purchases.</p>
     </aside>
   </main>
 
