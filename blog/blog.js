@@ -28,13 +28,15 @@ function renderShareButtons(slot, { slug, url, text, label }) {
     reddit: 'reddit',
   };
 
+  const copyLabel = '🔗 Copy link';
+
   slot.innerHTML = `
     <p class="share-label">${label}</p>
     <div class="share-buttons">
       ${Object.entries(links).map(([platform, href]) => `
         <a class="share-btn" href="${href}" target="_blank" rel="noopener" data-platform="${platform}" aria-label="Share on ${platform}">${icons[platform]}</a>
       `).join('')}
-      <button class="share-btn share-btn-copy" data-platform="copy-link" aria-label="Copy link">Copy link</button>
+      <button class="share-btn share-btn-copy" data-platform="copy-link" aria-label="Copy link">${copyLabel}</button>
     </div>
   `;
 
@@ -45,9 +47,8 @@ function renderShareButtons(slot, { slug, url, text, label }) {
       if (platform === 'copy-link') {
         e.preventDefault();
         navigator.clipboard.writeText(url).then(() => {
-          const original = el.textContent;
-          el.textContent = 'Copied!';
-          setTimeout(() => { el.textContent = original; }, 1500);
+          el.textContent = '✓ Copied!';
+          setTimeout(() => { el.textContent = copyLabel; }, 1500);
         });
       }
     });
@@ -55,26 +56,24 @@ function renderShareButtons(slot, { slug, url, text, label }) {
 }
 
 function renderShareRow(post) {
-  const slot = document.getElementById('shareRow');
-  if (!slot) return;
-
-  renderShareButtons(slot, {
-    slug: post.slug,
-    url: `https://blog.luketimms.online/p/${encodeURIComponent(post.slug)}.html`,
-    text: post.title,
-    label: 'Share this system',
+  document.querySelectorAll('.share-slot').forEach(slot => {
+    renderShareButtons(slot, {
+      slug: post.slug,
+      url: `https://blog.luketimms.online/p/${encodeURIComponent(post.slug)}.html`,
+      text: post.title,
+      label: 'SHARE THIS',
+    });
   });
 }
 
 function renderHomeShareRow() {
-  const slot = document.getElementById('shareRow');
-  if (!slot) return;
-
-  renderShareButtons(slot, {
-    slug: 'index',
-    url: 'https://blog.luketimms.online/',
-    text: 'Lukes Blog — Brain farts to tangible outcomes.',
-    label: 'Share this blog',
+  document.querySelectorAll('.share-slot').forEach(slot => {
+    renderShareButtons(slot, {
+      slug: 'index',
+      url: 'https://blog.luketimms.online/',
+      text: 'Lukes Blog — Brain farts to tangible outcomes.',
+      label: 'SHARE THIS',
+    });
   });
 }
 

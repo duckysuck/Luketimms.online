@@ -205,29 +205,32 @@ a:hover {
 }
 
 /* Share row — "Post-Exit Anchor" (Paul, Design Director, 2026-06-24) */
-.share-row,
-#shareRow {
+.share-slot {
   width: 100%;
+}
+
+.share-slot:empty {
+  display: none;
+}
+
+.share-slot {
+  max-width: 1400px;
+  margin: 30px auto;
+  padding: 24px 20px;
+  border-top: 1px solid var(--accent-alt);
+  border-bottom: 1px solid var(--accent-alt);
+  box-sizing: border-box;
 }
 
 .share-label {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--accent);
   margin: 0 0 16px;
-}
-
-#shareRow:empty {
-  display: none;
-}
-
-#shareRow {
-  border-top: 1px solid var(--accent-alt);
-  border-bottom: 1px solid var(--accent-alt);
-  padding: 24px 0;
-  margin-top: 50px;
+  text-shadow: 0 0 16px rgba(255, 0, 85, 0.45);
 }
 
 .share-buttons {
@@ -259,9 +262,13 @@ a:hover {
 }
 
 .share-btn-copy {
+  width: auto;
+  padding: 0 16px;
+  gap: 8px;
   background: var(--accent-alt);
   color: #000000;
-  border-radius: 2px;
+  border-radius: 4px;
+  white-space: nowrap;
 }
 
 .share-btn-copy:hover {
