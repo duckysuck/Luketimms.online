@@ -1,30 +1,9 @@
 [
   {
-    "slug": "war-of-spirits-joining-the-rebel-alliance",
-    "title": "The War of Spirits: Joining the Rebel Alliance",
-    "date": "2026-06-18",
-    "excerpt": "Greed bought the algorithm. Clarity is how we take it back.",
-    "tags": ["society", "AI", "technology"]
-  },
-  {
     "slug": "death-of-the-bored-moment",
     "title": "The Death of the Bored Moment",
-    "date": "2026-06-18",
+    "date": "2026-06-30",
     "excerpt": "We murdered the blank space in our day, and our best ideas with it.",
     "tags": ["attention", "boredom", "creativity"]
-  },
-  {
-    "slug": "death-of-fivem-birth-of-helix",
-    "title": "The Death of FiveM, The Birth of Helix?",
-    "date": "2026-06-05",
-    "excerpt": "FiveM just broke its own Steam record and ran out of runway. With Rockstar now owning the platform and Project ROME looming for GTA VI, Helix is the bet that independent creators will want somewhere else to go.",
-    "tags": ["GTA", "FiveM", "Helix", "roleplay", "modding"]
-  },
-  {
-    "slug": "ai-command-line-blog-post",
-    "title": "AI Belongs in the Command Line",
-    "date": "2026-06-01",
-    "excerpt": "AI is more powerful when it works in the command line with real files, history, and feedback.",
-    "tags": ["AI", "command line", "workflow"]
   }
 ]

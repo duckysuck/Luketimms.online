@@ -1,6 +1,6 @@
 ---
 title: The Death of the Bored Moment
-date: 2026-06-18
+date: 2026-06-30
 tags: ["attention", "boredom", "creativity"]
 subtitle: "We murdered the blank space in our day, and our best ideas with it."
 hero_image: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1200&q=80"
