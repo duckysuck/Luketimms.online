@@ -204,6 +204,72 @@ a:hover {
   font-weight: 900;
 }
 
+/* Share row — "Post-Exit Anchor" (Paul, Design Director, 2026-06-24) */
+.share-row,
+#shareRow {
+  width: 100%;
+}
+
+.share-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 16px;
+}
+
+#shareRow:empty {
+  display: none;
+}
+
+#shareRow {
+  border-top: 1px solid var(--accent-alt);
+  border-bottom: 1px solid var(--accent-alt);
+  padding: 24px 0;
+  margin-top: 50px;
+}
+
+.share-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.share-btn {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.15s cubic-bezier(0.4, 0, 0.2, 1), transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), filter 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.share-btn:hover {
+  color: var(--accent);
+  filter: drop-shadow(0 0 12px var(--accent));
+  transform: translateY(-2px);
+}
+
+.share-btn-copy {
+  background: var(--accent-alt);
+  color: #000000;
+  border-radius: 2px;
+}
+
+.share-btn-copy:hover {
+  color: #000000;
+  filter: drop-shadow(0 0 12px var(--accent-alt));
+  transform: translateY(-2px);
+}
+
 .sidebar {
   position: sticky;
   top: 40px;

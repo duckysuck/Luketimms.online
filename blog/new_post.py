@@ -3,6 +3,8 @@ import argparse
 import datetime
 import os
 import re
+import subprocess
+import sys
 from pathlib import Path
 
 POSTS_DIR = Path(__file__).resolve().parent / 'posts'
@@ -84,6 +86,15 @@ def launch_editor(filepath: Path) -> None:
         pass
 
 
+def regenerate_share_shells() -> None:
+    """Re-run gen_posts.py so the new post gets a /p/<slug>.html shell with
+    correct OG tags before anyone shares it. Note: the markdown body is
+    still empty at this point — re-run this again after writing content
+    so the og:description picks up the real subtitle."""
+    gen_script = Path(__file__).resolve().parent / 'gen_posts.py'
+    subprocess.run([sys.executable, str(gen_script)], check=True)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description='Create a new blog post.')
     parser.add_argument('title', help='Title of the new post')
@@ -95,8 +106,10 @@ def main() -> None:
     date = datetime.date.today().isoformat()
     slug = re.sub(r'[^a-z0-9]+', '-', args.title.lower()).strip('-') or 'post'
     add_to_index(args.title, slug, date, tags)
+    regenerate_share_shells()
     print(f'Created new post: {filepath}')
     print('Open it in your editor to start writing.')
+    print('Re-run gen_posts.py after writing to refresh the share preview text.')
     launch_editor(filepath)
 
 
