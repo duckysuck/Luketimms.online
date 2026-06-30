@@ -265,15 +265,17 @@ a:hover {
   width: auto;
   padding: 0 16px;
   gap: 8px;
-  background: var(--accent-alt);
-  color: #000000;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
   border-radius: 4px;
   white-space: nowrap;
 }
 
 .share-btn-copy:hover {
-  color: #000000;
-  filter: drop-shadow(0 0 12px var(--accent-alt));
+  color: var(--accent);
+  border-color: var(--accent);
+  filter: drop-shadow(0 0 12px var(--accent));
   transform: translateY(-2px);
 }
 
