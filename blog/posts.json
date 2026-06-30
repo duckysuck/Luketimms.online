@@ -4,6 +4,21 @@
     "title": "The Death of the Bored Moment",
     "date": "2026-06-30",
     "excerpt": "We murdered the blank space in our day, and our best ideas with it.",
-    "tags": ["attention", "boredom", "creativity"]
+    "tags": [
+      "attention",
+      "boredom",
+      "creativity"
+    ]
+  },
+  {
+    "slug": "ai-command-line-blog-post",
+    "title": "AI Belongs in the Command Line",
+    "date": "2026-06-30",
+    "excerpt": "AI is more powerful when it works in the command line with real files, history, and feedback.",
+    "tags": [
+      "AI",
+      "command line",
+      "workflow"
+    ]
   }
 ]
