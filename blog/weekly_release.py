@@ -24,13 +24,31 @@ def log(msg: str) -> None:
 
 
 def main() -> None:
+    # Sync with origin before touching anything, so a stale clone can't
+    # mutate state it is about to fail to push.
+    repo_dir = BLOG_DIR.parent
+    subprocess.run(['git', 'pull', '--ff-only', 'origin', 'main'], check=True, cwd=repo_dir)
+
     scheduled = json.loads(SCHEDULED_JSON.read_text(encoding='utf-8'))
     if not scheduled:
         log('No posts in queue. Nothing to release.')
         return
 
-    next_post = scheduled.pop(0)
     today = datetime.date.today().isoformat()
+
+    # Guard: never release twice in one week. A double-firing cron, a manual
+    # run, or a schedule change must not drain the queue early (2026-06-30
+    # incident: cron released a second post on launch day).
+    posts = json.loads(POSTS_JSON.read_text(encoding='utf-8'))
+    if posts:
+        newest = max(p['date'] for p in posts)
+        days_since = (datetime.date.fromisoformat(today)
+                      - datetime.date.fromisoformat(newest)).days
+        if days_since < 6:
+            log(f'Newest post is {days_since} day(s) old (<6). Skipping release.')
+            return
+
+    next_post = scheduled.pop(0)
     slug = next_post['slug']
 
     old_path = POSTS_DIR / f"{next_post['file_date']}-{slug}.md"
@@ -45,7 +63,6 @@ def main() -> None:
     new_path.write_text(text, encoding='utf-8')
     log(f'Renamed {old_path.name} -> {new_path.name}, updated frontmatter date.')
 
-    posts = json.loads(POSTS_JSON.read_text(encoding='utf-8'))
     posts.append({
         'slug': slug,
         'title': next_post['title'],
@@ -60,7 +77,6 @@ def main() -> None:
 
     subprocess.run([sys.executable, str(BLOG_DIR / 'gen_posts.py')], check=True, cwd=BLOG_DIR)
 
-    repo_dir = BLOG_DIR.parent
     subprocess.run(['git', 'add', 'blog/posts.json', 'blog/scheduled_posts.json',
                      'blog/posts/', 'blog/p/'], check=True, cwd=repo_dir)
     subprocess.run(['git', 'commit', '-m', f'blog: weekly release - {next_post["title"]}'],
