@@ -1,5 +1,16 @@
 [
   {
+    "slug": "ai-command-line-blog-post",
+    "title": "AI Belongs in the Command Line",
+    "date": "2026-07-07",
+    "excerpt": "AI is more powerful when it works in the command line with real files, history, and feedback.",
+    "tags": [
+      "AI",
+      "command line",
+      "workflow"
+    ]
+  },
+  {
     "slug": "death-of-the-bored-moment",
     "title": "The Death of the Bored Moment",
     "date": "2026-06-30",

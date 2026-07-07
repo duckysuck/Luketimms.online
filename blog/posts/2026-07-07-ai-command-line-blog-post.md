@@ -1,6 +1,6 @@
 ---
 title: AI Belongs in the Command Line
-date: 2026-06-01
+date: 2026-07-07
 tags: [AI, command line, workflow]
 subtitle: "Why the terminal is the ultimate interface for artificial intelligence."
 hero_image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&w=1200&q=80"
