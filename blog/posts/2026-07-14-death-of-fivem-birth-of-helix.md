@@ -1,6 +1,6 @@
 ---
 title: The Death of FiveM, The Birth of Helix?
-date: 2026-06-05
+date: 2026-07-14
 tags: [GTA, FiveM, Helix, roleplay, modding]
 subtitle: "FiveM just broke its own Steam record. It also just ran out of runway."
 joke_ad_image: ""
