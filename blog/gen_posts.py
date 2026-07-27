@@ -70,7 +70,7 @@ SHELL_TEMPLATE = '''<!DOCTYPE html>
   <meta name="twitter:description" content="{description}" />
   <meta name="twitter:image" content="{og_image}" />
 
-  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../style.css?v=2" />
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
