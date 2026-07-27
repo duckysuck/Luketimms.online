@@ -77,6 +77,46 @@ a:hover {
   max-width: 600px;
 }
 
+.hero-socials {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 24px 0 0;
+}
+
+.hero-socials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 10px 16px;
+  transition: all 0.2s ease;
+}
+
+.hero-socials a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.hero-socials a.icon-only {
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.hero-socials svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
 /* Main Content Grid */
 .site-main,
 .post-main {
