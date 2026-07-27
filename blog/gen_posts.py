@@ -132,6 +132,7 @@ SHELL_TEMPLATE = '''<!DOCTYPE html>
 
   <footer class="site-footer">
     <p>&copy; 2026 Lukes Blog. All rights reserved.</p>
+    <p><a href="https://www.buymeacoffee.com/lukedtimmsU" target="_blank" rel="noopener" style="color: var(--accent);">☕ Buy me a coffee</a></p>
   </footer>
 
   <script>window.__SLUG__ = {slug_js};</script>
