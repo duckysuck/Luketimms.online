@@ -825,6 +825,15 @@
       display: inline-block;
       transition: transform 0.2s ease;
     }
+    .topbar .nav-pill.dl {
+      background: transparent;
+      color: var(--accent);
+      border: 1.5px solid var(--accent);
+    }
+    .topbar .nav-pill.dl:hover {
+      background: var(--accent);
+      color: #fff;
+    }
     .topbar .nav-pill.cta:hover .arrow {
       transform: translate(2px, -2px);
     }
@@ -855,7 +864,7 @@
       <a href="#about" class="nav-pill">About</a>
       <a href="#experience" class="nav-pill">Work</a>
       <a href="#services" class="nav-pill">Services</a>
-      <a href="/Luke-Timms-CV.pdf" class="nav-pill" download>CV ↓</a>
+      <a href="/Luke-Timms-CV.pdf" class="nav-pill dl" download>CV ↓</a>
       <a href="#contact" class="nav-pill cta">Let's talk <span class="arrow">↗</span></a>
     </nav>
   </div>
@@ -864,7 +873,7 @@
     <div class="wrap">
       <div class="status reveal">
         <span class="dot"></span>
-        <span>Open to Games Producer roles · 2026</span>
+        <span>Open to new exciting roles and challenges!</span>
       </div>
       <h1 class="reveal">
         Luke <span class="italic">Timms.</span>
