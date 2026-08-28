@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Luke Timms · CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:        #f7f2e8;
+      --bg-soft:   #ede7d8;
+      --line:      #d9d2bf;
+      --text:      #14130f;
+      --text-dim:  #4d473d;
+      --text-mute: #8d8779;
+      --accent:    #c43e00;
+      --accent-2:  #a35821;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter Tight', system-ui, sans-serif;
+      font-size: 14px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; margin: 0; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    a { color: var(--accent); text-decoration: none; }
+    p { margin: 0 0 0.8em; }
+    p:last-child { margin: 0; }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 2.5rem 3rem;
+    }
+
+    /* ── HEADER ── */
+    .cv-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: start;
+      padding-bottom: 1.8rem;
+      border-bottom: 2px solid var(--text);
+      margin-bottom: 2rem;
+    }
+    .cv-header h1 {
+      font-size: 2.8rem;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+    }
+    .cv-header h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .cv-header .subtitle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-top: 0.6rem;
+    }
+    .cv-header .contact-block {
+      text-align: right;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-dim);
+      line-height: 1.8;
+    }
+    .cv-header .contact-block a { color: var(--text-dim); }
+
+    /* ── SECTION ── */
+    .cv-section {
+      margin-bottom: 2rem;
+    }
+    .cv-section-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 0.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    /* ── ABOUT ── */
+    .about-text {
+      font-size: 0.98rem;
+      color: var(--text);
+      line-height: 1.65;
+      max-width: 820px;
+    }
+
+    /* ── ROLE ── */
+    .role {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 1.2rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .role:last-child { border-bottom: none; }
+    .role .when {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.03em;
+      color: var(--text-dim);
+      padding-top: 0.25rem;
+      line-height: 1.5;
+    }
+    .role .what h3 {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.15rem;
+    }
+    .role .what .org {
+      color: var(--accent);
+      font-size: 0.88rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.02em;
+    }
+    .role .what p {
+      color: var(--text-dim);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+    .role .what p em {
+      color: var(--accent);
+      font-style: italic;
+    }
+
+    /* ── EARLY CAREER GROUP ── */
+    .early-career-group .role {
+      border-bottom: 1px dashed var(--line);
+    }
+    .early-career-group .role:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+    .early-career-note {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--text-mute);
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      padding-left: 140px;
+    }
+
+    /* ── CREDITS GRID ── */
+    .credits-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.4rem;
+    }
+    .credits-block h4 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 0.3rem;
+      margin-bottom: 0.6rem;
+    }
+    .credits-block ul {
+      list-style: none;
+      padding: 0; margin: 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-dim);
+      line-height: 1.8;
+    }
+    .credits-block ul li::before {
+      content: "▸ ";
+      color: var(--accent);
+    }
+
+    /* ── COMPETENCIES ── */
+    .comp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem 1.5rem;
+    }
+    .comp-item {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-dim);
+      padding: 0.3rem 0;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .comp-item::before { content: "✓"; color: var(--accent); font-weight: 700; }
+
+    /* ── FOOTER ── */
+    .cv-footer {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--text-mute);
+      letter-spacing: 0.04em;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media print {
+      body { font-size: 13px; }
+      .page { padding: 1rem 1.5rem; }
+      .cv-header h1 { font-size: 2.4rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="cv-header">
+    <div>
+      <h1>Luke <em>Timms</em></h1>
+      <div class="subtitle">Games Producer · Production Pipelines · End-to-End Delivery</div>
+    </div>
+    <div class="contact-block">
+      <a href="https://luketimms.online">luketimms.online</a><br>
+      <a href="https://www.linkedin.com/in/luketimms">linkedin.com/in/luketimms</a><br>
+      Uckfield, UK
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="cv-section">
+    <div class="cv-section-title">Profile</div>
+    <div class="about-text">
+      <p>I lead game production from a people-first perspective. I find the delivery methods that fit the team and studio — frameworks that enable great work, not constrain it. Individuals and interactions over processes and tools.</p>
+      <p>I've owned production pipelines at game studios: built the schedules, driven the milestones, and held the delivery frameworks. I work hands-on with Jira, workflows, and the systems that help teams deliver amazing features. I've shipped games end-to-end and understand what it takes to get there. 25 years across games, live entertainment, and complex enterprise delivery.</p>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="cv-section">
+    <div class="cv-section-title">Experience</div>
+
+    <!-- Jean Edwards Consulting -->
+    <div class="role">
+      <div class="when">Mar 2026 — Present</div>
+      <div class="what">
+        <h3>Senior Project Manager</h3>
+        <div class="org">Jean Edwards Consulting</div>
+        <p>Leading client delivery projects end-to-end. Owning scope, milestones and delivery rhythm, and coaching teams toward ways of working that fit them. The same people-first production discipline, applied to enterprise delivery.</p>
+      </div>
+    </div>
+
+    <!-- Nexus Studios -->
+    <div class="role">
+      <div class="when">Aug 2025 — Nov 2025</div>
+      <div class="what">
+        <h3>Production Manager · Freelance</h3>
+        <div class="org">Nexus Studios</div>
+        <p>Hands-on production support during critical delivery phases on a fast-moving creative project. Freeing senior leaders to focus on customer liaison and wider project needs while keeping delivery pace.</p>
+      </div>
+    </div>
+
+    <!-- Improbable -->
+    <div class="role">
+      <div class="when">Feb 2023 — Jul 2025</div>
+      <div class="what">
+        <h3>Senior Producer / Head of QA</h3>
+        <div class="org">Improbable / Imporium (Improbable Venture)</div>
+        <p>Led production on <em>Unreal Engine-powered virtual world live events</em>, each serving thousands of concurrent players in real-time multiplayer. Owned product delivery end-to-end from scoping through live event and iteration. Strategically led and coached the QA team; introduced a QA operating model that improved release quality. Bridged cross-functional teams, aligned vision, and turned delivery chaos into clarity. Shipped 11+ large-scale events including SummerCrush, Halloween, Spacerace, NPC Snatchers, HotShots, Mashup, Game4Ukraine, Beyond the Pitch with Zinchenko, and Clash of Fans.</p>
+      </div>
+    </div>
+
+    <!-- CCP Games -->
+    <div class="role">
+      <div class="when">Aug 2021 — Feb 2023</div>
+      <div class="what">
+        <h3>Senior Development Manager</h3>
+        <div class="org">CCP Games</div>
+        <p>Led the Missions Team. Redesigned the team's delivery systems and planning rhythms to increase predictability across engineering and design. Introduced frameworks that clarified scope, ownership and progress; lifted delivery consistency across multiple feature streams. Acted as the link between leadership and production — translating creative goals into realistic, trackable outcomes. Reduced production friction by improving tooling, communication flow and alignment across disciplines.</p>
+      </div>
+    </div>
+
+    <!-- Lloyds Banking Group -->
+    <div class="role">
+      <div class="when">2016 — 2021</div>
+      <div class="what">
+        <h3>Senior Risk Manager / Product Owner</h3>
+        <div class="org">Lloyds Banking Group</div>
+        <p>Embedded risk management into engineering and AI teams without slowing delivery. Created and rolled out new digital risk frameworks across the bank, improving clarity and consistency. Advised the CIO and CDO on technology posture. Provided strategic risk guidance that accelerated approvals on major AI and cloud initiatives while keeping teams empowered.</p>
+      </div>
+    </div>
+
+    <!-- Accenture -->
+    <div class="role">
+      <div class="when">2013 — 2016</div>
+      <div class="what">
+        <h3>Digital Project Manager / Delivery Roles</h3>
+        <div class="org">Accenture (FCA · AstraZeneca · Discovery Channel · others)</div>
+        <p>Delivered multiple digital projects for global clients through structured rollouts that replaced reactive work with predictable frameworks. Improved campaign velocity by unifying agencies and client teams across shared delivery principles. Reduced project overruns through clearer scope control, better tooling, and tighter stakeholder alignment. The delivery template established here became the standard for future client work.</p>
+      </div>
+    </div>
+
+    <!-- EARLY CAREER GROUP -->
+    <div class="cv-section-title" style="margin-top:1.4rem;">Early Career · Games Production (2000 — 2013)</div>
+    <div class="early-career-group">
+
+      <div class="role">
+        <div class="when">May 2012 — Mar 2013</div>
+        <div class="what">
+          <h3>Lead Producer / Lead Product Owner</h3>
+          <div class="org">Kaplan</div>
+          <p>Led production and product ownership across the studio's key titles, owning delivery end-to-end and driving cross-functional team alignment.</p>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="when">Dec 2011 — May 2012</div>
+        <div class="what">
+          <h3>Producer</h3>
+          <div class="org">Arooga</div>
+          <p>Games production across rapid delivery cycle, managing scope and team coordination through to release.</p>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="when">May 2011 — Dec 2011</div>
+        <div class="what">
+          <h3>Game Director</h3>
+          <div class="org">Zoë Mode</div>
+          <p>Directed game production at Zoë Mode, overseeing creative and delivery disciplines and driving the project through to completion. Credits include <em>Grease Dance</em> (2012).</p>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="when">Jan 2010 — May 2011</div>
+        <div class="what">
+          <h3>Contracting Producer</h3>
+          <div class="org">Electronic Arts</div>
+          <p>Contracted producer role at EA, owning production pipeline and milestone delivery. Credits include <em>Harry Potter and the Deathly Hallows: Part 1 &amp; 2</em> (2010–11).</p>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="when">Sept 2008 — Jan 2010</div>
+        <div class="what">
+          <h3>Producer</h3>
+          <div class="org">Hotgen</div>
+          <p>Production management across handheld and mobile titles, driving delivery from concept through to release.</p>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="when">Jun 2008 — Sept 2008</div>
+        <div class="what">
+          <h3>Development Manager</h3>
+          <div class="org">nDreams</div>
+          <p>Development management at pioneering VR and PlayStation Home studio nDreams, aligning team delivery with product goals.</p>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="when">Nov 2003 — Jun 2008</div>
+        <div class="what">
+          <h3>Associate Producer</h3>
+          <div class="org">Eidos Interactive</div>
+          <p>Associate Producer across multiple titles at Eidos, owning scheduling, milestone tracking, and cross-team coordination. Credits include <em>Reservoir Dogs</em> (2006), <em>Constantine</em> (2005), <em>Conflict: Global Terror</em> (2005), <em>Prism: Light the Way</em> (2007), and <em>Richard Burns Rally</em> (2004).</p>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="when">2000 — Nov 2003</div>
+        <div class="what">
+          <h3>QA / Production</h3>
+          <div class="org">SCi Games</div>
+          <p>Started in QA at SCi Games in 2000 and progressed into production. Credits include the <em>Conflict: Desert Storm</em> series (2002–03).</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="early-career-note">28 shipped titles across PS2, PS3, PSP, Xbox, Xbox 360, Wii, Nintendo DS, GameCube, Windows, and Dreamcast · Full credits: mobygames.com/person/38216/luke-timms</div>
+
+  </div>
+
+  <!-- COMPETENCIES -->
+  <div class="cv-section">
+    <div class="cv-section-title">Core Competencies</div>
+    <div class="comp-grid">
+      <div class="comp-item">Production pipeline ownership</div>
+      <div class="comp-item">Agile / Scrum / Kanban / Waterfall</div>
+      <div class="comp-item">End-to-end delivery leadership</div>
+      <div class="comp-item">Cross-functional team alignment</div>
+      <div class="comp-item">Jira &amp; delivery tooling</div>
+      <div class="comp-item">Publisher &amp; partner management</div>
+      <div class="comp-item">QA strategy &amp; process</div>
+      <div class="comp-item">Risk management</div>
+      <div class="comp-item">Milestone &amp; schedule planning</div>
+    </div>
+  </div>
+
+  <!-- SHIPPED TITLES -->
+  <div class="cv-section">
+    <div class="cv-section-title">Selected Credits</div>
+    <div class="credits-grid">
+      <div class="credits-block">
+        <h4>Console &amp; PC</h4>
+        <ul>
+          <li>Harry Potter: Deathly Hallows Pt 1 &amp; 2 — 2010–11</li>
+          <li>Grease Dance — 2012</li>
+          <li>Reservoir Dogs — 2006</li>
+          <li>Prism: Light the Way — 2007</li>
+          <li>Conflict: Global Terror — 2005</li>
+          <li>Constantine — 2005</li>
+          <li>Richard Burns Rally — 2004</li>
+          <li>Conflict: Desert Storm series — 2002–03</li>
+        </ul>
+      </div>
+      <div class="credits-block">
+        <h4>Live Events · Improbable · 2023–25</h4>
+        <ul>
+          <li>SummerCrush</li>
+          <li>Halloween</li>
+          <li>Spacerace</li>
+          <li>NPC Snatchers</li>
+          <li>HotShots</li>
+          <li>Mashup</li>
+          <li>Game4Ukraine</li>
+          <li>Beyond the Pitch with Zinchenko</li>
+          <li>Clash of Fans</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="cv-footer">
+    <span>Luke Timms · CV · 2026</span>
+    <span>luketimms.online · linkedin.com/in/luketimms</span>
+  </div>
+
+</div>
+</body>
+</html>
