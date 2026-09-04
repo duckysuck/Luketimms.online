@@ -120,11 +120,12 @@ SHELL_TEMPLATE = '''<!DOCTYPE html>
         <p>Nintendo Switch 2 exclusive. £57.95.</p>
       </a>
 
-      <div class="ad-card">
+      <a href="https://baas.tukems.cloud/" class="ad-card">
         <p class="ad-label">Sponsored</p>
         <h3>Blog as a Service</h3>
         <p>Want a blog like this?</p>
-      </div>
+        <p class="meta" style="text-decoration: underline; color: var(--accent-alt);">Coming soon →</p>
+      </a>
 
       <p class="affiliate-disclosure">As an Amazon Associate I earn from qualifying purchases.</p>
     </aside>
