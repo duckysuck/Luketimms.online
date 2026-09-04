@@ -1,0 +1,60 @@
+name: Generate CV PDF
+
+on:
+  push:
+    paths:
+      - 'cv-print.html'
+      - '.github/workflows/generate-cv-pdf.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Playwright Chromium deps
+        run: npx playwright install-deps chromium
+
+      - name: Install Playwright
+        run: npm install playwright-core
+
+      - name: Generate PDF
+        run: |
+          cat > gen-pdf.js << 'EOF'
+          const { chromium } = require('playwright-core');
+          const path = require('path');
+          (async () => {
+            const browser = await chromium.launch({ args: ['--no-sandbox'] });
+            const page = await browser.newPage();
+            await page.goto('file://' + path.resolve('cv-print.html'), { waitUntil: 'networkidle' });
+            await page.waitForTimeout(2000);
+            await page.pdf({
+              path: 'Luke-Timms-CV.pdf',
+              format: 'A4',
+              printBackground: true,
+              margin: { top: '0', right: '0', bottom: '0', left: '0' },
+            });
+            await browser.close();
+            console.log('PDF generated');
+          })();
+          EOF
+          npx playwright install chromium
+          node gen-pdf.js
+
+      - name: Commit PDF
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Luke-Timms-CV.pdf
+          git diff --staged --quiet || git commit -m "chore: regenerate CV PDF from cv-print.html"
+          git push
