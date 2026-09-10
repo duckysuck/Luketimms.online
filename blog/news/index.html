@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="News I Care About — a weekly, auto-curated games industry brief, summarised from real sources. No hype, no invented stories.">
+  <meta name="theme-color" content="#000000">
+  <title>News I Care About · Lukes Blog</title>
+
+  <meta property="og:title" content="News I Care About · Lukes Blog">
+  <meta property="og:description" content="Weekly games industry signal, summarised from real sources by Claude. Curated by Luke Timms.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://blog.luketimms.online/news/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:        #000000;
+      --bg-soft:   #111111;
+      --line:      #2a2a2a;
+      --text:      #f5f5f5;
+      --text-dim:  #a0a0a0;
+      --text-mute: #5c5c5c;
+      --accent:    #ff0055;
+      --accent-2:  #00f2ff;
+      --max:       1400px;
+      --pad-x:     clamp(1.25rem, 4vw, 3.5rem);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter Tight', system-ui, -apple-system, sans-serif;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: var(--accent); color: #fff; }
+
+    h1, h2, h3, h4 { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; margin: 0; }
+    .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+    a { color: inherit; text-decoration: none; }
+    p { margin: 0 0 1em; }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad-x); }
+
+    .back-nav {
+      padding: 1.4rem var(--pad-x);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      border-bottom: 1px solid var(--line);
+    }
+    .back-nav a { color: var(--text-dim); }
+    .back-nav a:hover { color: var(--accent); }
+
+    .hero { padding: 4.5rem 0 2rem; }
+    .hero .status {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 2rem;
+    }
+    .hero .status .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 0 var(--accent);
+      animation: pulse 2.4s infinite;
+    }
+    @keyframes pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(255,0,85,0.6); }
+      70%  { box-shadow: 0 0 0 10px rgba(255,0,85,0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,0,85,0); }
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 8vw, 6rem);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.6rem;
+    }
+    .hero h1 .italic { font-style: italic; color: var(--accent); }
+    .hero .tagline {
+      display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      max-width: 720px;
+    }
+    .hero .tagline span::after { content: "·"; color: var(--text-mute); margin-left: 1.2rem; }
+    .hero .tagline span:last-child::after { content: ""; }
+    .hero .credo {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      line-height: 1.3;
+      color: var(--text);
+      margin-top: 2rem;
+      max-width: 760px;
+    }
+    .hero .credo::before { content: "— "; color: var(--accent); font-style: normal; }
+
+    section.block { padding: 4rem 0; border-top: 1px solid var(--line); }
+    .section-head {
+      display: grid; grid-template-columns: 100px 1fr; gap: 2rem;
+      margin-bottom: 2.6rem; align-items: baseline;
+    }
+    .section-head .num { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: var(--accent); }
+    .section-head h2 { font-size: clamp(2rem, 4.5vw, 3.2rem); line-height: 1; letter-spacing: -0.02em; }
+    .section-head h2 .italic { font-style: italic; color: var(--accent-2); }
+
+    .take { display: grid; grid-template-columns: 100px 1fr; gap: 2rem; }
+    .take .label { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: var(--text-dim); text-transform: uppercase; }
+    .take ol { list-style: none; padding: 0; margin: 0; max-width: 900px; counter-reset: take; }
+    .take ol li {
+      counter-increment: take; position: relative; padding: 1.1rem 0 1.1rem 3.2rem;
+      border-top: 1px solid var(--line); font-family: 'Instrument Serif', serif;
+      font-size: clamp(1.15rem, 2.2vw, 1.5rem); line-height: 1.35; color: var(--text);
+    }
+    .take ol li:first-child { border-top: none; padding-top: 0; }
+    .take ol li:first-child::before { top: 0.1rem; }
+    .take ol li::before {
+      content: "0" counter(take); position: absolute; left: 0; top: 1.2rem;
+      font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--accent);
+    }
+
+    .items { display: grid; grid-template-columns: 100px 1fr; gap: 2rem; }
+    .items .label { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: var(--text-dim); text-transform: uppercase; }
+    .items .stack { display: grid; gap: 1.4rem; }
+    .card {
+      background: var(--bg-soft); border: 1px solid var(--line); border-left: 3px solid var(--accent);
+      padding: 1.6rem 1.8rem; display: grid; gap: 0.9rem; transition: background 0.25s, border-color 0.25s, transform 0.25s;
+    }
+    .card:hover { background: #161616; transform: translateY(-2px); border-left-color: var(--accent-2); }
+    .card .topline {
+      display: flex; align-items: center; flex-wrap: wrap; gap: 0.8rem 1.2rem;
+      font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim);
+    }
+    .card .verdict { padding: 0.16rem 0.5rem; border: 1px solid var(--accent); color: var(--accent); border-radius: 999px; font-weight: 600; }
+    .card .verdict.must-read { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .card .verdict.skim { color: var(--text-mute); border-color: var(--text-mute); }
+    .card .rating { color: var(--accent-2); }
+    .card h3 { font-family: 'Instrument Serif', serif; font-size: clamp(1.3rem, 2.4vw, 1.7rem); line-height: 1.2; margin: 0; }
+    .card h3 a { color: var(--text); border-bottom: 1px dotted var(--text-mute); transition: color 0.2s, border-color 0.2s; }
+    .card h3 a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+    .card .summary { color: var(--text); font-size: 1rem; line-height: 1.55; margin: 0; }
+    .card .why, .card .producer {
+      font-size: 0.92rem; line-height: 1.55; color: var(--text-dim); margin: 0;
+      padding-left: 1rem; border-left: 1px solid var(--line);
+    }
+    .card .why strong, .card .producer strong {
+      display: block; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 0.3rem; font-weight: 600;
+    }
+    .card .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .card .tags span {
+      font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--text-mute);
+      padding: 0.2rem 0.5rem; border: 1px solid var(--line); border-radius: 4px; letter-spacing: 0.05em;
+    }
+
+    .sponsored { display: grid; grid-template-columns: 100px 1fr; gap: 2rem; margin-top: 2rem; }
+    .sponsored .label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--text-mute); text-transform: uppercase; }
+    .ad {
+      background: transparent; border: 1px dashed var(--line); padding: 1.3rem 1.6rem;
+      display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; justify-content: space-between;
+      transition: border-color 0.25s, background 0.25s;
+    }
+    .ad:hover { border-color: var(--accent); background: var(--bg-soft); }
+    .ad .ad-flag { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-mute); }
+    .ad .ad-body { font-family: 'Inter Tight', sans-serif; font-size: 1rem; color: var(--text); flex: 1 1 auto; min-width: 220px; }
+    .ad .ad-body em { color: var(--accent); font-style: italic; }
+    .ad .ad-cta {
+      font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--accent); border-bottom: 1px dotted var(--accent); padding-bottom: 1px;
+    }
+
+    .spin { display: grid; grid-template-columns: 100px 1fr; gap: 2rem; }
+    .spin .label { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: var(--text-dim); text-transform: uppercase; }
+    .spin blockquote {
+      font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(1.3rem, 3vw, 2rem);
+      line-height: 1.3; color: var(--text); max-width: 880px; margin: 0;
+    }
+    .spin blockquote::before { content: "— "; color: var(--accent); font-style: normal; }
+
+    .self-ad {
+      margin-top: 2.6rem; padding: 2rem 2.2rem; background: var(--bg-soft); border: 1px solid var(--line);
+      border-left: 3px solid var(--accent-2); display: grid; grid-template-columns: 1fr auto; gap: 1.6rem; align-items: center;
+    }
+    .self-ad .body { font-family: 'Instrument Serif', serif; font-size: clamp(1.2rem, 2.4vw, 1.5rem); line-height: 1.3; color: var(--text); max-width: 760px; }
+    .self-ad .body em { color: var(--accent); font-style: italic; }
+    .self-ad .cta {
+      display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.85rem 1.3rem; border: 1px solid var(--accent);
+      border-radius: 999px; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--accent); transition: background 0.2s, color 0.2s; white-space: nowrap;
+    }
+    .self-ad .cta:hover { background: var(--accent); color: #000; }
+    @media (max-width: 640px) { .self-ad { grid-template-columns: 1fr; } }
+
+    footer {
+      border-top: 1px solid var(--line); padding: 2.6rem 0 3rem; font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-mute);
+    }
+    footer .row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    footer a { color: var(--text-dim); border-bottom: 1px dotted var(--text-mute); padding-bottom: 1px; }
+    footer a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+    @media (max-width: 720px) {
+      .section-head, .take, .items, .spin, .sponsored { grid-template-columns: 1fr; gap: 1rem; }
+      .take ol li { padding-left: 2.2rem; }
+      .card { padding: 1.3rem 1.3rem; }
+    }
+
+    .empty-state {
+      padding: 2rem; border: 1px dashed var(--line); color: var(--text-dim);
+      font-family: 'JetBrains Mono', monospace; font-size: 0.92rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="back-nav wrap">
+    <a href="../index.html">← Back to Lukes Blog</a>
+  </div>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="status">
+        <span class="dot"></span>
+        <span id="weekOf">Loading feed…</span>
+      </div>
+      <h1>News I care <span class="italic">about.</span></h1>
+      <div class="tagline">
+        <span>Games industry signal</span>
+        <span>Real sources, summarised</span>
+        <span id="freshness">—</span>
+      </div>
+      <p class="credo">Auto-curated weekly from real games-industry feeds — no invented stories, no fabricated sources. Every link goes somewhere real.</p>
+    </div>
+  </header>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="num">01 / Take</div>
+        <h2>The <span class="italic">headlines.</span></h2>
+      </div>
+      <div class="take">
+        <div class="label">Read me first</div>
+        <ol id="executiveTake">
+          <li class="empty-state">News will load shortly.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="num">02 / Picks</div>
+        <h2>This week's <span class="italic">signal.</span></h2>
+      </div>
+      <div class="items">
+        <div class="label">Top picks</div>
+        <div class="stack" id="items">
+          <div class="empty-state">News will load shortly.</div>
+        </div>
+      </div>
+
+      <div class="sponsored" id="sponsoredSlot" hidden>
+        <div class="label">Sponsored</div>
+        <a class="ad" id="sponsoredAd" href="#" target="_blank" rel="sponsored noopener">
+          <span class="ad-flag">Ad</span>
+          <span class="ad-body" id="sponsoredBody"></span>
+          <span class="ad-cta">Take a look ↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="num">03 / Spin</div>
+        <h2>Producer's <span class="italic">spin.</span></h2>
+      </div>
+      <div class="spin">
+        <div class="label">My read</div>
+        <blockquote id="producerSpin">Loading…</blockquote>
+      </div>
+
+      <div class="self-ad">
+        <div class="body">
+          Reading this and hiring? I'm <em>available for senior production roles</em> — studio pipeline owner, partner liaison, end-to-end delivery.
+        </div>
+        <a href="https://luketimms.online/#contact" class="cta">Let's talk <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="row">
+        <div>© 2026 Luke Timms</div>
+        <div><a href="../index.html">Lukes Blog</a> · News I Care About</div>
+        <div class="mono" id="clock">—</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const el = document.getElementById('clock');
+      if (!el) return;
+      function tick() {
+        const d = new Date();
+        const hh = String(d.getUTCHours()).padStart(2, '0');
+        const mm = String(d.getUTCMinutes()).padStart(2, '0');
+        el.textContent = hh + ':' + mm + ' UTC';
+      }
+      tick();
+      setInterval(tick, 30000);
+    })();
+
+    const AD_SLOT = {
+      enabled: true,
+      href: "https://www.gdcvault.com/",
+      body: "<em>GDC Vault</em> — production track talks worth the subscription if you're scoping a live-service title this year.",
+      flag: "Sponsored"
+    };
+
+    function escapeHTML(s) {
+      return String(s ?? "").replace(/[&<>"']/g, c => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+      }[c]));
+    }
+
+    function verdictClass(v) {
+      const k = (v || "").toLowerCase();
+      if (k.includes("must")) return "must-read";
+      if (k.includes("skim")) return "skim";
+      return "";
+    }
+
+    function renderFeed(d) {
+      if (d.weekOf) document.getElementById("weekOf").textContent = d.weekOf;
+      if (d.generatedAt) {
+        const dt = new Date(d.generatedAt);
+        const opts = { day: "numeric", month: "short", year: "numeric" };
+        document.getElementById("freshness").textContent = "Updated " + dt.toLocaleDateString("en-GB", opts);
+      }
+
+      const takeEl = document.getElementById("executiveTake");
+      if (Array.isArray(d.executiveTake) && d.executiveTake.length) {
+        takeEl.innerHTML = d.executiveTake.map(t => `<li>${escapeHTML(t)}</li>`).join("");
+      }
+
+      const items = document.getElementById("items");
+      if (Array.isArray(d.items) && d.items.length) {
+        items.innerHTML = d.items.map(item => `
+          <article class="card">
+            <div class="topline">
+              <span class="verdict ${verdictClass(item.verdict)}">${escapeHTML(item.verdict || "Worth It")}</span>
+              <span class="rating">${escapeHTML(item.rating ?? "")}/10</span>
+              <span>${escapeHTML(item.source || "")}</span>
+            </div>
+            <h3><a href="${escapeHTML(item.url || "#")}" target="_blank" rel="noopener">${escapeHTML(item.title || "Untitled")}</a></h3>
+            <p class="summary">${escapeHTML(item.summary || "")}</p>
+            ${item.whyItMatters ? `<p class="why"><strong>Why it matters</strong>${escapeHTML(item.whyItMatters)}</p>` : ""}
+            ${item.producerAngle ? `<p class="producer"><strong>Producer angle</strong>${escapeHTML(item.producerAngle)}</p>` : ""}
+            ${Array.isArray(item.tags) && item.tags.length ? `<div class="tags">${item.tags.map(t => `<span>#${escapeHTML(t)}</span>`).join("")}</div>` : ""}
+          </article>
+        `).join("");
+      }
+
+      if (AD_SLOT.enabled) {
+        const slot = document.getElementById("sponsoredSlot");
+        const ad = document.getElementById("sponsoredAd");
+        const body = document.getElementById("sponsoredBody");
+        if (slot && ad && body) {
+          slot.hidden = false;
+          ad.href = AD_SLOT.href;
+          body.innerHTML = AD_SLOT.body;
+        }
+      }
+
+      if (d.producerSpin) {
+        document.getElementById("producerSpin").textContent = d.producerSpin;
+      }
+    }
+
+    fetch("data/latest.json", { cache: "no-cache" })
+      .then(r => r.ok ? r.json() : Promise.reject(new Error("Fetch " + r.status)))
+      .then(renderFeed)
+      .catch(err => {
+        console.error("News feed failed to load:", err);
+        document.getElementById("weekOf").textContent = "Feed unavailable";
+      });
+  </script>
+</body>
+</html>
