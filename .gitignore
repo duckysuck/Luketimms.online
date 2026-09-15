@@ -1,2 +1,3 @@
 __pycache__/
 blog/weekly_release.log
+blog/news/data/*.json
