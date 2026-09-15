@@ -71,7 +71,7 @@ function renderHomeShareRow() {
     renderShareButtons(slot, {
       slug: 'index',
       url: 'https://blog.luketimms.online/',
-      text: 'Lukes Blog — Brain farts to tangible outcomes.',
+      text: 'Lukes Blog: Brain farts to tangible outcomes.',
       label: 'SHARE THIS',
     });
   });

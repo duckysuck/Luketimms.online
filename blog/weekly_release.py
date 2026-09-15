@@ -1,7 +1,7 @@
 """Weekly Tuesday-evening release: pops the next post off scheduled_posts.json,
 publishes it with today's date, regenerates the OG shells, and pushes live.
 
-Run by cron (see crontab -l). Safe to run with an empty queue — it just exits.
+Run by cron (see crontab -l). Safe to run with an empty queue: it just exits.
 """
 from __future__ import annotations
 

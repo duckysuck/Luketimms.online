@@ -89,7 +89,7 @@ def launch_editor(filepath: Path) -> None:
 def regenerate_share_shells() -> None:
     """Re-run gen_posts.py so the new post gets a /p/<slug>.html shell with
     correct OG tags before anyone shares it. Note: the markdown body is
-    still empty at this point — re-run this again after writing content
+    still empty at this point: re-run this again after writing content
     so the og:description picks up the real subtitle."""
     gen_script = Path(__file__).resolve().parent / 'gen_posts.py'
     subprocess.run([sys.executable, str(gen_script)], check=True)

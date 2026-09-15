@@ -53,7 +53,7 @@ SHELL_TEMPLATE = '''<!DOCTYPE html>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{title} — Lukes Blog</title>
+  <title>{title}: Lukes Blog</title>
   <meta name="description" content="{description}" />
   <link rel="canonical" href="{canonical}" />
 

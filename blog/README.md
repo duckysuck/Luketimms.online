@@ -2,13 +2,13 @@ Blog site
 =========
 
 What this folder contains
-- `index.html` — blog homepage with post list and adverts.
-- `post.html` — generic post viewer for markdown posts.
-- `style.css` — site styling.
-- `blog.js` — client-side loading of posts and markdown rendering.
-- `posts.json` — site index of available blog posts.
-- `posts/` — markdown content files.
-- `new_post.py` — quick script to create a new post and register it in `posts.json`.
+- `index.html`: blog homepage with post list and adverts.
+- `post.html`: generic post viewer for markdown posts.
+- `style.css`: site styling.
+- `blog.js`: client-side loading of posts and markdown rendering.
+- `posts.json`: site index of available blog posts.
+- `posts/`: markdown content files.
+- `new_post.py`: quick script to create a new post and register it in `posts.json`.
 
 Create a new post quickly
 - Run `python new_post.py "My New Title" --tags ai,blog,workflows`
