@@ -1,6 +1,6 @@
 ---
 title: "The Sky Is Falling Again: Why AI Fear Is Nothing New"
-date: 2026-09-10
+date: 2026-09-15
 tags: ["AI", "history", "technology"]
 subtitle: "Hinton says a 10% extinction risk isn't unreasonable. History says we've run this exact script before."
 ---
