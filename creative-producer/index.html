@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Luke Timms: Creative Producer. Ideas taken from brief to delivery across feature film, live entertainment, games, creative studios and digital campaigns.">
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="https://luketimms.online/creative-producer/">
+  <meta name="theme-color" content="#0d0c0a">
+  <title>Luke Timms · Creative Producer</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Luke Timms · Creative Producer">
+  <meta property="og:description" content="Brief to delivery · Shoots and live production · Made well">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://luketimms.online/creative-producer/">
+  <meta property="og:image" content="https://luketimms.online/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Luke Timms · Delivery Leader">
+  <meta property="og:site_name" content="Luke Timms">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Luke Timms · Creative Producer">
+  <meta name="twitter:description" content="Brief to delivery · Shoots and live production · Made well">
+  <meta name="twitter:image" content="https://luketimms.online/og-image.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:        #0d0c0a;
+      --bg-soft:   #14130f;
+      --line:      #1f1d17;
+      --text:      #f0ece2;
+      --text-dim:  #b3ad9f;
+      --text-mute: #4a463e;
+      --accent:    #ff5b14;
+      --accent-2:  #ffb38a;
+      --max:       1440px;
+      --pad-x:     clamp(1.25rem, 4vw, 3.5rem);
+    }
+
+    [data-theme="light"] {
+      --bg:        #f7f2e8;
+      --bg-soft:   #ede7d8;
+      --line:      #d9d2bf;
+      --text:      #14130f;
+      --text-dim:  #4d473d;
+      --text-mute: #8d8779;
+      --accent:    #c43e00;
+      --accent-2:  #a35821;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter Tight', system-ui, -apple-system, sans-serif;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+
+    /* Selection */
+    ::selection { background: var(--accent); color: var(--bg); }
+
+    /* Subtle film grain */
+    body::before {
+      content: "";
+      position: fixed; inset: 0;
+      pointer-events: none;
+      z-index: 100;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+      mix-blend-mode: overlay;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; margin: 0; }
+    .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+    a { color: inherit; text-decoration: none; }
+    p { margin: 0 0 1em; }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--pad-x);
+    }
+
+    /* ───── NAV ───── */
+    nav.top {
+      position: fixed; top: 0; left: 0; right: 0;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.25rem var(--pad-x);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      z-index: 50;
+      mix-blend-mode: difference;
+      color: #fff;
+    }
+    nav.top .brand { font-weight: 500; }
+    nav.top .links { display: flex; gap: 2rem; }
+    nav.top .links a { opacity: 0.7; transition: opacity 0.2s; }
+    nav.top .links a:hover { opacity: 1; }
+    @media (max-width: 640px) { nav.top .links { display: none; } }
+
+    /* ───── HERO ───── */
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      align-content: center;
+      padding-top: 6rem;
+      padding-bottom: 1.5rem;
+      position: relative;
+    }
+    .hero + section.block {
+      padding-top: 2.4rem;
+    }
+    .hero .status {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 2.5rem;
+    }
+    .hero .status .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 0 var(--accent);
+      animation: pulse 2.4s infinite;
+    }
+    @keyframes pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(255,91,20,0.6); }
+      70%  { box-shadow: 0 0 0 10px rgba(255,91,20,0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,91,20,0); }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 10vw, 8.5rem);
+      line-height: 0.92;
+      letter-spacing: -0.035em;
+      margin-bottom: 2rem;
+      white-space: nowrap;
+    }
+    .hero h1 .italic { font-style: italic; color: var(--accent); }
+
+    .hero .socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-bottom: 1.8rem;
+    }
+    .hero .socials a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1rem;
+      border-radius: 999px;
+      border: 1px solid var(--text-mute);
+      color: var(--text-dim);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+    .hero .socials a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .hero .socials svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    .hero .tagline {
+      display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      max-width: 720px;
+    }
+    .hero .tagline span { display: inline-flex; align-items: center; gap: 0.6rem; }
+    .hero .tagline span::after {
+      content: "·"; color: var(--text-mute);
+      margin-left: 1.2rem;
+    }
+    .hero .tagline span:last-child::after { content: ""; }
+
+    .hero .credo {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: clamp(1.5rem, 3.4vw, 2.4rem);
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-top: 2.4rem;
+      max-width: 760px;
+    }
+    .hero .credo::before {
+      content: "— ";
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    .hero .scroll-cue {
+      position: absolute; bottom: 2rem; left: var(--pad-x);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-mute);
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .hero .scroll-cue::after {
+      content: ""; width: 40px; height: 1px; background: var(--text-mute);
+      animation: scrollLine 2.6s infinite;
+      transform-origin: left;
+    }
+    @keyframes scrollLine {
+      0%, 100% { transform: scaleX(0.4); opacity: 0.4; }
+      50%      { transform: scaleX(1);   opacity: 1; }
+    }
+
+    /* ───── SECTION FRAMING ───── */
+    section.block {
+      padding: 6rem 0;
+      border-top: 1px solid var(--line);
+      position: relative;
+    }
+    .section-head {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 2rem;
+      margin-bottom: 4rem;
+      align-items: baseline;
+    }
+    .section-head .num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+    }
+    .section-head h2 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .section-head h2 .italic { font-style: italic; color: var(--accent-2); }
+
+    /* ───── CURRENTLY ───── */
+    .currently {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 2rem;
+    }
+    .currently .label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+    }
+    .currently .body {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+      line-height: 1.25;
+      max-width: 900px;
+      color: var(--text);
+    }
+    .currently .body em { color: var(--accent); font-style: italic; }
+
+    /* ───── ABOUT ───── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 2rem;
+    }
+    .about-grid .body {
+      max-width: 920px;
+      font-size: 1.15rem;
+      line-height: 1.65;
+      color: var(--text);
+    }
+    .about-grid .body p { margin-bottom: 1.2em; }
+    .about-grid .body p:last-child { margin-bottom: 0; }
+
+    /* ───── EXPERIENCE ───── */
+    .role {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 2rem;
+      padding: 2.2rem 0;
+      border-top: 1px solid var(--line);
+      transition: background 0.3s;
+    }
+    .role:first-child { border-top: none; }
+    .role:hover { background: linear-gradient(90deg, transparent, rgba(255,91,20,0.04), transparent); }
+    .role .when {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      color: var(--text-dim);
+      padding-top: 0.4rem;
+    }
+    .role .what h3 {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 500;
+      font-size: 1.4rem;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.3rem;
+    }
+    .role .what .org {
+      color: var(--accent);
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+    }
+    .role .what p {
+      color: var(--text);
+      max-width: 980px;
+      margin: 0;
+      font-size: 1.02rem;
+      line-height: 1.85;
+    }
+
+    /* ───── SERVICES (What I bring — infographic) ───── */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.4rem;
+    }
+
+    .service {
+      position: relative;
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--accent);
+      padding: 2.4rem 2.6rem;
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 1.5rem;
+      align-items: start;
+      transition: background 0.25s, border-color 0.25s, transform 0.25s;
+    }
+    .service:hover {
+      background: var(--bg);
+      transform: translateY(-3px);
+      border-left-color: var(--accent-2);
+    }
+    .service .ix {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-style: italic;
+      font-size: 3.6rem;
+      line-height: 0.85;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+      margin: 0;
+      align-self: start;
+      padding-top: 0.15rem;
+    }
+    .service h4 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-weight: 400;
+      font-size: 1.75rem;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin: 0 0 0.9rem;
+    }
+    .service .srv-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 0.98rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .service .srv-list li {
+      position: relative;
+      padding-left: 1.7rem;
+      margin-bottom: 0.55rem;
+    }
+    .service .srv-list li:last-child {
+      margin-bottom: 0;
+    }
+    .service .srv-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+    @media (max-width: 760px) {
+      .services { grid-template-columns: 1fr; }
+      .service { grid-template-columns: 70px 1fr; padding: 1.8rem 1.6rem; }
+      .service .ix { font-size: 2.6rem; }
+      .service h4 { font-size: 1.4rem; }
+    }
+
+    /* ───── REEL ───── */
+    .reel {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 2.5rem;
+    }
+    .video-card {
+      display: flex;
+      flex-direction: column;
+    }
+    .video-card .embed {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .video-card:hover .embed {
+      border-color: var(--accent);
+    }
+    .video-card .embed iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .video-card .meta {
+      margin-top: 1rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    .video-card .meta .num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      flex-shrink: 0;
+    }
+    .video-card .meta h4 {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 500;
+      font-size: 1.15rem;
+      letter-spacing: -0.005em;
+      margin: 0;
+    }
+    .video-card .caption {
+      margin: 0.4rem 0 0 2rem;
+      color: var(--text-dim);
+      font-size: 0.88rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .more-events {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--line);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      color: var(--text-dim);
+    }
+    .more-events a {
+      color: var(--text);
+      border-bottom: 1px dotted var(--text-mute);
+      transition: color 0.2s, border-color 0.2s;
+      margin: 0 0.4rem;
+    }
+    .more-events a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+    @media (max-width: 720px) {
+      .reel { grid-template-columns: 1fr; gap: 1.5rem; }
+      .video-card .caption { margin-left: 0; }
+    }
+
+    /* ───── CONTACT ───── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 2rem;
+    }
+    .contact-grid .pitch {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      max-width: 880px;
+      margin-bottom: 2.5rem;
+    }
+    .contact-grid .pitch em { color: var(--accent); font-style: italic; }
+    .contact-links {
+      display: flex; flex-wrap: wrap; gap: 0.8rem;
+    }
+    .contact-links a {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 0.9rem 1.4rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      transition: all 0.2s;
+    }
+    .contact-links a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .contact-links a .arrow { transition: transform 0.2s; }
+    .contact-links a:hover .arrow { transform: translate(2px, -2px); }
+
+    /* ───── FOOTER ───── */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 3rem 0 4rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-mute);
+    }
+    footer .row {
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    }
+
+    /* ───── MOBILE ADJUSTMENTS ───── */
+    @media (max-width: 720px) {
+      .section-head,
+      .currently,
+      .about-grid,
+      .role,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .section-head .num,
+      .currently .label,
+      .role .when { padding-top: 0; }
+
+      .ship-credits {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+        padding: 1.4rem 1.2rem !important;
+      }
+      .ship-credits .num { padding-top: 0; }
+      .ship-credits .ship-list {
+        grid-template-columns: 1fr !important;
+        gap: 0.6rem !important;
+      }
+      .ship-credits .ship-list li span:nth-child(2) { font-size: 13px; }
+    }
+
+    /* ───── THEME TOGGLE ───── */
+    .theme-toggle {
+      position: fixed;
+      bottom: 1.4rem;
+      right: 1.4rem;
+      z-index: 60;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: var(--bg-soft);
+      color: var(--text);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      line-height: 1;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s, color 0.2s;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .theme-toggle .moon { display: inline; }
+    .theme-toggle .sun  { display: none; }
+    [data-theme="light"] .theme-toggle .moon { display: none; }
+    [data-theme="light"] .theme-toggle .sun  { display: inline; }
+
+    /* ───── REVEAL ANIMATION ───── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .hero .status .dot { animation: none; }
+      .hero .scroll-cue::after { animation: none; }
+    }
+
+    /* ───── Chat-style contact form ───── */
+    .chat-wrap { max-width: 640px; }
+    .chat {
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--accent);
+      border-radius: 14px;
+      padding: 1.4rem 1.4rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      min-height: 240px;
+      max-height: 520px;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+    }
+    .chat::-webkit-scrollbar { width: 6px; }
+    .chat::-webkit-scrollbar-track { background: transparent; }
+    .chat::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+    .bubble {
+      max-width: 82%;
+      padding: 0.7rem 1rem;
+      border-radius: 14px;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.45;
+      word-wrap: break-word;
+      animation: bubble-in 0.28s ease;
+    }
+    @keyframes bubble-in {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .bubble.bot {
+      align-self: flex-start;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      color: var(--text);
+      border-bottom-left-radius: 4px;
+    }
+    .bubble.user {
+      align-self: flex-end;
+      background: var(--accent);
+      color: #fff;
+      border-bottom-right-radius: 4px;
+    }
+    .bubble.bot .typing { display: inline-flex; gap: 0.3rem; padding: 0.15rem 0; }
+    .bubble.bot .typing span {
+      width: 6px; height: 6px;
+      background: var(--text-mute);
+      border-radius: 50%;
+      animation: typing 1.2s infinite;
+    }
+    .bubble.bot .typing span:nth-child(2) { animation-delay: 0.18s; }
+    .bubble.bot .typing span:nth-child(3) { animation-delay: 0.36s; }
+    @keyframes typing {
+      0%, 80%, 100% { opacity: 0.3; transform: translateY(0); }
+      40%           { opacity: 1;   transform: translateY(-3px); }
+    }
+    .chat-input { margin-top: 0.9rem; min-height: 48px; }
+    .chip-group { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .chip {
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 0.94rem;
+      padding: 0.55rem 1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .chip:hover {
+      background: var(--bg);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .text-row { display: flex; gap: 0.6rem; }
+    .text-row input, .text-row textarea {
+      flex: 1;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 0.96rem;
+      padding: 0.7rem 1rem;
+      border-radius: 10px;
+      transition: border-color 0.2s;
+    }
+    .text-row textarea {
+      resize: vertical;
+      min-height: 80px;
+      font-family: 'Inter Tight', sans-serif;
+    }
+    .text-row input:focus, .text-row textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .text-row button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 0 1.2rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .text-row button:hover { background: var(--accent-2); color: var(--bg); }
+    .text-row .skip {
+      background: transparent;
+      color: var(--text-dim);
+      border: 1px solid var(--line);
+    }
+    .text-row .skip:hover { color: var(--text); border-color: var(--text-dim); background: transparent; }
+    .chat-fallback {
+      margin-top: 1.2rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--text-dim);
+      letter-spacing: 0.04em;
+    }
+    .chat-fallback a {
+      color: var(--accent-2);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--text-mute);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .chat-fallback a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+    /* ───── Sticky top bar with nav pills ───── */
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 60;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.75rem var(--pad-x);
+      background: rgba(13, 12, 10, 0.78);
+      backdrop-filter: blur(14px) saturate(140%);
+      -webkit-backdrop-filter: blur(14px) saturate(140%);
+      border-bottom: 1px solid var(--line);
+      animation: topbar-slide-in 0.45s 0.15s ease both;
+    }
+    @keyframes topbar-slide-in {
+      from { transform: translateY(-100%); opacity: 0; }
+      to   { transform: translateY(0);     opacity: 1; }
+    }
+    [data-theme="light"] .topbar {
+      background: rgba(247, 242, 232, 0.82);
+    }
+    .topbar .mark {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+    .topbar .mark::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+    .topbar-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .topbar .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 1.1rem;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 999px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .topbar .nav-pill:hover {
+      background: var(--accent-2);
+      color: var(--bg);
+    }
+    .topbar .nav-pill .arrow {
+      display: inline-block;
+      transition: transform 0.2s ease;
+    }
+    .topbar .nav-pill.dl {
+      background: transparent;
+      color: var(--accent);
+      border: 1.5px solid var(--accent);
+    }
+    .topbar .nav-pill.dl:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+    .topbar .nav-pill.cta:hover .arrow {
+      transform: translate(2px, -2px);
+    }
+    @media (max-width: 760px) {
+      .topbar { padding: 0.6rem 1rem; }
+      .topbar .mark { font-size: 11px; }
+      .topbar-nav { gap: 0.35rem; }
+      .topbar .nav-pill { padding: 0.5rem 0.85rem; font-size: 10px; }
+      .topbar .nav-pill:not(.cta) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top">
+    <div class="brand">LT / 2026</div>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#experience">Work</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="topbar" id="topbar" aria-label="Site navigation">
+    <a href="#top" class="mark">LUKE TIMMS</a>
+    <nav class="topbar-nav">
+      <a href="#about" class="nav-pill">About</a>
+      <a href="#experience" class="nav-pill">Work</a>
+      <a href="#services" class="nav-pill">Services</a>
+      <a href="/creative-producer/Luke-Timms-CV-creative-producer.pdf" class="nav-pill dl" download>CV ↓</a>
+      <a href="#contact" class="nav-pill cta">Let's talk <span class="arrow">↗</span></a>
+    </nav>
+  </div>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="status reveal">
+        <span class="dot"></span>
+        <span>Open to new exciting roles and challenges!</span>
+      </div>
+      <h1 class="reveal">
+        Luke <span class="italic">Timms.</span>
+      </h1>
+      <div class="socials reveal">
+        <a href="https://www.linkedin.com/in/luketimms" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <span>Follow Me</span>
+        </a>
+        <a href="https://www.buymeacoffee.com/lukedtimmsU" target="_blank" rel="noopener" aria-label="Buy me a coffee" title="Buy me a coffee">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.216 6.415l-.132-.666c-.119-.598-.388-1.163-1.001-1.379-.197-.069-.42-.098-.57-.241-.152-.143-.196-.366-.231-.572-.065-.378-.125-.756-.192-1.133-.057-.325-.102-.69-.25-.987-.195-.4-.597-.634-.996-.788a5.723 5.723 0 00-.626-.194c-1-.263-2.05-.36-3.077-.416a25.834 25.834 0 00-3.7.062c-.915.083-1.88.184-2.75.5-.318.116-.646.256-.888.501-.297.302-.393.77-.177 1.146.154.267.415.456.692.58.36.162.737.284 1.123.366 1.075.238 2.189.331 3.287.37 1.218.05 2.437.01 3.65-.118.299-.033.598-.073.896-.119.352-.054.578-.513.474-.834-.124-.383-.457-.531-.834-.473-.466.074-.96.108-1.382.146-1.177.08-2.358.082-3.536.006a22.228 22.228 0 01-1.157-.107c-.086-.01-.18-.025-.258-.036-.243-.036-.484-.08-.724-.13-.111-.027-.111-.185 0-.212h.005c.277-.06.557-.108.838-.147h.002c.131-.009.263-.032.394-.048a25.076 25.076 0 013.426-.12c.674.019 1.347.067 2.017.144l.228.031c.267.04.533.088.798.145.392.085.895.113 1.07.542.055.137.08.288.111.431l.319 1.484a.237.237 0 01-.199.284h-.003c-.037.006-.075.01-.112.015a36.704 36.704 0 01-4.743.295 37.059 37.059 0 01-4.699-.304c-.14-.017-.293-.042-.417-.06-.326-.048-.649-.108-.973-.161-.393-.065-.768-.032-1.123.161-.29.16-.527.404-.675.701-.154.316-.199.66-.267 1-.069.34-.176.707-.135 1.056.087.753.613 1.365 1.37 1.502a39.69 39.69 0 0011.343.376.483.483 0 01.535.53l-.071.697-1.018 9.907c-.041.41-.047.832-.125 1.237-.122.637-.553 1.028-1.182 1.171-.577.131-1.165.2-1.756.205-.656.004-1.31-.025-1.966-.022-.699.004-1.556-.06-2.095-.58-.475-.458-.54-1.174-.605-1.793l-.731-7.013-.322-3.094c-.037-.351-.286-.695-.678-.678-.336.015-.718.3-.678.679l.228 2.185.949 9.112c.147 1.344 1.174 2.068 2.446 2.272.742.12 1.503.144 2.257.156.966.016 1.942.053 2.892-.122 1.408-.258 2.465-1.198 2.616-2.657.34-3.332.683-6.663 1.024-9.995l.215-2.087a.484.484 0 01.39-.426c.402-.078.787-.212 1.074-.518.455-.488.546-1.124.385-1.766zm-1.478.772c-.145.137-.363.201-.578.233-2.416.359-4.866.54-7.308.46-1.748-.06-3.477-.254-5.207-.498-.17-.024-.353-.055-.47-.18-.22-.236-.111-.71-.054-.995.052-.26.152-.609.463-.646.484-.057 1.046.148 1.526.22.577.088 1.156.159 1.737.212 2.48.226 5.002.19 7.472-.14.45-.06.899-.13 1.345-.21.399-.072.84-.206 1.08.206.166.281.188.657.162.974a.544.544 0 01-.169.364zm-6.159 3.9c-.862.37-1.84.788-3.109.788a5.884 5.884 0 01-1.569-.217l.877 9.004c.065.78.717 1.38 1.5 1.38 0 0 1.243.065 1.658.065.447 0 1.786-.065 1.786-.065.783 0 1.434-.6 1.499-1.38l.94-9.95a3.996 3.996 0 00-1.322-.238c-.826 0-1.491.284-2.26.613z"/></svg>
+          <span>Buy Me A Coffee</span>
+        </a>
+      </div>
+      <div class="tagline reveal">
+        <span>Creative Producer</span>
+        <span>Brief to Delivery</span>
+        <span>Film &amp; Live Production</span>
+        <span>Uckfield · UK</span>
+      </div>
+      <p class="credo reveal">I get good ideas made, and made well.</p>
+      <div class="scroll-cue">Scroll</div>
+    </div>
+  </header>
+
+  <!-- ───── CURRENTLY ───── -->
+  <section class="block" id="currently">
+    <div class="wrap">
+      <div class="currently reveal">
+        <div class="label">Now</div>
+        <div class="body">
+          Most recently Production Manager on the feature film <em>Genesis</em>, now wrapped and in post. Alongside that, Senior Project Manager at <em>Jean Edwards Consulting</em>. Before that, producing live entertainment at Improbable / Imporium: football fan experiences and interactive shows, each played live by thousands of fans at once, owned from concept to the live moment. Now looking to bring that ownership to branded and longform content.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── ABOUT ───── -->
+  <section class="block" id="about">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="num">01 / About</div>
+        <h2>A producer who gets the idea <span class="italic">made.</span></h2>
+      </div>
+
+      <div class="about-grid reveal">
+        <div class="num mono" style="color: var(--text-mute); font-size: 12px;">—</div>
+        <div class="body">
+          <p>
+            I'm a hands-on producer with 25 years of taking creative ideas from the page to something people actually experience: a feature film, console games, Unreal Engine live events played by thousands at once, work with a leading creative studio, and digital campaigns for global brands. I think like a producer and a creative. I protect the idea, and I'm the production check that makes sure it survives contact with the real world.
+          </p>
+          <p>
+            I own work end to end, from brief and scope through production, shoot and live event days, delivery and what comes after. On the feature film Genesis I was the Production Manager on the ground: keeping the shoot on time and on budget, and making sure cast and crew knew where they needed to be and what was on the shot list. On live event days it was the same job with thousands of players watching. Plans change, and I make the call quickly when they do. Staying calm and resourceful under pressure is a big part of the job, and I enjoy it.
+          </p>
+          <p>
+            I'm genuinely curious about AI in production. I use it every day, build my own tools and automations with it, and I'm honest about where it helps and where it doesn't. When I see a process gap I build the fix rather than just flagging it. And I care about craft: the goal is always something people actually want to watch or play.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── EXPERIENCE ───── -->
+  <section class="block" id="experience">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="num">02 / Experience</div>
+        <h2>Selected <span class="italic">work.</span></h2>
+      </div>
+
+      <div class="roles">
+        <div class="role reveal">
+          <div class="when mono">2026</div>
+          <div class="what">
+            <h3>Production Manager · Freelance</h3>
+            <div class="org">Genesis <span style="color:var(--text-mute);font-weight:400;">(feature film · Cinevisionary)</span></div>
+            <p>Production Manager on <em style="color:var(--accent);font-style:italic;">Genesis</em>, an independent feature film, through to wrap of principal photography; the film is now in post-production. Kept the production on time and on budget across the shoot. Made sure cast and crew knew where they needed to be each day and what was being shot, owning the daily schedules and shot lists.</p>
+          </div>
+        </div>
+
+        <div class="role reveal">
+          <div class="when mono">Mar 2026 — Present</div>
+          <div class="what">
+            <h3>Senior Project Manager</h3>
+            <div class="org">Jean Edwards Consulting</div>
+            <p>Leading client projects end to end, owning scope, timelines and delivery rhythm across several workstreams at once. Keeping stakeholders aligned on what's being made and when, spotting risks early and agreeing a way through them.</p>
+          </div>
+        </div>
+
+        <div class="role reveal">
+          <div class="when mono">Aug 2025 — Nov 2025</div>
+          <div class="what">
+            <h3>Production Manager · Freelance</h3>
+            <div class="org">Nexus Studios</div>
+            <p>Hands-on production support through critical delivery phases on a fast-moving creative project at a leading creative studio. Kept the work moving so senior producers could focus on the client relationship and the wider project.</p>
+          </div>
+        </div>
+
+        <div class="role reveal">
+          <div class="when mono">Feb 2023 — July 2025</div>
+          <div class="what">
+            <h3>Senior Producer / Head of QA</h3>
+            <div class="org">Improbable / Imporium <span style="color:var(--text-mute);font-weight:400;">(Improbable Venture)</span></div>
+            <p>Produced <em style="color:var(--accent);font-style:italic;">large-scale Unreal Engine live entertainment events</em> end to end, from creative concept and scoping through production, the live moment and iteration. Each one played by thousands of concurrent fans. Delivered football fan experiences with Victory League, including Game4Ukraine, Clash of Fans and Beyond the Pitch with Zinchenko, plus interactive shows on Edison.wtf such as NPC Snatchers, HotShots and Mashup. Worked with creative, design, engineering and event partners to turn ideas into experiences that were ambitious and achievable, and flagged early when an idea needed rethinking. Led and coached the QA team and introduced a QA operating model that measurably improved release quality, protecting the standard on every drop. Live event days meant staying calm and making the right calls fast when plans changed. Shipped 11+ events in total.</p>
+          </div>
+        </div>
+
+        <div class="role reveal">
+          <div class="when mono">Aug 2021 — Feb 2023</div>
+          <div class="what">
+            <h3>Senior Development Manager</h3>
+            <div class="org">CCP Games</div>
+            <p>Led delivery for the Missions Team, translating creative goals into realistic, trackable plans across design and engineering. Spotted gaps in how the team planned and tracked work, then redesigned the delivery system without waiting to be asked: building the fix rather than just flagging it. Improved tooling, communication flow and alignment across disciplines, lifting predictability across multiple feature streams.</p>
+          </div>
+        </div>
+
+        <div class="role reveal">
+          <div class="when mono">2016 — 2021</div>
+          <div class="what">
+            <h3>Senior Risk Manager / Product Owner</h3>
+            <div class="org">Lloyds Banking Group</div>
+            <p>Used risk and delivery data to shape and defend decisions with the CIO and CDO, influencing investment and accelerating approvals on major AI and cloud initiatives. Embedded risk management into engineering and AI teams without slowing delivery, and rolled out new digital risk frameworks across the bank.</p>
+          </div>
+        </div>
+
+        <div class="role reveal">
+          <div class="when mono">2013 — 2016</div>
+          <div class="what">
+            <h3>Digital Project Manager / Delivery Roles</h3>
+            <div class="org">Accenture <span style="color:var(--text-mute);font-weight:400;">(Discovery Channel · AstraZeneca · FCA · others)</span></div>
+            <p>Delivered digital projects and campaigns for global clients. Brought agencies and client teams together around shared ways of working, which improved campaign velocity, and reduced overruns through clearer scope, better tooling and tighter stakeholder alignment. The delivery template I built here became the standard for future client work.</p>
+          </div>
+        </div>
+
+        <div class="role reveal">
+          <div class="when mono">2000 — 2012</div>
+          <div class="what">
+            <h3>Early Career · Games Production</h3>
+            <div class="org">Electronic Arts · Zoë Mode · nDreams · Eidos · SCi Games</div>
+            <p>Started in QA at SCi Games in 2000, where attention to detail wasn't optional, and moved into Production by catching what others missed and turning that rigour into process. Went on to produce across SCi, Eidos, nDreams, Zoë Mode and Electronic Arts. <em style="color:var(--accent);font-style:italic;">28 shipped titles</em> across PS2, PS3, PSP, Xbox, Xbox 360, Wii, Nintendo DS, GameCube, Windows, and Dreamcast. Including <em style="color:var(--accent);font-style:italic;">Harry Potter and the Deathly Hallows: Part 1 &amp; 2</em>, <em style="color:var(--accent);font-style:italic;">Reservoir Dogs</em>, <em style="color:var(--accent);font-style:italic;">Constantine</em>, the <em style="color:var(--accent);font-style:italic;">Conflict: Desert Storm</em> series, <em style="color:var(--accent);font-style:italic;">Richard Burns Rally</em>, and <em style="color:var(--accent);font-style:italic;">Grease Dance</em>.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Companies callout — full breadth of career -->
+      <div class="ship-credits reveal" style="margin-top: 3.5rem; padding: 2rem; border: 1px solid var(--line); display: grid; grid-template-columns: 100px 1fr; gap: 2rem;">
+        <div class="num mono" style="color: var(--accent); font-size: 12px;">Companies</div>
+        <div>
+          <p style="font-family: 'Instrument Serif', serif; font-size: 1.3rem; line-height: 1.5; color: var(--text); margin: 0 0 1rem;">
+            25 years of making creative work real, across feature film, games, live entertainment, creative studios and digital campaigns.
+          </p>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--text-dim);">
+            <li><span style="color:var(--text);">Cinevisionary · Genesis</span></li>
+            <li><span style="color:var(--text);">Jean Edwards Consulting</span></li>
+            <li><span style="color:var(--text);">Nexus Studios</span></li>
+            <li><span style="color:var(--text);">Improbable / Imporium</span></li>
+            <li><span style="color:var(--text);">CCP Games</span></li>
+            <li><span style="color:var(--text);">Lloyds Banking Group</span></li>
+            <li><span style="color:var(--text);">Accenture</span></li>
+            <li><span style="color:var(--text);">Electronic Arts</span></li>
+            <li><span style="color:var(--text);">Zoë Mode</span></li>
+            <li><span style="color:var(--text);">nDreams</span></li>
+            <li><span style="color:var(--text);">Eidos</span></li>
+            <li><span style="color:var(--text);">SCi Games</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Shipped titles callout — production credits -->
+      <div class="ship-credits reveal" style="margin-top: 1.5rem; padding: 2.4rem 2.6rem; border: 1px solid var(--line); border-left: 3px solid var(--accent); background: var(--bg-soft); display: grid; grid-template-columns: 100px 1fr; gap: 2rem;">
+        <div class="num mono" style="color: var(--accent); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;">Shipped</div>
+        <div>
+          <p style="font-family: 'Instrument Serif', serif; font-size: 1.45rem; line-height: 1.5; color: var(--text); margin: 0 0 2rem;">
+            28 shipped titles, plus 11+ Unreal Engine live events at Improbable. From console &amp; PC releases to virtual worlds serving thousands of concurrent players.
+          </p>
+
+          <div style="margin: 0 0 2rem;">
+            <div class="mono" style="font-size: 11px; color: var(--accent); margin-bottom: 1rem; letter-spacing: 0.12em; text-transform: uppercase; padding-bottom: 0.6rem; border-bottom: 1px solid var(--line);">Console &amp; PC · 2002–12</div>
+            <ul class="ship-list" style="list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.7rem 2rem; font-family: 'JetBrains Mono', monospace; font-size: 14px;">
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500; flex: 1;">Harry Potter: Deathly Hallows Pt 1 &amp; 2</span><span style="color:var(--text-dim); font-size: 12px;">2010–11</span></li>
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500; flex: 1;">Grease Dance</span><span style="color:var(--text-dim); font-size: 12px;">2012</span></li>
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500; flex: 1;">Reservoir Dogs</span><span style="color:var(--text-dim); font-size: 12px;">2006</span></li>
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500; flex: 1;">Prism: Light the Way</span><span style="color:var(--text-dim); font-size: 12px;">2007</span></li>
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500; flex: 1;">Conflict: Global Terror</span><span style="color:var(--text-dim); font-size: 12px;">2005</span></li>
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500; flex: 1;">Constantine</span><span style="color:var(--text-dim); font-size: 12px;">2005</span></li>
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500; flex: 1;">Richard Burns Rally</span><span style="color:var(--text-dim); font-size: 12px;">2004</span></li>
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500; flex: 1;">Conflict: Desert Storm series</span><span style="color:var(--text-dim); font-size: 12px;">2002–03</span></li>
+            </ul>
+          </div>
+
+          <div style="margin: 0 0 1.6rem;">
+            <div class="mono" style="font-size: 11px; color: var(--accent); margin-bottom: 1rem; letter-spacing: 0.12em; text-transform: uppercase; padding-bottom: 0.6rem; border-bottom: 1px solid var(--line);">Live events · Improbable · 2023–25</div>
+            <ul class="ship-list" style="list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.7rem 2rem; font-family: 'JetBrains Mono', monospace; font-size: 14px;">
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500;">SummerCrush</span></li>
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500;">Halloween</span></li>
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500;">Spacerace</span></li>
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500;">NPC Snatchers</span></li>
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500;">HotShots</span></li>
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500;">Mashup</span></li>
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500;">Game4Ukraine</span></li>
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500;">Beyond the Pitch with Zinchenko</span></li>
+              <li style="display: flex; align-items: baseline; gap: 0.7rem;"><span style="color:var(--accent); font-size: 10px;">▸</span><span style="color:var(--text); font-weight: 500;">Clash of Fans</span></li>
+            </ul>
+          </div>
+
+          <a href="https://www.mobygames.com/person/38216/luke-timms/credits/" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent-2); border-bottom: 1px solid var(--text-mute); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s;" onmouseover="this.style.color='var(--accent)';this.style.borderBottomColor='var(--accent)'" onmouseout="this.style.color='var(--accent-2)';this.style.borderBottomColor='var(--text-mute)'">Full credits on MobyGames ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── SERVICES ───── -->
+  <section class="block" id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="num">03 / Approach</div>
+        <h2>What I <span class="italic">bring.</span></h2>
+      </div>
+
+      <div class="services reveal">
+        <div class="service">
+          <div class="ix">i.</div>
+          <div>
+            <h4>Hands-on producing</h4>
+            <ul class="srv-list">
+              <li>Own projects end to end, from brief to delivery</li>
+              <li>The producer on the ground on film shoots and live event days</li>
+              <li>Schedules, budgets, call times and shot lists kept under control</li>
+              <li>Make the right call when plans change</li>
+            </ul>
+          </div>
+        </div>
+        <div class="service">
+          <div class="ix">ii.</div>
+          <div>
+            <h4>Creative collaborator</h4>
+            <ul class="srv-list">
+              <li>Turn briefs and ideas into plans that are ambitious and achievable</li>
+              <li>A production check on what’s written, raising concerns early</li>
+              <li>Protect the creative standard and help raise the bar</li>
+            </ul>
+          </div>
+        </div>
+        <div class="service">
+          <div class="ix">iii.</div>
+          <div>
+            <h4>Organised under pressure</h4>
+            <ul class="srv-list">
+              <li>Timelines, feedback and deliverables kept tight across several projects</li>
+              <li>Spot risks to deadlines early and find a way through</li>
+              <li>Calm and resourceful when the day doesn’t go to plan</li>
+            </ul>
+          </div>
+        </div>
+        <div class="service">
+          <div class="ix">iv.</div>
+          <div>
+            <h4>Data-informed decisions</h4>
+            <ul class="srv-list">
+              <li>Use forecasting, risk and delivery data to make and defend decisions</li>
+              <li>Comfortable putting the numbers in front of senior leaders and partners</li>
+            </ul>
+          </div>
+        </div>
+        <div class="service">
+          <div class="ix">v.</div>
+          <div>
+            <h4>Clear communicator</h4>
+            <ul class="srv-list">
+              <li>Clear across creative, commercial, technical and production teams</li>
+              <li>Facilitate tradeoff conversations that protect the idea</li>
+              <li>People-first: happy teams do their best work</li>
+            </ul>
+          </div>
+        </div>
+        <div class="service">
+          <div class="ix">vi.</div>
+          <div>
+            <h4>Curious about AI</h4>
+            <ul class="srv-list">
+              <li>Testing AI tools in daily work, honest about what helps and what doesn’t</li>
+              <li>Building my own tools and automations, from idea to shipped</li>
+              <li>Fixing process gaps rather than just flagging them</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── REEL ───── -->
+  <section class="block" id="reel">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="num">04 / Reel</div>
+        <h2>Selected work, <span class="italic">in motion.</span></h2>
+      </div>
+
+      <div class="reel reveal">
+        <div class="video-card">
+          <div class="embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/r2CjGDTctOM?start=108"
+                    title="Genesis · feature film trailer · Cinevisionary"
+                    loading="lazy"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+          </div>
+          <div class="meta"><span class="num">01.</span><h4>Genesis</h4></div>
+          <p class="caption">Feature film · Cinevisionary · trailer</p>
+        </div>
+        <div class="video-card">
+          <div class="embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/IKrL23m6c8w"
+                    title="NPC Snatchers · Edison.wtf"
+                    loading="lazy"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+          </div>
+          <div class="meta"><span class="num">02.</span><h4>NPC Snatchers</h4></div>
+          <p class="caption">Edison.wtf · interactive event</p>
+        </div>
+
+        <div class="video-card">
+          <div class="embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/qb0MmpNKjAQ"
+                    title="HotShots · Edison.wtf"
+                    loading="lazy"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+          </div>
+          <div class="meta"><span class="num">03.</span><h4>HotShots</h4></div>
+          <p class="caption">Edison.wtf · interactive event</p>
+        </div>
+
+        <div class="video-card">
+          <div class="embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/U3f92qSTe8Q"
+                    title="Mashup · Edison.wtf"
+                    loading="lazy"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+          </div>
+          <div class="meta"><span class="num">04.</span><h4>Mashup</h4></div>
+          <p class="caption">Edison.wtf · interactive event</p>
+        </div>
+
+        <div class="video-card">
+          <div class="embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/oYuI1J5yEuM"
+                    title="Game4Ukraine · Victory League"
+                    loading="lazy"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+          </div>
+          <div class="meta"><span class="num">05.</span><h4>Game4Ukraine</h4></div>
+          <p class="caption">Victory League · football fan experience</p>
+        </div>
+
+        <div class="video-card">
+          <div class="embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/F97RQRLddAI"
+                    title="Beyond the Pitch with Zinchenko · Victory League"
+                    loading="lazy"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+          </div>
+          <div class="meta"><span class="num">06.</span><h4>Beyond the Pitch · Zinchenko</h4></div>
+          <p class="caption">Victory League · football fan experience</p>
+        </div>
+
+        <div class="video-card">
+          <div class="embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/4fKZbeCofV8"
+                    title="Clash of Fans · Victory League"
+                    loading="lazy"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+          </div>
+          <div class="meta"><span class="num">07.</span><h4>Clash of Fans</h4></div>
+          <p class="caption">Victory League · football fan experience</p>
+        </div>
+      </div>
+
+      <div class="more-events reveal">
+        + further Edison.wtf events:
+        <a href="https://x.com/EdisonMetaverse/status/1829216495509102626" target="_blank" rel="noopener">SummerCrush ↗</a>·
+        <a href="https://x.com/MrsClareSei/status/1851200030029603081" target="_blank" rel="noopener">Halloween ↗</a>·
+        <a href="https://x.com/EdisonMetaverse/status/1866944789968720157" target="_blank" rel="noopener">Spacerace ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── CONTACT ───── -->
+  <section class="block" id="contact">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="num">05 / Contact</div>
+        <h2>Let's <span class="italic">talk.</span></h2>
+      </div>
+
+      <div class="contact-grid reveal">
+        <div class="num mono" style="color: var(--text-mute); font-size: 12px;">—</div>
+        <div class="chat-wrap">
+          <p class="pitch">
+            Need a producer who gets the creative <em>made, and made well?</em> Drop me a line.
+          </p>
+          <div class="chat" id="chat" aria-live="polite" role="log">
+            <!-- bubbles inserted by JS -->
+          </div>
+          <div class="chat-input" id="chatInput">
+            <!-- swapped by JS per step -->
+          </div>
+          <div class="chat-fallback">
+            Prefer another route? <a href="https://www.linkedin.com/in/luketimms" target="_blank" rel="noopener">LinkedIn ↗</a> · <a href="/creative-producer/Luke-Timms-CV-creative-producer.pdf" download>Download CV (PDF) ↓</a> · <a href="https://www.buymeacoffee.com/lukedtimmsU" target="_blank" rel="noopener">Buy me a coffee ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <button
+    class="theme-toggle"
+    id="theme-toggle"
+    type="button"
+    aria-label="Toggle colour theme"
+    title="Toggle colour theme">
+    <span class="moon" aria-hidden="true">☾</span>
+    <span class="sun"  aria-hidden="true">☀</span>
+  </button>
+
+  <!-- ───── FOOTER ───── -->
+  <footer>
+    <div class="wrap">
+      <div class="row">
+        <div>© 2026 Luke Timms</div>
+        <div>Made by hand · Uckfield, UK</div>
+        <div id="clock" class="mono">—</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Theme toggle — persists in localStorage; defaults to system preference
+    (function () {
+      const root = document.documentElement;
+      const stored = localStorage.getItem('theme');
+      const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+      const initial = stored || (prefersLight ? 'light' : 'dark');
+      if (initial === 'light') root.setAttribute('data-theme', 'light');
+      const btn = document.getElementById('theme-toggle');
+      if (btn) {
+        btn.addEventListener('click', () => {
+          const isLight = root.getAttribute('data-theme') === 'light';
+          if (isLight) {
+            root.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'dark');
+          } else {
+            root.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+          }
+        });
+      }
+    })();
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      reveals.forEach(el => io.observe(el));
+    } else {
+      reveals.forEach(el => el.classList.add('in'));
+    }
+
+    // Chat-style contact flow — boots once Contact scrolls into view (max once)
+    (function() {
+      const chat = document.getElementById('chat');
+      const inputArea = document.getElementById('chatInput');
+      const contact = document.getElementById('contact');
+      if (!chat || !inputArea || !contact) return;
+
+      // Destination email: change this if you want responses to go elsewhere
+      const TO_EMAIL = 'lukedtimms@gmail.com';
+
+      const flow = [
+        {
+          bot: "Hi I'm Steve, Luke's chatbot. What brings you here?",
+          input: 'chips',
+          options: [
+            'Shipping a new title',
+            'Scaling production / process',
+            'Production support',
+            'Just exploring'
+          ],
+          key: 'need'
+        },
+        {
+          bot: "Cool. Who are you with? Studio, team, or company works.",
+          input: 'text',
+          placeholder: 'Studio or company name',
+          optional: true,
+          key: 'team'
+        },
+        {
+          bot: "Last thing: where should Luke reply? Drop your email and a quick note if you like.",
+          input: 'email',
+          placeholder: 'you@studio.com',
+          notePlaceholder: 'Optional: anything Luke should know up front…',
+          key: 'contact'
+        }
+      ];
+
+      const answers = {};
+      let step = 0;
+      let booted = false;
+
+      function appendBubble(role, html) {
+        const div = document.createElement('div');
+        div.className = 'bubble ' + role;
+        div.innerHTML = html;
+        chat.appendChild(div);
+        chat.scrollTop = chat.scrollHeight;
+        return div;
+      }
+      function showTyping() {
+        return appendBubble('bot', '<span class="typing"><span></span><span></span><span></span></span>');
+      }
+      function setInput(html) {
+        inputArea.innerHTML = html;
+      }
+      function escapeHtml(s) {
+        return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+      }
+      function askNext() {
+        if (step >= flow.length) return finish();
+        const q = flow[step];
+        const t = showTyping();
+        setTimeout(() => {
+          t.remove();
+          appendBubble('bot', q.bot);
+          renderInput(q);
+        }, 520);
+      }
+      function renderInput(q) {
+        if (q.input === 'chips') {
+          setInput('<div class="chip-group">' +
+            q.options.map(opt => `<button type="button" class="chip">${escapeHtml(opt)}</button>`).join('') +
+          '</div>');
+          inputArea.querySelectorAll('.chip').forEach(c => {
+            c.addEventListener('click', () => answer(c.textContent));
+          });
+        } else if (q.input === 'text') {
+          setInput(`<form class="text-row" novalidate>
+            <input type="text" placeholder="${escapeHtml(q.placeholder)}" autocomplete="organization">
+            ${q.optional ? '<button type="button" class="skip">Skip</button>' : ''}
+            <button type="submit">Send</button>
+          </form>`);
+          const form = inputArea.querySelector('form');
+          const input = form.querySelector('input');
+          input.focus();
+          form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const val = input.value.trim();
+            if (!val && !q.optional) { input.focus(); return; }
+            answer(val || '(skipped)');
+          });
+          const skip = form.querySelector('.skip');
+          if (skip) skip.addEventListener('click', () => answer('(skipped)'));
+        } else if (q.input === 'email') {
+          setInput(`<form class="text-row" novalidate style="flex-direction: column; align-items: stretch; gap: 0.6rem;">
+            <input type="email" placeholder="${escapeHtml(q.placeholder)}" required autocomplete="email">
+            <textarea placeholder="${escapeHtml(q.notePlaceholder || '')}" rows="3"></textarea>
+            <button type="submit" style="align-self: flex-end; padding: 0.7rem 1.4rem;">Send</button>
+          </form>`);
+          const form = inputArea.querySelector('form');
+          const email = form.querySelector('input');
+          const note = form.querySelector('textarea');
+          email.focus();
+          form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const e1 = email.value.trim();
+            if (!e1 || !/.+@.+\..+/.test(e1)) { email.focus(); return; }
+            answers.email = e1;
+            answers.note = note.value.trim();
+            answer(e1 + (answers.note ? '\n' + answers.note : ''));
+          });
+        }
+      }
+      function answer(val) {
+        const q = flow[step];
+        answers[q.key] = val;
+        appendBubble('user', escapeHtml(val).replace(/\n/g, '<br>'));
+        setInput('');
+        step++;
+        askNext();
+      }
+      async function finish() {
+        const t = showTyping();
+        const payload = {
+          _subject: 'New chat from luketimms.online/creative-producer',
+          _captcha: 'false',
+          _template: 'table',
+          _replyto: answers.email || '',
+          need: answers.need || '',
+          team: answers.team || '',
+          email: answers.email || '',
+          note: answers.note || ''
+        };
+        let success = false;
+        try {
+          const res = await fetch('https://formsubmit.co/ajax/' + encodeURIComponent(TO_EMAIL), {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          const data = await res.json();
+          success = data && (data.success === 'true' || data.success === true);
+        } catch (err) {
+          success = false;
+        }
+        t.remove();
+        if (success) {
+          appendBubble('bot', "Message is now with Luke, I'm sure he will be in touch very soon.");
+        } else {
+          appendBubble('bot', `Hmm, that didn't go through. Reach me on <a href="https://www.linkedin.com/in/luketimms" target="_blank" rel="noopener" style="color: var(--accent-2); text-decoration: underline;">LinkedIn</a> instead.`);
+        }
+      }
+      function boot() {
+        if (booted) return;
+        booted = true;
+        askNext();
+      }
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(e => { if (e.isIntersecting) { boot(); io.unobserve(contact); } });
+        }, { threshold: 0.25 });
+        io.observe(contact);
+      } else {
+        boot();
+      }
+    })();
+
+    // (Top bar is now always visible — animated in on page load via CSS, no JS needed)
+
+    // Live UK clock in footer
+    const clock = document.getElementById('clock');
+    function tick() {
+      const now = new Date();
+      const opts = { timeZone: 'Europe/London', hour: '2-digit', minute: '2-digit', hour12: false };
+      clock.textContent = now.toLocaleTimeString('en-GB', opts) + ' · UK';
+    }
+    tick();
+    setInterval(tick, 30_000);
+  </script>
+</body>
+</html>
