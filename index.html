@@ -501,6 +501,58 @@
       .video-card .caption { margin-left: 0; }
     }
 
+    /* ───── SOFTOGRAPHY ───── */
+    .softo-grid { display: grid; grid-template-columns: 100px 1fr; gap: 2rem; }
+    .softo-intro { color: var(--text-dim); max-width: 620px; margin-bottom: 1.2rem; }
+    .softo-stats {
+      display: flex; flex-wrap: wrap; gap: 0.5rem 1.6rem; margin-bottom: 2.5rem;
+      font-family: 'JetBrains Mono', monospace; font-size: 12px;
+      letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-dim);
+    }
+    .softo-stats span { color: var(--accent); font-weight: 500; }
+    .softo-label {
+      font-family: 'JetBrains Mono', monospace; font-size: 11px;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--line); margin-bottom: 0.4rem; max-width: 900px;
+    }
+    .softo-group { margin-bottom: 2.5rem; max-width: 900px; }
+    .softo-credit {
+      display: grid; grid-template-columns: 1fr auto auto; gap: 0.5rem 1.6rem;
+      align-items: baseline; padding: 0.8rem 0; border-bottom: 1px solid var(--line);
+    }
+    .softo-credit:last-child { border-bottom: none; }
+    .softo-title { font-family: 'Instrument Serif', Georgia, serif; font-size: 1.2rem; color: var(--text); }
+    .softo-role, .softo-year {
+      font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.04em; text-align: right;
+    }
+    .softo-role { color: var(--text-dim); text-transform: uppercase; }
+    .softo-year { color: var(--accent); min-width: 40px; }
+    .softo-platforms { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 1rem 0 2.5rem; max-width: 900px; }
+    .softo-tag {
+      font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 0.35rem 0.75rem; border: 1px solid var(--line); color: var(--text-dim); border-radius: 999px;
+    }
+    .softo-toggle {
+      font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--accent); background: transparent; border: 1px solid var(--accent);
+      border-radius: 999px; padding: 0.6rem 1.1rem; cursor: pointer; transition: background 0.2s, color 0.2s;
+    }
+    .softo-toggle:hover { background: var(--accent); color: var(--bg); }
+    .softo-source {
+      margin-top: 1.4rem; font-family: 'JetBrains Mono', monospace; font-size: 12px;
+      color: var(--text-mute); letter-spacing: 0.04em;
+    }
+    .softo-source a { color: var(--accent-2); }
+    @media (max-width: 720px) {
+      .softo-grid { grid-template-columns: 1fr; gap: 1rem; }
+    }
+    @media (max-width: 600px) {
+      .softo-credit { grid-template-columns: 1fr; gap: 0.15rem; }
+      .softo-role, .softo-year { text-align: left; }
+    }
+    @media print { .softo-more[hidden] { display: block !important; } .softo-toggle { display: none; } }
+
     /* ───── CONTACT ───── */
     .contact-grid {
       display: grid;
@@ -629,123 +681,6 @@
 
     /* ───── Chat-style contact form ───── */
     .chat-wrap { max-width: 640px; }
-    .chat {
-      background: var(--bg-soft);
-      border: 1px solid var(--line);
-      border-left: 3px solid var(--accent);
-      border-radius: 14px;
-      padding: 1.4rem 1.4rem 1.2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
-      min-height: 240px;
-      max-height: 520px;
-      overflow-y: auto;
-      scroll-behavior: smooth;
-    }
-    .chat::-webkit-scrollbar { width: 6px; }
-    .chat::-webkit-scrollbar-track { background: transparent; }
-    .chat::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
-    .bubble {
-      max-width: 82%;
-      padding: 0.7rem 1rem;
-      border-radius: 14px;
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 0.96rem;
-      line-height: 1.45;
-      word-wrap: break-word;
-      animation: bubble-in 0.28s ease;
-    }
-    @keyframes bubble-in {
-      from { opacity: 0; transform: translateY(6px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .bubble.bot {
-      align-self: flex-start;
-      background: var(--bg);
-      border: 1px solid var(--line);
-      color: var(--text);
-      border-bottom-left-radius: 4px;
-    }
-    .bubble.user {
-      align-self: flex-end;
-      background: var(--accent);
-      color: #fff;
-      border-bottom-right-radius: 4px;
-    }
-    .bubble.bot .typing { display: inline-flex; gap: 0.3rem; padding: 0.15rem 0; }
-    .bubble.bot .typing span {
-      width: 6px; height: 6px;
-      background: var(--text-mute);
-      border-radius: 50%;
-      animation: typing 1.2s infinite;
-    }
-    .bubble.bot .typing span:nth-child(2) { animation-delay: 0.18s; }
-    .bubble.bot .typing span:nth-child(3) { animation-delay: 0.36s; }
-    @keyframes typing {
-      0%, 80%, 100% { opacity: 0.3; transform: translateY(0); }
-      40%           { opacity: 1;   transform: translateY(-3px); }
-    }
-    .chat-input { margin-top: 0.9rem; min-height: 48px; }
-    .chip-group { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .chip {
-      background: transparent;
-      border: 1px solid var(--line);
-      color: var(--text);
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 0.94rem;
-      padding: 0.55rem 1rem;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: background 0.2s, border-color 0.2s, color 0.2s;
-    }
-    .chip:hover {
-      background: var(--bg);
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-    .text-row { display: flex; gap: 0.6rem; }
-    .text-row input, .text-row textarea {
-      flex: 1;
-      background: var(--bg);
-      border: 1px solid var(--line);
-      color: var(--text);
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 0.96rem;
-      padding: 0.7rem 1rem;
-      border-radius: 10px;
-      transition: border-color 0.2s;
-    }
-    .text-row textarea {
-      resize: vertical;
-      min-height: 80px;
-      font-family: 'Inter Tight', sans-serif;
-    }
-    .text-row input:focus, .text-row textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-    }
-    .text-row button {
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-weight: 600;
-      padding: 0 1.2rem;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s;
-    }
-    .text-row button:hover { background: var(--accent-2); color: var(--bg); }
-    .text-row .skip {
-      background: transparent;
-      color: var(--text-dim);
-      border: 1px solid var(--line);
-    }
-    .text-row .skip:hover { color: var(--text); border-color: var(--text-dim); background: transparent; }
     .chat-fallback {
       margin-top: 1.2rem;
       font-family: 'JetBrains Mono', monospace;
@@ -1252,10 +1187,235 @@
   </section>
 
   <!-- ───── CONTACT ───── -->
+  <section class="block" id="softography">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="num">05 / Softography</div>
+        <h2>Soft<span class="italic">ography.</span></h2>
+      </div>
+
+      <div class="softo-grid reveal">
+        <div class="num mono" style="color: var(--text-mute); font-size: 12px;">—</div>
+        <div>
+          <p class="softo-intro">Every game shipped and live event delivered. From QA at SCi Games in 2000 through to Production at EA, and virtual world live events at Improbable.</p>
+          <div class="softo-stats">
+            <div><span>28</span> shipped titles</div>
+            <div><span>11+</span> live events</div>
+            <div><span>10+</span> platforms</div>
+            <div><span>2000</span> — <span>2025</span></div>
+          </div>
+
+          <!-- ═══ LIVE EVENTS ═══ -->
+          <div class="softo-group">
+          <div class="softo-label">Live Events · Improbable / Imporium · 2023-2025</div>
+
+          <div class="softo-credit">
+          <div class="softo-title">NPC Snatchers</div>
+          <div class="softo-role">Senior Producer</div>
+          <div class="softo-year">—</div>
+          </div>
+          <div class="softo-credit">
+          <div class="softo-title">HotShots</div>
+          <div class="softo-role">Senior Producer</div>
+          <div class="softo-year">—</div>
+          </div>
+          <div class="softo-credit">
+          <div class="softo-title">Mashup</div>
+          <div class="softo-role">Senior Producer</div>
+          <div class="softo-year">—</div>
+          </div>
+          <div class="softo-credit">
+          <div class="softo-title">Game4Ukraine</div>
+          <div class="softo-role">Senior Producer</div>
+          <div class="softo-year">—</div>
+          </div>
+          <div class="softo-credit">
+          <div class="softo-title">Beyond the Pitch with Zinchenko</div>
+          <div class="softo-role">Senior Producer</div>
+          <div class="softo-year">—</div>
+          </div>
+          <div class="softo-credit">
+          <div class="softo-title">Clash of Fans</div>
+          <div class="softo-role">Senior Producer</div>
+          <div class="softo-year">—</div>
+          </div>
+          <div class="softo-credit">
+          <div class="softo-title">SummerCrush</div>
+          <div class="softo-role">Senior Producer</div>
+          <div class="softo-year">—</div>
+          </div>
+          <div class="softo-credit">
+          <div class="softo-title">Halloween</div>
+          <div class="softo-role">Senior Producer</div>
+          <div class="softo-year">—</div>
+          </div>
+          <div class="softo-credit">
+          <div class="softo-title">Spacerace</div>
+          <div class="softo-role">Senior Producer</div>
+          <div class="softo-year">—</div>
+          </div>
+          </div>
+
+
+          <!-- ═══ PRODUCTION CREDITS ═══ -->
+          <div class="softo-group">
+          <div class="softo-label">Production Credits</div>
+
+          <div class="softo-credit">
+          <div class="softo-title">Grease Dance</div>
+          <div class="softo-role">Producer</div>
+          <div class="softo-year">2012</div>
+          </div>
+          <div class="softo-credit">
+          <div class="softo-title">Harry Potter and the Deathly Hallows: Part 2</div>
+          <div class="softo-role">Production</div>
+          <div class="softo-year">2011</div>
+          </div>
+          <div class="softo-credit">
+          <div class="softo-title">Harry Potter and the Deathly Hallows: Part 1</div>
+          <div class="softo-role">Production</div>
+          <div class="softo-year">2010</div>
+          </div>
+          <div class="softo-credit">
+          <div class="softo-title">Petz Pony: Beauty Pageant</div>
+          <div class="softo-role">Producer</div>
+          <div class="softo-year">2009</div>
+          </div>
+          <div class="softo-credit">
+          <div class="softo-title">Prism: Light the Way</div>
+          <div class="softo-role">Producer</div>
+          <div class="softo-year">2007</div>
+          </div>
+          <div class="softo-credit">
+          <div class="softo-title">Pony Friends</div>
+          <div class="softo-role">Assistant Producer</div>
+          <div class="softo-year">2007</div>
+          </div>
+          <div class="softo-credit">
+          <div class="softo-title">Reservoir Dogs</div>
+          <div class="softo-role">Assistant Producer</div>
+          <div class="softo-year">2006</div>
+          </div>
+          <div class="softo-credit">
+          <div class="softo-title">Conflict: Global Terror</div>
+          <div class="softo-role">Assistant Producer</div>
+          <div class="softo-year">2005</div>
+          </div>
+          <div class="softo-credit">
+          <div class="softo-title">Richard Burns Rally</div>
+          <div class="softo-role">Assistant Producer</div>
+          <div class="softo-year">2005</div>
+          </div>
+          <div class="softo-credit">
+          <div class="softo-title">Constantine</div>
+          <div class="softo-role">Assistant Producer</div>
+          <div class="softo-year">2005</div>
+          </div>
+          <div class="softo-credit">
+          <div class="softo-title">Richard Burns Rally</div>
+          <div class="softo-role">Assistant Producer</div>
+          <div class="softo-year">2004</div>
+          </div>
+          <div class="softo-credit">
+          <div class="softo-title">Conflict: Desert Storm II</div>
+          <div class="softo-role">Assistant Producer</div>
+          <div class="softo-year">2003</div>
+          </div>
+          </div>
+
+          <div class="softo-more" id="softo-more" hidden>
+            <!-- ═══ QA CREDITS ═══ -->
+            <div class="softo-group">
+            <div class="softo-label">QA Credits</div>
+
+            <div class="softo-credit">
+            <div class="softo-title">Futurama</div>
+            <div class="softo-role">QA Lead</div>
+            <div class="softo-year">2003</div>
+            </div>
+            <div class="softo-credit">
+            <div class="softo-title">The Great Escape</div>
+            <div class="softo-role">QA Engineer</div>
+            <div class="softo-year">2003</div>
+            </div>
+            <div class="softo-credit">
+            <div class="softo-title">Rally Championship</div>
+            <div class="softo-role">QA Engineer</div>
+            <div class="softo-year">2002</div>
+            </div>
+            <div class="softo-credit">
+            <div class="softo-title">EOE: Eve of Extinction</div>
+            <div class="softo-role">QA Technician</div>
+            <div class="softo-year">2002</div>
+            </div>
+            <div class="softo-credit">
+            <div class="softo-title">FourFourTwo Touchline Passion</div>
+            <div class="softo-role">QA Engineer</div>
+            <div class="softo-year">2002</div>
+            </div>
+            <div class="softo-credit">
+            <div class="softo-title">Conflict: Desert Storm</div>
+            <div class="softo-role">QA Engineer</div>
+            <div class="softo-year">2002</div>
+            </div>
+            </div>
+
+            <!-- ═══ SPECIAL THANKS ═══ -->
+            <div class="softo-group">
+            <div class="softo-label">Special Thanks</div>
+
+            <div class="softo-credit">
+            <div class="softo-title">Chili Con Carnage</div>
+            <div class="softo-role">Special Thanks</div>
+            <div class="softo-year">2007</div>
+            </div>
+            <div class="softo-credit">
+            <div class="softo-title">Urban Chaos: Riot Response</div>
+            <div class="softo-role">Special Thanks</div>
+            <div class="softo-year">2006</div>
+            </div>
+            <div class="softo-credit">
+            <div class="softo-title">Total Overdose</div>
+            <div class="softo-role">Special Thanks</div>
+            <div class="softo-year">2005</div>
+            </div>
+            <div class="softo-credit">
+            <div class="softo-title">Conflict: Vietnam</div>
+            <div class="softo-role">Special Thanks</div>
+            <div class="softo-year">2004</div>
+            </div>
+            </div>
+
+            <!-- ═══ PLATFORMS ═══ -->
+            <div class="softo-label" style="margin-top:0.5rem">Platforms Shipped On</div>
+            <div class="softo-platforms">
+              <div class="softo-tag">PlayStation 2</div>
+              <div class="softo-tag">PlayStation 3</div>
+              <div class="softo-tag">PSP</div>
+              <div class="softo-tag">Xbox</div>
+              <div class="softo-tag">Xbox 360</div>
+              <div class="softo-tag">GameCube</div>
+              <div class="softo-tag">Wii</div>
+              <div class="softo-tag">Nintendo DS</div>
+              <div class="softo-tag">Windows</div>
+              <div class="softo-tag">Dreamcast</div>
+              <div class="softo-tag">Unreal Engine (Live Events)</div>
+            </div>
+          </div>
+
+          <button type="button" class="softo-toggle" aria-expanded="false" aria-controls="softo-more">
+            Show QA credits, special thanks &amp; platforms <span aria-hidden="true">↓</span>
+          </button>
+          <p class="softo-source">Data cross-referenced with <a href="https://www.mobygames.com/person/38216/luke-timms/" target="_blank" rel="noopener">MobyGames ↗</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="block" id="contact">
     <div class="wrap">
       <div class="section-head reveal">
-        <div class="num">05 / Contact</div>
+        <div class="num">06 / Contact</div>
         <h2>Let's <span class="italic">talk.</span></h2>
       </div>
 
@@ -1265,12 +1425,7 @@
           <p class="pitch">
             Building a studio, scaling a team, or producing a title that needs a <em>steady hand on the pipeline?</em> Drop me a line.
           </p>
-          <div class="chat" id="chat" aria-live="polite" role="log">
-            <!-- bubbles inserted by JS -->
-          </div>
-          <div class="chat-input" id="chatInput">
-            <!-- swapped by JS per step -->
-          </div>
+          <div data-minime-slot></div>
           <div class="chat-fallback">
             Prefer another route? <a href="https://www.linkedin.com/in/luketimms" target="_blank" rel="noopener">LinkedIn ↗</a> · <a href="/Luke-Timms-CV.pdf" download>Download CV (PDF) ↓</a> · <a href="https://www.buymeacoffee.com/lukedtimmsU" target="_blank" rel="noopener">Buy me a coffee ↗</a>
           </div>
@@ -1339,175 +1494,23 @@
       reveals.forEach(el => el.classList.add('in'));
     }
 
-    // Chat-style contact flow — boots once Contact scrolls into view (max once)
-    (function() {
-      const chat = document.getElementById('chat');
-      const inputArea = document.getElementById('chatInput');
-      const contact = document.getElementById('contact');
-      if (!chat || !inputArea || !contact) return;
-
-      // Destination email: change this if you want responses to go elsewhere
-      const TO_EMAIL = 'lukedtimms@gmail.com';
-
-      const flow = [
-        {
-          bot: "Hi I'm Steve, Luke's chatbot. What brings you here?",
-          input: 'chips',
-          options: [
-            'Shipping a new title',
-            'Scaling production / process',
-            'Production support',
-            'Just exploring'
-          ],
-          key: 'need'
-        },
-        {
-          bot: "Cool. Who are you with? Studio, team, or company works.",
-          input: 'text',
-          placeholder: 'Studio or company name',
-          optional: true,
-          key: 'team'
-        },
-        {
-          bot: "Last thing: where should Luke reply? Drop your email and a quick note if you like.",
-          input: 'email',
-          placeholder: 'you@studio.com',
-          notePlaceholder: 'Optional: anything Luke should know up front…',
-          key: 'contact'
-        }
-      ];
-
-      const answers = {};
-      let step = 0;
-      let booted = false;
-
-      function appendBubble(role, html) {
-        const div = document.createElement('div');
-        div.className = 'bubble ' + role;
-        div.innerHTML = html;
-        chat.appendChild(div);
-        chat.scrollTop = chat.scrollHeight;
-        return div;
-      }
-      function showTyping() {
-        return appendBubble('bot', '<span class="typing"><span></span><span></span><span></span></span>');
-      }
-      function setInput(html) {
-        inputArea.innerHTML = html;
-      }
-      function escapeHtml(s) {
-        return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-      }
-      function askNext() {
-        if (step >= flow.length) return finish();
-        const q = flow[step];
-        const t = showTyping();
-        setTimeout(() => {
-          t.remove();
-          appendBubble('bot', q.bot);
-          renderInput(q);
-        }, 520);
-      }
-      function renderInput(q) {
-        if (q.input === 'chips') {
-          setInput('<div class="chip-group">' +
-            q.options.map(opt => `<button type="button" class="chip">${escapeHtml(opt)}</button>`).join('') +
-          '</div>');
-          inputArea.querySelectorAll('.chip').forEach(c => {
-            c.addEventListener('click', () => answer(c.textContent));
-          });
-        } else if (q.input === 'text') {
-          setInput(`<form class="text-row" novalidate>
-            <input type="text" placeholder="${escapeHtml(q.placeholder)}" autocomplete="organization">
-            ${q.optional ? '<button type="button" class="skip">Skip</button>' : ''}
-            <button type="submit">Send</button>
-          </form>`);
-          const form = inputArea.querySelector('form');
-          const input = form.querySelector('input');
-          input.focus();
-          form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const val = input.value.trim();
-            if (!val && !q.optional) { input.focus(); return; }
-            answer(val || '(skipped)');
-          });
-          const skip = form.querySelector('.skip');
-          if (skip) skip.addEventListener('click', () => answer('(skipped)'));
-        } else if (q.input === 'email') {
-          setInput(`<form class="text-row" novalidate style="flex-direction: column; align-items: stretch; gap: 0.6rem;">
-            <input type="email" placeholder="${escapeHtml(q.placeholder)}" required autocomplete="email">
-            <textarea placeholder="${escapeHtml(q.notePlaceholder || '')}" rows="3"></textarea>
-            <button type="submit" style="align-self: flex-end; padding: 0.7rem 1.4rem;">Send</button>
-          </form>`);
-          const form = inputArea.querySelector('form');
-          const email = form.querySelector('input');
-          const note = form.querySelector('textarea');
-          email.focus();
-          form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const e1 = email.value.trim();
-            if (!e1 || !/.+@.+\..+/.test(e1)) { email.focus(); return; }
-            answers.email = e1;
-            answers.note = note.value.trim();
-            answer(e1 + (answers.note ? '\n' + answers.note : ''));
-          });
-        }
-      }
-      function answer(val) {
-        const q = flow[step];
-        answers[q.key] = val;
-        appendBubble('user', escapeHtml(val).replace(/\n/g, '<br>'));
-        setInput('');
-        step++;
-        askNext();
-      }
-      async function finish() {
-        const t = showTyping();
-        const payload = {
-          _subject: 'New chat from luketimms.online',
-          _captcha: 'false',
-          _template: 'table',
-          _replyto: answers.email || '',
-          need: answers.need || '',
-          team: answers.team || '',
-          email: answers.email || '',
-          note: answers.note || ''
-        };
-        let success = false;
-        try {
-          const res = await fetch('https://formsubmit.co/ajax/' + encodeURIComponent(TO_EMAIL), {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify(payload)
-          });
-          const data = await res.json();
-          success = data && (data.success === 'true' || data.success === true);
-        } catch (err) {
-          success = false;
-        }
-        t.remove();
-        if (success) {
-          appendBubble('bot', "Message is now with Luke, I'm sure he will be in touch very soon.");
-        } else {
-          appendBubble('bot', `Hmm, that didn't go through. Reach me on <a href="https://www.linkedin.com/in/luketimms" target="_blank" rel="noopener" style="color: var(--accent-2); text-decoration: underline;">LinkedIn</a> instead.`);
-        }
-      }
-      function boot() {
-        if (booted) return;
-        booted = true;
-        askNext();
-      }
-      if ('IntersectionObserver' in window) {
-        const io = new IntersectionObserver((entries) => {
-          entries.forEach(e => { if (e.isIntersecting) { boot(); io.unobserve(contact); } });
-        }, { threshold: 0.25 });
-        io.observe(contact);
-      } else {
-        boot();
-      }
-    })();
-
     // (Top bar is now always visible — animated in on page load via CSS, no JS needed)
+
+    // Softography: show the rest of the credits on demand
+    (function() {
+      const btn = document.querySelector('.softo-toggle');
+      const more = document.getElementById('softo-more');
+      if (!btn || !more) return;
+      btn.addEventListener('click', () => {
+        const open = more.hidden;
+        more.hidden = !open;
+        btn.setAttribute('aria-expanded', String(open));
+        btn.innerHTML = open
+          ? 'Show fewer credits <span aria-hidden="true">↑</span>'
+          : 'Show QA credits, special thanks &amp; platforms <span aria-hidden="true">↓</span>';
+        if (!open) document.getElementById('softography').scrollIntoView({ block: 'start' });
+      });
+    })();
 
     // Live UK clock in footer
     const clock = document.getElementById('clock');
@@ -1519,5 +1522,6 @@
     tick();
     setInterval(tick, 30_000);
   </script>
+  <script src="/minime/minime.js" defer></script>
 </body>
 </html>
