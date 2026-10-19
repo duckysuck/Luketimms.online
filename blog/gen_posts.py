@@ -120,6 +120,14 @@ SHELL_TEMPLATE = '''<!DOCTYPE html>
         <p>Nintendo Switch 2 exclusive. £57.95.</p>
       </a>
 
+      <a href="https://r.milkandmore.co.uk/luket-1637" class="ad-card" target="_blank" rel="sponsored noopener">
+        <p class="ad-label">Referral</p>
+        <h3>Milk &amp; More</h3>
+        <p>Glass-bottled milk, eggs, bread and more on your doorstep by 7am. Free delivery, no minimum order.</p>
+        <p>30% off your first two weeks, 20% off weeks three and four.</p>
+        <p class="meta" style="text-decoration: underline; color: var(--accent-alt);">Join the milkround →</p>
+      </a>
+
       <a href="https://baas.tukems.cloud/" class="ad-card">
         <p class="ad-label">Sponsored</p>
         <h3>Blog as a Service</h3>
@@ -127,7 +135,7 @@ SHELL_TEMPLATE = '''<!DOCTYPE html>
         <p class="meta" style="text-decoration: underline; color: var(--accent-alt);">Coming soon →</p>
       </a>
 
-      <p class="affiliate-disclosure">As an Amazon Associate I earn from qualifying purchases.</p>
+      <p class="affiliate-disclosure">As an Amazon Associate I earn from qualifying purchases. Milk &amp; More is a referral link.</p>
     </aside>
   </main>
 
