@@ -130,9 +130,9 @@ window.MINIME_ANSWERS = [
   {
     q: "Can I get your CV?",
     keys: ["cv", "resume", "résumé", "pdf", "download"],
-    answer: "Of course! Here's my CV as a PDF. There's also a CV button at the top of the page.",
+    answer: "Of course! Here's my games producer CV as a PDF. If you're hiring for project or delivery management, there's a PM CV button at the top of the page too.",
     pose: "thumbs",
-    action: { label: "Download CV", href: "/Luke-Timms-CV.pdf" },
+    action: { label: "Download CV", href: "/Luke-Timms-CV-Games-Producer.pdf" },
   },
   {
     q: "",
