@@ -128,6 +128,14 @@ SHELL_TEMPLATE = '''<!DOCTYPE html>
         <p class="meta" style="text-decoration: underline; color: var(--accent-alt);">Join the milkround →</p>
       </a>
 
+      <a href="https://spondula.com/r/luke-wtt2" class="ad-card" target="_blank" rel="sponsored noopener">
+        <p class="ad-label">Referral</p>
+        <h3>Spondula</h3>
+        <p>Send money by name instead of account numbers, and hold 88 currencies in one wallet.</p>
+        <p>$10 in BTCS just for signing up, plus $10 BTCS for every friend you refer.</p>
+        <p class="meta" style="text-decoration: underline; color: var(--accent-alt);">Open a wallet →</p>
+      </a>
+
       <a href="https://baas.tukems.cloud/" class="ad-card">
         <p class="ad-label">Sponsored</p>
         <h3>Blog as a Service</h3>
@@ -135,7 +143,7 @@ SHELL_TEMPLATE = '''<!DOCTYPE html>
         <p class="meta" style="text-decoration: underline; color: var(--accent-alt);">Coming soon →</p>
       </a>
 
-      <p class="affiliate-disclosure">As an Amazon Associate I earn from qualifying purchases. Milk &amp; More is a referral link.</p>
+      <p class="affiliate-disclosure">As an Amazon Associate I earn from qualifying purchases. Milk &amp; More and Spondula are referral links.</p>
     </aside>
   </main>
 
