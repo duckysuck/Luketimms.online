@@ -33,6 +33,7 @@
     :root {
       --bg:        #0d0c0a;
       --bg-soft:   #14130f;
+      --bg-band:   #1c1a15;
       --line:      #1f1d17;
       --text:      #f0ece2;
       --text-dim:  #b3ad9f;
@@ -46,6 +47,7 @@
     [data-theme="light"] {
       --bg:        #f7f2e8;
       --bg-soft:   #ede7d8;
+      --bg-band:   #e3dbc5;
       --line:      #d9d2bf;
       --text:      #14130f;
       --text-dim:  #4d473d;
@@ -191,7 +193,7 @@
       flex-shrink: 0;
     }
 
-    .hero .tagline {
+    .tagline {
       display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem;
       font-family: 'JetBrains Mono', monospace;
       font-size: 13px;
@@ -200,12 +202,12 @@
       color: var(--text-dim);
       max-width: 720px;
     }
-    .hero .tagline span { display: inline-flex; align-items: center; gap: 0.6rem; }
-    .hero .tagline span::after {
+    .tagline span { display: inline-flex; align-items: center; gap: 0.6rem; }
+    .tagline span::after {
       content: "·"; color: var(--text-mute);
       margin-left: 1.2rem;
     }
-    .hero .tagline span:last-child::after { content: ""; }
+    .tagline span:last-child::after { content: ""; }
 
     .hero .credo {
       font-family: 'Instrument Serif', serif;
@@ -249,13 +251,13 @@
       position: relative;
     }
     /* Alternating tint so sections read as distinct bands while scrolling,
-       not one continuous page. Strictly alternates bg / bg-soft off the hero
-       (which sits on plain --bg). Experience and Services land on --bg-soft
-       here, so their inner cards (ship-credits, .service) are flipped to
-       --bg below to keep the same card-vs-section contrast they always had —
-       just inverted, not reduced. Reel keeps the default (--bg) and needs no
-       change, since its .embed card was already --bg-soft against it. */
-    #currently, #experience, #services, #softography { background: var(--bg-soft); }
+       not one continuous page. Uses its own --bg-band token (a bigger step
+       than --bg-soft, which stays reserved for inner cards) so the banding
+       reads clearly rather than subtly. Experience and Services' inner
+       cards (ship-credits, .service) were flipped to --bg so they still
+       contrast against the band; that's unaffected by --bg-band's value.
+       Reel needs no change — its .embed card was already --bg-soft. */
+    #currently, #experience, #services, #softography { background: var(--bg-band); }
     .section-head {
       display: grid;
       grid-template-columns: 100px 1fr;
@@ -810,7 +812,7 @@
       .topbar .mark { font-size: 11px; }
       .topbar-nav { gap: 0.35rem; }
       .topbar .nav-pill { padding: 0.5rem 0.85rem; font-size: 10px; }
-      .topbar .nav-pill:not(.cta) { display: none; }
+      .topbar .nav-pill:not(.cta):not(.dl) { display: none; }
     }
   </style>
 </head>
@@ -858,6 +860,7 @@
       </div>
       <div class="tagline reveal">
         <span>Delivery Leader</span>
+        <span>Mid-Flight Rescue &amp; Stabilisation</span>
         <span>Production Pipelines</span>
         <span>End-to-End Delivery</span>
         <span>Uckfield · UK</span>
@@ -885,6 +888,12 @@
       <div class="section-head reveal">
         <div class="num">01 / About</div>
         <h2>A senior delivery leader who <span class="italic">switches gears.</span></h2>
+      </div>
+
+      <div class="tagline reveal" style="margin-bottom: 2.6rem;">
+        <span>25 Years · Games, Enterprise &amp; Tech</span>
+        <span>Agile Transformation &amp; Governance</span>
+        <span>Active AI &amp; Modern Workflow Practitioner</span>
       </div>
 
       <div class="about-grid reveal">
