@@ -248,6 +248,14 @@
       border-top: 1px solid var(--line);
       position: relative;
     }
+    /* Alternating tint so sections read as distinct bands while scrolling,
+       not one continuous page. Strictly alternates bg / bg-soft off the hero
+       (which sits on plain --bg). Experience and Services land on --bg-soft
+       here, so their inner cards (ship-credits, .service) are flipped to
+       --bg below to keep the same card-vs-section contrast they always had —
+       just inverted, not reduced. Reel keeps the default (--bg) and needs no
+       change, since its .embed card was already --bg-soft against it. */
+    #currently, #experience, #services, #softography { background: var(--bg-soft); }
     .section-head {
       display: grid;
       grid-template-columns: 100px 1fr;
@@ -353,7 +361,7 @@
 
     .service {
       position: relative;
-      background: var(--bg-soft);
+      background: var(--bg);
       border: 1px solid var(--line);
       border-left: 3px solid var(--accent);
       padding: 2.4rem 2.6rem;
@@ -364,7 +372,7 @@
       transition: background 0.25s, border-color 0.25s, transform 0.25s;
     }
     .service:hover {
-      background: var(--bg);
+      background: var(--bg-soft);
       transform: translateY(-3px);
       border-left-color: var(--accent-2);
     }
@@ -993,7 +1001,7 @@
       </div>
 
       <!-- Shipped titles callout — production credits -->
-      <div class="ship-credits reveal" style="margin-top: 1.5rem; padding: 2.4rem 2.6rem; border: 1px solid var(--line); border-left: 3px solid var(--accent); background: var(--bg-soft); display: grid; grid-template-columns: 100px 1fr; gap: 2rem;">
+      <div class="ship-credits reveal" style="margin-top: 1.5rem; padding: 2.4rem 2.6rem; border: 1px solid var(--line); border-left: 3px solid var(--accent); background: var(--bg); display: grid; grid-template-columns: 100px 1fr; gap: 2rem;">
         <div class="num mono" style="color: var(--accent); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;">Shipped</div>
         <div>
           <p style="font-family: 'Instrument Serif', serif; font-size: 1.45rem; line-height: 1.5; color: var(--text); margin: 0 0 2rem;">
