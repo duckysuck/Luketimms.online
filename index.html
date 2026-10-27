@@ -225,6 +225,47 @@
       font-style: normal;
     }
 
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2.4rem;
+    }
+    .hero-cta a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.95rem 1.8rem;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+    .hero-cta .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border: 1px solid var(--accent);
+    }
+    .hero-cta .btn-primary:hover {
+      background: var(--accent-2);
+      border-color: var(--accent-2);
+      transform: translateY(-2px);
+    }
+    .hero-cta .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+    .hero-cta .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .hero-cta a .arrow { transition: transform 0.2s; }
+    .hero-cta a:hover .arrow { transform: translate(2px, -2px); }
+
     .hero .scroll-cue {
       position: absolute; bottom: 2rem; left: var(--pad-x);
       font-family: 'JetBrains Mono', monospace;
@@ -446,6 +487,25 @@
     .service .proj-links a:hover {
       color: var(--accent);
       border-bottom-color: var(--accent);
+    }
+
+    .section-note {
+      margin-top: 3rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      color: var(--text-dim);
+      max-width: 760px;
+    }
+    .section-note a {
+      color: var(--accent);
+      border-bottom: 1px dotted var(--accent);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .section-note a:hover {
+      color: var(--accent-2);
+      border-bottom-color: var(--accent-2);
     }
 
     /* ───── REEL ───── */
@@ -866,6 +926,10 @@
         <span>Uckfield · UK</span>
       </div>
       <p class="credo reveal">I turn chaos into structure.</p>
+      <div class="hero-cta reveal">
+        <a href="#contact" class="btn-primary">Let's talk <span class="arrow">↗</span></a>
+        <a href="#experience" class="btn-secondary">See my work ↓</a>
+      </div>
       <div class="scroll-cue">Scroll</div>
     </div>
   </header>
@@ -1217,6 +1281,8 @@
           </div>
         </div>
       </div>
+
+      <p class="section-note reveal">Every team and project is different — happy to talk through scope, pace, and fit before anything is agreed. <a href="#contact">Get in touch ↗</a></p>
     </div>
   </section>
 
