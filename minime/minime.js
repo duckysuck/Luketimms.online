@@ -28,7 +28,7 @@
   const CONTACT_ENDPOINT = "https://formsubmit.co/ajax/" + encodeURIComponent("lukedtimms@gmail.com");
   const CONTACT_STEPS = [
     { key: "need", say: "Let's talk! What brings you here?",
-      chips: ["Shipping a new title", "Scaling production / process", "Production support", "Just exploring"] },
+      chips: ["I've got a job for you", "Shipping a new title", "Scaling production / process", "Production support", "Just exploring"] },
     { key: "team", say: "Cool. Who are you with? Studio, team or company is fine.",
       text: "Studio or company name", optional: true },
     { key: "email", say: "Last thing: where should I reply? Pop your email in, plus a quick note if you like.",
@@ -147,6 +147,9 @@
       font: 600 1rem 'Inter Tight', system-ui, sans-serif; }
     .minime-cta img { width: 42px; height: 42px; border-radius: 50%; background: var(--bg, #0d0c0a); }
     .minime-cta:hover { filter: brightness(1.08); }
+    .minime-cta.ghost-cta { background: transparent; color: var(--text, #f0ece2); padding: 0.45rem 1.2rem; }
+    .minime-cta.ghost-cta:hover { background: var(--accent, #ff5b14); color: #fff; }
+    .minime-cta + .minime-cta { margin-left: 0.6rem; }
 
     .minime-launch { position: fixed; left: 14px; bottom: 14px; z-index: 44; display: none; align-items: center; gap: 0.45rem;
       padding: 0.3rem 0.85rem 0.3rem 0.3rem; border-radius: 999px; cursor: pointer;
@@ -471,7 +474,7 @@
     }, reduceMotion ? 150 : 650);
   }
 
-  async function openChat(from, contact = false) {
+  async function openChat(from, contact = false, preset = null) {
     await answersReady;
     opener = from || null;
     chatOpen = true;
@@ -479,7 +482,7 @@
     bubble.classList.remove("show");
     chat.classList.add("open");
     if (contact) {
-      startContact();
+      startContact(preset);
     } else if (!log.children.length) {
       addMessage("him", "Hi! I'm mini Luke. Ask me anything about my CV, or tap a question below.");
       renderChips();
@@ -494,14 +497,20 @@
   const esc = (t) => String(t).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   let talk = null; // { step, answers }
 
-  function startContact() {
-    if (!chatOpen) return openChat(null, true);
+  function startContact(preset = null) {
+    if (!chatOpen) return openChat(null, true, preset);
     if (talk) return; // already mid-conversation (e.g. closed and reopened): carry on where they left off
     talk = { step: 0, answers: {} };
     chat.classList.add("talking");
     sub.textContent = "Let's talk";
     react("thumbs", 2000);
-    nextStep();
+    if (preset) {
+      // skip the "what brings you here" chips — answer it for them and jump straight to step 2
+      addMessage("him", CONTACT_STEPS[0].say);
+      reply(CONTACT_STEPS[0], preset);
+    } else {
+      nextStep();
+    }
   }
 
   function endContact(message) {
@@ -647,10 +656,21 @@
     if (chatOpen) startContact(); else openChat(t, true);
   });
 
+  // [data-minime-job] skips straight past the "what brings you here" chips with the answer pre-filled
+  document.addEventListener("click", (e) => {
+    const t = e.target.closest('[data-minime-job]');
+    if (!t) return;
+    e.preventDefault();
+    const preset = CONTACT_STEPS[0].chips[0];
+    if (chatOpen && talk) return;
+    if (chatOpen) startContact(preset); else openChat(t, true, preset);
+  });
+
   // Replace the old contact chat with a single button that opens mini Luke
   const slot = document.querySelector("#contact [data-minime-slot]");
   if (slot) {
-    slot.innerHTML = `<button type="button" class="minime-cta" data-minime-contact><img src="${avatar}" alt="">Say hello to mini me</button>`;
+    slot.innerHTML = `<button type="button" class="minime-cta" data-minime-job><img src="${avatar}" alt="">I've got a job for you</button>
+      <button type="button" class="minime-cta ghost-cta" data-minime-contact>Say hello to mini me</button>`;
   }
 
   el.querySelector(".minime-close").addEventListener("click", () => {
