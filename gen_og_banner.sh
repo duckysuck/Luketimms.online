@@ -3,7 +3,7 @@
 # Mirrors blog/gen_og_banner.sh: runs a one-off Alpine + ImageMagick container
 # so the host needs no ImageMagick. Re-run if tagline/palette/layout changes.
 #
-# Design matches index.html: dark #0d0c0a, orange accent #ff5b14, off-white text.
+# Design matches index.html: dark #0d0c0a, blue accent #5b8cff, off-white text.
 
 set -eu
 
@@ -15,9 +15,9 @@ sg docker -c "docker run --rm -v ${OUT_DIR}:/work alpine:3.20 sh -c '
   cd /work
 
   convert -size 1200x630 xc:\"#0d0c0a\" \
-    -fill \"#ff5b14\" -draw \"rectangle 0,0 6,630\" \
+    -fill \"#5b8cff\" -draw \"rectangle 0,0 6,630\" \
     -font /usr/share/fonts/dejavu/DejaVuSansMono.ttf -pointsize 26 -kerning 3 \
-    -fill \"#ff5b14\" -gravity NorthWest -annotate +80+82 \"DELIVERY LEADER\" \
+    -fill \"#5b8cff\" -gravity NorthWest -annotate +80+82 \"DELIVERY LEADER\" \
     -font /usr/share/fonts/dejavu/DejaVuSerif-Bold.ttf -pointsize 104 -kerning -2 \
     -fill \"#f0ece2\" -gravity NorthWest -annotate +76+138 \"Luke Timms.\" \
     -font /usr/share/fonts/dejavu/DejaVuSansMono.ttf -pointsize 24 -kerning 1 \
