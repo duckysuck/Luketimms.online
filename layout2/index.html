@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Luke Timms: Delivery Leader. Layout 2 design preview: production tickets, career timeline, toolkit and shipped credits.">
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="https://luketimms.online/layout2/">
+  <meta name="theme-color" content="#0d0c0a">
+  <title>Luke Timms · Layout 2 (Preview)</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Luke Timms · Delivery Leader">
+  <meta property="og:description" content="Production pipelines · Schedules · Milestones · Shipped end-to-end">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://luketimms.online/layout2/">
+  <meta property="og:image" content="https://luketimms.online/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Luke Timms · Delivery Leader">
+  <meta property="og:site_name" content="Luke Timms">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Luke Timms · Delivery Leader">
+  <meta name="twitter:description" content="Production pipelines · Schedules · Milestones · Shipped end-to-end">
+  <meta name="twitter:image" content="https://luketimms.online/og-image.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:        #0d0c0a;
+      --bg-soft:   #14130f;
+      --bg-band:   #1c1a15;
+      --card:      #17150f;
+      --line:      #262219;
+      --text:      #f0ece2;
+      --text-dim:  #b3ad9f;
+      --text-mute: #6b6557;
+      --accent:    #5b8cff;
+      --accent-2:  #a6c4ff;
+      --good:      #6fcf97;
+      --max:       1120px;
+      --pad-x:     clamp(1.25rem, 4vw, 3.5rem);
+      color-scheme: dark;
+    }
+    [data-theme="light"] {
+      --bg:        #f7f2e8;
+      --bg-soft:   #ede7d8;
+      --bg-band:   #e3dbc5;
+      --card:      #fffdf7;
+      --line:      #ddd5c0;
+      --text:      #14130f;
+      --text-dim:  #4d473d;
+      --text-mute: #948d7c;
+      --accent:    #1e4fd8;
+      --accent-2:  #3d5a99;
+      --good:      #1d8a53;
+      color-scheme: light;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text);
+      font-family: 'Inter Tight', system-ui, sans-serif; font-size: 16px; line-height: 1.6;
+      -webkit-font-smoothing: antialiased; transition: background 0.3s, color 0.3s;
+    }
+    h1, h2, h3, h4 { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; margin: 0; letter-spacing: -0.01em; }
+    .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+    a { color: inherit; }
+    p { margin: 0 0 1em; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad-x); }
+    .italic { font-style: italic; color: var(--accent); }
+    ::selection { background: var(--accent); color: #fff; }
+
+    /* reveal on scroll */
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* nav */
+    .topbar {
+      position: sticky; top: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 14px var(--pad-x); background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(10px); border-bottom: 1px solid var(--line);
+    }
+    .topbar .mark { font: 600 14px/1 var(--body); font-family: 'Inter Tight', sans-serif; letter-spacing: 0.02em; }
+    .topbar .mark span { color: var(--text-mute); }
+    .topbar-nav { display: flex; align-items: center; gap: 4px; }
+    .nav-pill {
+      font: 500 13px 'Inter Tight', sans-serif; color: var(--text-dim); text-decoration: none;
+      padding: 7px 12px; border-radius: 4px; white-space: nowrap;
+    }
+    .nav-pill:hover { color: var(--text); background: var(--bg-soft); }
+    .nav-pill.back { color: var(--text-mute); }
+    .theme-toggle {
+      border: 1px solid var(--line); background: var(--bg-soft); color: var(--text-dim); border-radius: 4px;
+      width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0;
+    }
+    .theme-toggle:hover { color: var(--text); }
+    [data-theme="light"] .theme-toggle .moon { display: inline; }
+    [data-theme="light"] .theme-toggle .sun { display: none; }
+    .theme-toggle .moon { display: none; }
+    .theme-toggle .sun { display: inline; }
+    @media (max-width: 760px) { .topbar-nav a:not(.cta):not(.back) { display: none; } }
+
+    /* section scaffolding */
+    .block { padding: clamp(3.5rem, 8vw, 6.5rem) 0; border-bottom: 1px solid var(--line); }
+    .block.band { background: var(--bg-band); }
+    .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 2.4rem; flex-wrap: wrap; }
+    .section-head .num { font: 500 12px 'JetBrains Mono', monospace; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; }
+    .section-head h2 { font-size: clamp(1.7rem, 3.4vw, 2.5rem); }
+
+    /* ───── HERO ───── */
+    header.hero { padding: clamp(5rem, 14vw, 9rem) 0 clamp(3rem, 7vw, 5rem); }
+    .status {
+      display: inline-flex; align-items: center; gap: 8px; font: 500 12px 'JetBrains Mono', monospace;
+      color: var(--good); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.6rem;
+    }
+    .status .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--good); box-shadow: 0 0 0 4px color-mix(in srgb, var(--good) 20%, transparent); }
+    .hero .greet { font: 500 16px 'Inter Tight', sans-serif; color: var(--text-dim); margin-bottom: 0.6rem; }
+    .hero h1 { font-size: clamp(2.6rem, 8vw, 5.4rem); line-height: 0.98; }
+    .hero .role { margin-top: 1.1rem; font: 500 clamp(1rem, 2.2vw, 1.3rem) 'Inter Tight', sans-serif; color: var(--text-dim); }
+    .hero .credo { margin-top: 1.1rem; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(1.2rem, 2.6vw, 1.6rem); color: var(--accent-2); }
+    .hero-meta { margin-top: 2.2rem; display: flex; flex-wrap: wrap; gap: 10px 26px; font: 500 13px 'JetBrains Mono', monospace; color: var(--text-mute); text-transform: uppercase; letter-spacing: 0.06em; }
+    .hero-cta { margin-top: 2.4rem; display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn-primary, .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px; font: 600 15px 'Inter Tight', sans-serif;
+      padding: 13px 22px; border-radius: 6px; text-decoration: none;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-2); }
+    .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--line); }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ───── ABOUT / STATS ───── */
+    .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 24px; margin-bottom: 2.6rem; }
+    .stat b { display: block; font: 400 clamp(2.1rem, 4.5vw, 3rem) 'Instrument Serif', serif; color: var(--accent); line-height: 1; }
+    .stat span { font: 500 13px 'Inter Tight', sans-serif; color: var(--text-mute); }
+    .about-body { max-width: 68ch; color: var(--text-dim); font-size: 16.5px; }
+    .about-body p:last-child { margin-bottom: 0; }
+
+    /* ───── WORK (tickets) ───── */
+    .tickets { display: grid; gap: 18px; }
+    .ticket { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 26px 28px; }
+    .ticket-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+    .ticket-key { font: 600 12px 'JetBrains Mono', monospace; color: var(--text-mute); letter-spacing: 0.06em; }
+    .ticket-status {
+      font: 700 10px 'JetBrains Mono', monospace; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 4px; background: color-mix(in srgb, var(--good) 16%, transparent); color: var(--good);
+    }
+    .ticket-status.active { background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--accent); }
+    .ticket h3 { font-size: 1.3rem; margin-bottom: 2px; }
+    .ticket .org { font: 500 14px 'Inter Tight', sans-serif; color: var(--text-dim); margin-bottom: 4px; }
+    .ticket .when { font: 500 12px 'JetBrains Mono', monospace; color: var(--text-mute); margin-bottom: 14px; }
+    .ticket p.desc { color: var(--text-dim); margin-bottom: 12px; }
+    .ticket ul.achieve { margin: 0 0 14px; padding-left: 1.1em; color: var(--text-dim); }
+    .ticket ul.achieve li { margin-bottom: 4px; }
+    .ticket .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      font: 600 11px 'JetBrains Mono', monospace; letter-spacing: 0.02em; color: var(--text-dim);
+      border: 1px solid var(--line); border-radius: 4px; padding: 3px 8px; background: var(--bg-soft);
+    }
+
+    /* ───── CAREER (timeline) ───── */
+    .timeline { position: relative; padding-left: 26px; border-left: 2px solid var(--line); }
+    .tl-item { position: relative; padding-bottom: 1.6rem; }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-item::before {
+      content: ""; position: absolute; left: -31px; top: 4px; width: 10px; height: 10px; border-radius: 50%;
+      background: var(--bg); border: 2px solid var(--accent);
+    }
+    .tl-year { font: 600 12px 'JetBrains Mono', monospace; color: var(--accent); letter-spacing: 0.04em; }
+    .tl-title { font: 600 16px 'Inter Tight', sans-serif; margin-top: 2px; }
+    .tl-org { font: 500 14px 'Inter Tight', sans-serif; color: var(--text-mute); }
+
+    /* ───── TOOLKIT ───── */
+    .toolkit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px 32px; }
+    .tk-group h4 { font: 600 14px 'Inter Tight', sans-serif; color: var(--text); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.04em; font-style: normal; font-family: 'Inter Tight', sans-serif; }
+    .tk-group p { color: var(--text-dim); font-size: 14.5px; margin: 0; }
+
+    /* ───── CREDITS (strip) ───── */
+    .credits-strip { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 8px; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
+    .credit-chip {
+      flex: 0 0 auto; scroll-snap-align: start; min-width: 220px; background: var(--card); border: 1px solid var(--line);
+      border-radius: 8px; padding: 18px 20px;
+    }
+    .credit-chip .yr { font: 600 11px 'JetBrains Mono', monospace; color: var(--accent); letter-spacing: 0.06em; }
+    .credit-chip h4 { font-size: 1.05rem; margin: 4px 0 0; }
+    .credits-note { margin-top: 1.4rem; color: var(--text-mute); font-size: 14px; }
+    .credits-note a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
+    /* ───── CONTACT ───── */
+    .contact-pitch { font-size: clamp(1.1rem, 2.2vw, 1.4rem); max-width: 42ch; margin-bottom: 1.8rem; }
+    .contact-pitch em { font-style: italic; color: var(--accent); }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .contact-links a {
+      font: 600 14px 'Inter Tight', sans-serif; text-decoration: none; color: var(--text-dim);
+      border: 1px solid var(--line); border-radius: 6px; padding: 10px 16px;
+    }
+    .contact-links a:hover { color: var(--accent); border-color: var(--accent); }
+    .contact-links a.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .contact-links a.primary:hover { background: var(--accent-2); border-color: var(--accent-2); color: #fff; }
+
+    /* ───── FOOTER ───── */
+    footer { padding: 2.4rem 0 4rem; }
+    footer .row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; font: 500 13px 'JetBrains Mono', monospace; color: var(--text-mute); }
+    footer a { color: var(--text-mute); text-decoration: underline; text-underline-offset: 3px; }
+
+    /* ───── RECRUITER QUICK VIEW ───── */
+    .quickview-btn {
+      position: fixed; bottom: 22px; right: 22px; z-index: 50; display: inline-flex; align-items: center; gap: 8px;
+      background: var(--text); color: var(--bg); font: 600 13px 'Inter Tight', sans-serif; border: 0; border-radius: 8px;
+      padding: 12px 18px; cursor: pointer; box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    }
+    .quickview-btn:hover { background: var(--accent); color: #fff; }
+    .qv-overlay {
+      position: fixed; inset: 0; z-index: 60; background: rgba(5,5,4,0.6); backdrop-filter: blur(3px);
+      display: flex; align-items: center; justify-content: center; padding: 20px;
+    }
+    .qv-overlay[hidden] { display: none; }
+    .qv-modal {
+      background: var(--bg); border: 1px solid var(--line); border-radius: 14px; max-width: 460px; width: 100%;
+      padding: 30px 32px; max-height: 86vh; overflow-y: auto;
+    }
+    .qv-modal h3 { font-size: 1.1rem; font-family: 'Inter Tight', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-mute); margin: 1.2rem 0 0.5rem; }
+    .qv-modal h3:first-of-type { margin-top: 0; }
+    .qv-modal p, .qv-modal li { color: var(--text-dim); font-size: 14.5px; }
+    .qv-modal ul { margin: 0; padding-left: 1.1em; }
+    .qv-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+    .qv-head strong { font: 600 16px 'Inter Tight', sans-serif; color: var(--text); }
+    .qv-close { border: 0; background: none; color: var(--text-mute); font-size: 20px; cursor: pointer; line-height: 1; padding: 4px; }
+    .qv-close:hover { color: var(--text); }
+    .qv-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .qv-links a { font: 600 13px 'Inter Tight', sans-serif; color: var(--accent); text-decoration: none; }
+    .qv-links a:hover { text-decoration: underline; }
+
+    @media (max-width: 640px) {
+      .section-head { flex-direction: column; align-items: flex-start; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <a href="#home" class="mark">LUKE TIMMS <span>· Layout 2</span></a>
+    <nav class="topbar-nav">
+      <a href="https://luketimms.online/" class="nav-pill back">← Main site</a>
+      <a href="#work" class="nav-pill">Work</a>
+      <a href="#toolkit" class="nav-pill">Toolkit</a>
+      <a href="#contact" class="nav-pill">Contact</a>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle colour theme" title="Toggle colour theme">
+        <span class="moon" aria-hidden="true">&#9790;</span><span class="sun" aria-hidden="true">&#9728;</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- ───── HERO ───── -->
+  <header class="hero" id="home">
+    <div class="wrap">
+      <div class="status reveal"><span class="dot"></span><span>Open to new roles and challenges</span></div>
+      <div class="greet reveal">Hey, I'm</div>
+      <h1 class="reveal">Luke Timms.</h1>
+      <p class="role reveal">Delivery Leader &middot; Production Pipelines &middot; End-to-End Delivery</p>
+      <p class="credo reveal">I turn chaos into structure.</p>
+      <div class="hero-meta reveal">
+        <span>Uckfield, UK</span>
+        <span>25 Years Delivery</span>
+        <span>Games &middot; Enterprise &middot; Live Events</span>
+      </div>
+      <div class="hero-cta reveal">
+        <a href="https://www.everyexpert.com/luketimms" target="_blank" rel="noopener" class="btn-primary">Book a free call <span>&#8599;</span></a>
+        <a href="#work" class="btn-secondary">See my work &#8595;</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ───── ABOUT ───── -->
+  <section class="block" id="about">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="num">01 / About</div>
+        <h2>A senior delivery leader who <span class="italic">switches gears.</span></h2>
+      </div>
+
+      <div class="stats-row reveal">
+        <div class="stat"><b>25</b><span>Years across games, enterprise &amp; tech</span></div>
+        <div class="stat"><b>11+</b><span>Large-scale live events shipped</span></div>
+        <div class="stat"><b>28</b><span>Shipped game titles</span></div>
+      </div>
+
+      <div class="about-body reveal">
+        <p>I lead complex, cross functional delivery from a people first perspective, building frameworks that enable great work rather than constrain it. As an agile transformation leader with 25 years across gaming, tech, and enterprise consulting, I bridge the gap between technical teams, commercial partners, and CIO level leaders to keep ambitious projects moving.</p>
+        <p>I have owned delivery pipelines end to end across console, PC, live entertainment, and risk management inside regulated banks. I balance high level governance with practical, hands on execution in Jira and modern workflows to ensure teams ship reliably.</p>
+        <p>I adapt my approach to suit the audience, serving as an effective senior interface who protects project scope, budget, and timeline, and drives rapid decision making, surfacing cost and capacity tradeoffs early rather than letting them become surprises.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── WORK (tickets) ───── -->
+  <section class="block band" id="work">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="num">02 / Work</div>
+        <h2>Selected work, <span class="italic">as tickets.</span></h2>
+      </div>
+
+      <div class="tickets">
+        <div class="ticket reveal">
+          <div class="ticket-head"><span class="ticket-key">JEC-01</span><span class="ticket-status active">In progress</span></div>
+          <h3>Senior Project Manager</h3>
+          <div class="org">Jean Edwards Consulting</div>
+          <div class="when">Mar 2026 &ndash; Present</div>
+          <p class="desc">Leading client delivery projects end to end: scope, milestones and delivery rhythm, with teams coached toward ways of working that fit them rather than a template.</p>
+          <ul class="achieve">
+            <li>Shapes ambiguous client requests into clearly scoped delivery work with agreed success criteria</li>
+            <li>Applies the same people-first production discipline used at studio level to enterprise delivery</li>
+          </ul>
+          <div class="tags"><span class="tag">Agile</span><span class="tag">Stakeholder Mgmt</span><span class="tag">Scope Control</span><span class="tag">Coaching</span></div>
+        </div>
+
+        <div class="ticket reveal">
+          <div class="ticket-head"><span class="ticket-key">IMP-02</span><span class="ticket-status">Shipped</span></div>
+          <h3>Senior Producer / Head of QA</h3>
+          <div class="org">Improbable / Imporium</div>
+          <div class="when">Feb 2023 &ndash; Jul 2025</div>
+          <p class="desc">Produced Unreal Engine-powered virtual world live events, each serving thousands of concurrent players in real-time multiplayer.</p>
+          <ul class="achieve">
+            <li>Shipped 11+ large-scale events: Game4Ukraine, Clash of Fans, HotShots, NPC Snatchers, Mashup and more</li>
+            <li>Owned delivery end to end from scoping through live event and iteration</li>
+            <li>Introduced a QA operating model that measurably improved release quality</li>
+          </ul>
+          <div class="tags"><span class="tag">Unreal Engine</span><span class="tag">Live Ops</span><span class="tag">QA Leadership</span><span class="tag">Cross-functional</span></div>
+        </div>
+
+        <div class="ticket reveal">
+          <div class="ticket-head"><span class="ticket-key">CCP-03</span><span class="ticket-status">Shipped</span></div>
+          <h3>Senior Development Manager</h3>
+          <div class="org">CCP Games</div>
+          <div class="when">Aug 2021 &ndash; Feb 2023</div>
+          <p class="desc">Led the Missions Team, redesigning planning rhythms and delivery systems to lift predictability across engineering and design.</p>
+          <ul class="achieve">
+            <li>Introduced clearer structures around scope, ownership and progress tracking</li>
+            <li>Acted as the link between leadership and production, translating creative goals into trackable outcomes</li>
+          </ul>
+          <div class="tags"><span class="tag">Production Planning</span><span class="tag">Delivery Systems</span><span class="tag">Alignment</span></div>
+        </div>
+
+        <div class="ticket reveal">
+          <div class="ticket-head"><span class="ticket-key">LBG-04</span><span class="ticket-status">Shipped</span></div>
+          <h3>Senior Risk Manager / Product Owner</h3>
+          <div class="org">Lloyds Banking Group</div>
+          <div class="when">2016 &ndash; 2021</div>
+          <p class="desc">Embedded risk management into engineering and AI/ML teams without slowing delivery, inside a heavily regulated environment.</p>
+          <ul class="achieve">
+            <li>Created a Guiderails governance framework that kept delivery teams secure and compliant</li>
+            <li>Advised the CIO, COO and CDO on tooling, cloud and machine-learning investment, including GDPR impact</li>
+          </ul>
+          <div class="tags"><span class="tag">GDPR</span><span class="tag">Governance</span><span class="tag">Risk Mgmt</span><span class="tag">Product Owner</span></div>
+        </div>
+
+        <div class="ticket reveal">
+          <div class="ticket-head"><span class="ticket-key">ACN-05</span><span class="ticket-status">Shipped</span></div>
+          <h3>Digital Project Manager / Delivery Roles</h3>
+          <div class="org">Accenture</div>
+          <div class="when">2013 &ndash; 2016</div>
+          <p class="desc">Placed with major client organisations as Delivery Lead, Release and Change Manager, Agile Coach and Senior Business Analyst.</p>
+          <ul class="achieve">
+            <li>Led global change and release management for AstraZeneca, including CAB governance and a global Jira and Confluence rollout</li>
+            <li>Led time-critical delivery for Fiat Chrysler Automobiles UK</li>
+          </ul>
+          <div class="tags"><span class="tag">CAB Governance</span><span class="tag">Release Mgmt</span><span class="tag">Jira/Confluence</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── CAREER (timeline) ───── -->
+  <section class="block" id="career">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="num">03 / Career</div>
+        <h2>How I got <span class="italic">here.</span></h2>
+      </div>
+
+      <div class="timeline reveal">
+        <div class="tl-item"><div class="tl-year">2000 &ndash; 2002</div><div class="tl-title">QA Technician</div><div class="tl-org">Eidos Interactive</div></div>
+        <div class="tl-item"><div class="tl-year">2002 &ndash; 2003</div><div class="tl-title">Lead QA Technician</div><div class="tl-org">SCi Games</div></div>
+        <div class="tl-item"><div class="tl-year">2003 &ndash; 2007</div><div class="tl-title">Assistant Producer</div><div class="tl-org">Eidos</div></div>
+        <div class="tl-item"><div class="tl-year">2007 &ndash; 2008</div><div class="tl-title">Associate Producer</div><div class="tl-org">Eidos</div></div>
+        <div class="tl-item"><div class="tl-year">2008</div><div class="tl-title">Development Manager</div><div class="tl-org">BrandPlay (Contract), nDreams</div></div>
+        <div class="tl-item"><div class="tl-year">2008 &ndash; 2010</div><div class="tl-title">Producer</div><div class="tl-org">HotGen</div></div>
+        <div class="tl-item"><div class="tl-year">2010 &ndash; 2011</div><div class="tl-title">Producer / Development Director (Contract)</div><div class="tl-org">Electronic Arts &middot; Harry Potter and the Deathly Hallows</div></div>
+        <div class="tl-item"><div class="tl-year">2011</div><div class="tl-title">Game Director (Contract)</div><div class="tl-org">Zoe Mode</div></div>
+        <div class="tl-item"><div class="tl-year">2011 &ndash; 2012</div><div class="tl-title">Producer</div><div class="tl-org">Arooga</div></div>
+        <div class="tl-item"><div class="tl-year">2012 &ndash; 2013</div><div class="tl-title">Lead Producer / Lead Product Owner</div><div class="tl-org">Kaplan International Colleges</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── TOOLKIT ───── -->
+  <section class="block band" id="toolkit">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="num">04 / Toolkit</div>
+        <h2>What I <span class="italic">work with.</span></h2>
+      </div>
+
+      <div class="toolkit-grid reveal">
+        <div class="tk-group">
+          <h4>AI Portfolio &amp; Value Delivery</h4>
+          <p>Shaping business requests into scoped deliverables, success criteria and value measures, prioritisation by value, cost and feasibility, adoption tracking, spend tracking and reporting to steering committees.</p>
+        </div>
+        <div class="tk-group">
+          <h4>Governance &amp; Compliance</h4>
+          <p>GDPR and data protection, risk and governance framework design, Change Advisory Board (CAB) governance, awareness of emerging AI regulation (EU AI Act), regulatory advisory to CIO, COO and CDO.</p>
+        </div>
+        <div class="tk-group">
+          <h4>Portfolio &amp; Programme Management</h4>
+          <p>End-to-end delivery ownership, multi-workstream and portfolio coordination, budget and financial tracking, milestone and roadmap planning, delivery predictability and forecasting.</p>
+        </div>
+        <div class="tk-group">
+          <h4>Stakeholder &amp; Business Partnership</h4>
+          <p>Executive and cross-functional stakeholder management, business-to-engineering translation, adoption and communications support, vendor and supplier management, decision facilitation.</p>
+        </div>
+        <div class="tk-group">
+          <h4>Methods, Tools &amp; AI Practice</h4>
+          <p>Agile, Scrum, Kanban, Waterfall, hybrid delivery, Product Owner, Jira, Confluence, hands-on daily use of AI tools for delivery and automation, builds personal agentic and workflow tooling.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── CREDITS ───── -->
+  <section class="block" id="credits">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="num">05 / Credits</div>
+        <h2>Shipped <span class="italic">titles.</span></h2>
+      </div>
+
+      <div class="credits-strip reveal">
+        <div class="credit-chip"><div class="yr">2010 &ndash; 2011</div><h4>Harry Potter and the Deathly Hallows</h4></div>
+        <div class="credit-chip"><div class="yr">2012</div><h4>Grease Dance</h4></div>
+        <div class="credit-chip"><div class="yr">2006</div><h4>Reservoir Dogs</h4></div>
+        <div class="credit-chip"><div class="yr">2005</div><h4>Constantine</h4></div>
+      </div>
+      <p class="credits-note">Full production credits: <a href="https://www.mobygames.com/person/38216/" target="_blank" rel="noopener">mobygames.com/person/38216</a></p>
+    </div>
+  </section>
+
+  <!-- ───── CONTACT ───── -->
+  <section class="block band" id="contact">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="num">06 / Contact</div>
+        <h2>Let's <span class="italic">talk.</span></h2>
+      </div>
+
+      <p class="contact-pitch reveal">Building a studio, scaling a team, or producing a title that needs a <em>steady hand on the pipeline?</em> Drop me a line.</p>
+      <div class="contact-links reveal">
+        <a href="https://www.everyexpert.com/luketimms" target="_blank" rel="noopener" class="primary">Book a free call &#8599;</a>
+        <a href="https://www.linkedin.com/in/luketimms" target="_blank" rel="noopener">LinkedIn &#8599;</a>
+        <a href="/Luke-Timms-CV.pdf" download>Download CV (PDF) &#8595;</a>
+        <a href="https://www.buymeacoffee.com/lukedtimmsU" target="_blank" rel="noopener">Buy me a coffee &#8599;</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="row">
+        <div>&copy; 2026 Luke Timms</div>
+        <div>Layout 2 &middot; design preview</div>
+        <div><a href="https://luketimms.online/">&larr; Back to main site</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ───── RECRUITER QUICK VIEW ───── -->
+  <button class="quickview-btn" id="qv-open" type="button">&#9889; 30-sec view</button>
+  <div class="qv-overlay" id="qv-overlay" hidden>
+    <div class="qv-modal" role="dialog" aria-modal="true" aria-label="30-second recruiter view">
+      <div class="qv-head">
+        <strong>Luke Timms &middot; 30-second view</strong>
+        <button class="qv-close" id="qv-close" type="button" aria-label="Close">&times;</button>
+      </div>
+      <h3>Now</h3>
+      <p>Senior Project Manager at Jean Edwards Consulting. Open to the next studio or programme to ship with.</p>
+      <h3>Top achievements</h3>
+      <ul>
+        <li>Shipped 11+ large-scale real-time live events at Improbable, each serving thousands of concurrent players</li>
+        <li>Redesigned delivery systems and planning rhythms at CCP Games, lifting predictability across engineering and design</li>
+        <li>Built a governance framework at Lloyds Banking Group that kept AI/ML delivery compliant without slowing it down</li>
+      </ul>
+      <h3>Skills</h3>
+      <p>Portfolio &amp; programme delivery, governance &amp; GDPR, stakeholder management, Agile/Scrum/Kanban, hands-on AI practice.</p>
+      <h3>Contact</h3>
+      <div class="qv-links">
+        <a href="https://www.everyexpert.com/luketimms" target="_blank" rel="noopener">Book a call &#8599;</a>
+        <a href="https://www.linkedin.com/in/luketimms" target="_blank" rel="noopener">LinkedIn &#8599;</a>
+        <a href="/Luke-Timms-CV.pdf" download>Download CV &#8595;</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Theme toggle — persists in localStorage; defaults to system preference
+    (function () {
+      const root = document.documentElement;
+      const stored = localStorage.getItem('theme');
+      const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+      const initial = stored || (prefersLight ? 'light' : 'dark');
+      if (initial === 'light') root.setAttribute('data-theme', 'light');
+      const btn = document.getElementById('theme-toggle');
+      if (btn) {
+        btn.addEventListener('click', () => {
+          const isLight = root.getAttribute('data-theme') === 'light';
+          if (isLight) { root.removeAttribute('data-theme'); localStorage.setItem('theme', 'dark'); }
+          else { root.setAttribute('data-theme', 'light'); localStorage.setItem('theme', 'light'); }
+        });
+      }
+    })();
+
+    // Reveal on scroll
+    (function () {
+      const reveals = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+        }, { threshold: 0.12 });
+        reveals.forEach(el => io.observe(el));
+      } else {
+        reveals.forEach(el => el.classList.add('in'));
+      }
+    })();
+
+    // Recruiter quick-view modal
+    (function () {
+      const openBtn = document.getElementById('qv-open');
+      const closeBtn = document.getElementById('qv-close');
+      const overlay = document.getElementById('qv-overlay');
+      if (!openBtn || !overlay) return;
+      function open() { overlay.hidden = false; }
+      function close() { overlay.hidden = true; }
+      openBtn.addEventListener('click', open);
+      closeBtn.addEventListener('click', close);
+      overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !overlay.hidden) close(); });
+    })();
+  </script>
+</body>
+</html>
