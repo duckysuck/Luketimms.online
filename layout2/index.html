@@ -802,7 +802,6 @@ function tick() {
     c.style.transform = `translate3d(0,${ty}vh,${tz}px) rotateX(${rx}deg)`;
     c.style.opacity = op * Math.max(0, 1 - W.exit * 2.4);
     c.style.zIndex = String(100 - Math.round(d * 10));
-    c.style.visibility = op * Math.max(0, 1 - W.exit * 2.4) < .01 ? "hidden" : "visible";
     c.style.pointerEvents = Math.abs(d) < .5 ? "auto" : "none";
   });
   $("#wBar").style.width = (W.p * 100) + "%";
@@ -868,7 +867,7 @@ function tick() {
   const tc = eIOS(clamp((y - (T.top - lead)) / span));
   const skew = .2 * vh, e2 = -skew + (vw + 2 * skew) * tc;
   contactField.style.clipPath = tc >= 1 ? "none" : `polygon(0 0, ${e2 + skew}px 0, ${e2 - skew}px ${vh}px, 0 ${vh}px)`;
-  const po = 1 - eOC(clamp(tc * 1.5)); rig.style.opacity = po.toFixed(3); rig.style.visibility = po < .01 ? "hidden" : "visible";
+  const po = 1 - eOC(clamp(tc * 1.5)); rig.style.opacity = po.toFixed(3); rig.style.pointerEvents = po < .05 ? "none" : "auto";
   const lt = eOC(clamp((tc - .5) * 2)); lets.style.opacity = lt; lets.style.transform = `translateY(${(1 - lt) * 50}px)`;
   document.body.classList.toggle("on-dark", tc > .6);
   document.body.classList.toggle("at-top", H.exit < .35);
