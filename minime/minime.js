@@ -437,7 +437,7 @@
 
   function renderChips() {
     const entries = (window.MINIME_ANSWERS || []).filter((e) => e.q && !asked.has(e.q));
-    chips.innerHTML = "";
+    chips.replaceChildren();
     for (const e of entries.slice(0, log.children.length > 1 ? 3 : 5)) {
       const b = document.createElement("button");
       b.type = "button";
@@ -517,7 +517,7 @@
     talk = null;
     chat.classList.remove("talking");
     sub.textContent = "Quick answers from my CV";
-    flow.innerHTML = "";
+    flow.replaceChildren();
     if (message) addMessage("him", message);
     renderChips();
   }
@@ -526,7 +526,7 @@
     const step = CONTACT_STEPS[talk.step];
     if (!step) return sendContact();
     addMessage("him", step.say);
-    flow.innerHTML = "";
+    flow.replaceChildren();
 
     if (step.chips) {
       flow.innerHTML = `<div class="opts">${step.chips.map((c) => `<button type="button">${esc(c)}</button>`).join("")}</div>`;
@@ -577,14 +577,14 @@
     addMessage("you", shown);
     talk.answers[step.key] = value;
     talk.step += 1;
-    flow.innerHTML = "";
+    flow.replaceChildren();
     react("hint", 700);
     setTimeout(nextStep, reduceMotion ? 100 : 500);
   }
 
   async function sendContact() {
     const a = talk.answers;
-    flow.innerHTML = "";
+    flow.replaceChildren();
     const typing = document.createElement("div");
     typing.className = "minime-typing";
     typing.textContent = "Sending to Luke…";

@@ -3,6 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Apply the saved theme before first paint so there is no flash of the wrong scheme.
+    (function () {
+      var s = null;
+      try { s = localStorage.getItem('theme'); } catch (e) {}
+      if (s !== 'light' && s !== 'dark') s = null;
+      var light = s ? s === 'light' : window.matchMedia('(prefers-color-scheme: light)').matches;
+      if (light) document.documentElement.setAttribute('data-theme', 'light');
+      document.querySelector('meta[name="color-scheme"]').content = s || 'light dark';
+    })();
+  </script>
   <meta name="description" content="Luke Timms: Creative Producer. Ideas taken from brief to delivery across feature film, live entertainment, games, creative studios and digital campaigns.">
   <meta name="robots" content="noindex">
   <link rel="canonical" href="https://luketimms.online/creative-producer/">
@@ -32,6 +44,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
+    /* Native controls and scrollbars follow the chosen theme */
+    :root { color-scheme: dark; }
+    :root[data-theme="light"] { color-scheme: light; }
     :root {
       --bg:        #0d0c0a;
       --bg-soft:   #14130f;
@@ -645,9 +660,19 @@
       overflow-y: auto;
       scroll-behavior: smooth;
     }
-    .chat::-webkit-scrollbar { width: 6px; }
-    .chat::-webkit-scrollbar-track { background: transparent; }
-    .chat::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+    .chat {
+      --scrollbar-thumb: var(--line);
+      --scrollbar-track: transparent;
+      scrollbar-width: thin;
+      scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+    }
+    /* Older WebKit/Blink without scrollbar-color */
+    @supports not (scrollbar-color: auto) {
+      .chat { scrollbar-width: auto; }
+      .chat::-webkit-scrollbar { width: 6px; }
+      .chat::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+      .chat::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
+    }
     .bubble {
       max-width: 82%;
       padding: 0.7rem 1rem;
@@ -757,12 +782,12 @@
     }
     .chat-fallback a {
       color: var(--accent-2);
-      text-decoration: none;
-      border-bottom: 1px dotted var(--text-mute);
-      padding-bottom: 1px;
-      transition: color 0.2s, border-color 0.2s;
+      text-decoration: underline dotted var(--text-mute);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+      transition: color 0.2s, text-decoration-color 0.2s;
     }
-    .chat-fallback a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+    .chat-fallback a:hover { color: var(--accent); text-decoration-color: var(--accent); }
 
     /* ───── Sticky top bar with nav pills ───── */
     .topbar {
@@ -1327,24 +1352,38 @@
   </footer>
 
   <script>
-    // Theme toggle — persists in localStorage; defaults to system preference
+    // Theme toggle. Follows the system setting unless the visitor overrides it.
+    // The override is kept in localStorage and mirrored to <meta name="color-scheme">.
     (function () {
       const root = document.documentElement;
-      const stored = localStorage.getItem('theme');
-      const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-      const initial = stored || (prefersLight ? 'light' : 'dark');
-      if (initial === 'light') root.setAttribute('data-theme', 'light');
+      const meta = document.querySelector('meta[name="color-scheme"]');
+      const systemLight = window.matchMedia('(prefers-color-scheme: light)');
+      const read = () => {
+        try {
+          const s = localStorage.getItem('theme');
+          return s === 'light' || s === 'dark' ? s : null;
+        } catch (e) { return null; }
+      };
+      const apply = (stored) => {
+        const light = stored ? stored === 'light' : systemLight.matches;
+        if (light) root.setAttribute('data-theme', 'light');
+        else root.removeAttribute('data-theme');
+        meta.content = stored || 'light dark';
+      };
+      systemLight.addEventListener('change', () => apply(read()));
+      window.addEventListener('storage', (e) => { if (e.key === 'theme') apply(read()); });
       const btn = document.getElementById('theme-toggle');
       if (btn) {
         btn.addEventListener('click', () => {
-          const isLight = root.getAttribute('data-theme') === 'light';
-          if (isLight) {
-            root.removeAttribute('data-theme');
-            localStorage.setItem('theme', 'dark');
-          } else {
-            root.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light');
-          }
+          const target = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+          const system = systemLight.matches ? 'light' : 'dark';
+          // Switching back to the system's own scheme clears the override.
+          const stored = target === system ? null : target;
+          try {
+            if (stored) localStorage.setItem('theme', stored);
+            else localStorage.removeItem('theme');
+          } catch (e) {}
+          apply(stored);
         });
       }
     })();
